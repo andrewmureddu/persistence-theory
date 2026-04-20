@@ -2,7 +2,6 @@
 
 *On why no sufficiently powerful system can close itself, and why this is the condition of continuing*
 
-Andrew R. Hickey
 
 April 2026
 
