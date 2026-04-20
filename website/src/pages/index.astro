@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const highlights = [
+	{
+		tag: 'Core Claim',
+		title: 'Anti-Crystallization Principle',
+		copy:
+			'Future-bearing systems persist only inside a nondegenerate interval between dissolution and total crystallization.',
+	},
+	{
+		tag: 'Main Result',
+		title: 'Crystallization Drift Theorem',
+		copy:
+			'The same self-reinforcing mechanisms that keep a system alive also push it toward organizational closure.',
+	},
+	{
+		tag: 'Unification',
+		title: 'Cross-domain reductions',
+		copy:
+			'The program derives dissipative structures, edge-of-chaos dynamics, free energy minimization, quantum Darwinism, information bounds, and Price/Fisher selection as special cases.',
+	},
+];
+
+const architecture = [
+	{
+		title: 'Paper',
+		copy:
+			'The working manuscript states the ACP, proves the CDT, and packages the cross-domain story into a single theory spine.',
+	},
+	{
+		title: 'Proofs',
+		copy:
+			'Standalone proof documents hold the core theorem chain, the coherent steering derivation, and the newer meta-theoretic coherence work.',
+	},
+	{
+		title: 'Bridges',
+		copy:
+			'Bridge documents translate the theory into empirical predictions, Schur-complement structure, coordination floors, and arithmetic/operator regimes.',
+	},
+	{
+		title: 'Reductions',
+		copy:
+			'Formal reductions show how familiar results from separate literatures instantiate the same structural law under domain-specific variables.',
+	},
+	{
+		title: 'Essays',
+		copy:
+			'Companion essays provide the philosophical frame and help translate the theory for readers outside the formal proof track.',
+	},
+	{
+		title: 'Open Problems',
+		copy:
+			'The project keeps a live tracker of what remains unsolved, especially around coherence crisis dynamics, operator bridges, and empirical test design.',
+	},
+];
+
+const currentSignals = [
+	{ value: 'v0.9', label: 'Current internal paper draft' },
+	{ value: '10', label: 'Formal predictions with protocols' },
+	{ value: '6+', label: 'Reduction families already integrated' },
+];
+---
+
+<Layout
+	title="Persistence Theory | A General Theory of Persistence"
+	description="A first public-facing site for the Persistence Theory project, centered on the Anti-Crystallization Principle and the Crystallization Drift Theorem."
+>
+	<section class="hero">
+		<div class="hero-copy">
+			<span class="eyebrow">Research program</span>
+			<h1>A general theory of persistence.</h1>
+			<p>
+				The Persistence Theory project asks a sharp structural question: what lets a
+				system keep generating real futures without dissolving into noise or freezing
+				into total determinism? The current answer is the
+				<strong> Anti-Crystallization Principle</strong>, with the
+				<strong> Crystallization Drift Theorem</strong> giving the project’s central
+				novel result.
+			</p>
+
+			<div class="button-row">
+				<a class="button primary" href="/theory">Read the theory map</a>
+				<a class="button" href="/program">See the program status</a>
+			</div>
+
+			<div class="stat-grid">
+				{
+					currentSignals.map((signal) => (
+						<div class="stat">
+							<strong>{signal.value}</strong>
+							<span>{signal.label}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		<aside class="hero-panel">
+			<h2>What this site is for</h2>
+			<p>
+				This first version is a public layer for a markdown-first formalization
+				workspace. It is meant to explain the project clearly, show where the theory
+				stands, and give the website room to grow into a more polished publication
+				surface later.
+			</p>
+
+			<div class="dense">
+				<div>
+					<strong>Current emphasis</strong>
+					<p>Clarify the theory spine, map the research architecture, and expose the active fronts.</p>
+				</div>
+				<div>
+					<strong>Recent additions</strong>
+					<p>Restraint-Power / Heisenberg, Price-Fisher integration, non-Gaussian bounds, and meta-theoretic coherence.</p>
+				</div>
+				<div>
+					<strong>Next site move</strong>
+					<p>Import selected essays and paper sections into publishable public pages.</p>
+				</div>
+			</div>
+		</aside>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Core structure</span>
+			<h2 class="section-title">The productive interval</h2>
+			<p class="section-intro">
+				The project’s central intuition is simple and severe: systems that remain
+				capable of meaningful change must avoid two absorbing boundaries at once.
+			</p>
+		</div>
+
+		<div class="interval-grid">
+			<article class="interval-card">
+				<h3>Dissolution</h3>
+				<p class="subtle">
+					Maximum entropy erases coherent structure. The system loses the ability to
+					sustain a future-bearing trajectory.
+				</p>
+				<ul class="mini-list">
+					<li>Thermodynamic equilibrium</li>
+					<li>Loss of organized distinctions</li>
+					<li>Death by dispersion</li>
+				</ul>
+			</article>
+
+			<article class="interval-card featured">
+				<h3>Persistence interval</h3>
+				<p class="subtle">
+					The live regime is neither random nor fully closed. It keeps enough order to
+					cohere and enough openness to continue generating new macroscopic futures.
+				</p>
+				<ul class="mini-list">
+					<li>Nonzero conditional macrostate entropy</li>
+					<li>Stability without lock-in</li>
+					<li>Persistence as active maintenance</li>
+				</ul>
+			</article>
+
+			<article class="interval-card">
+				<h3>Crystallization</h3>
+				<p class="subtle">
+					Total internal closure kills the future by removing real alternatives. The
+					system remains, but its open-ended becoming does not.
+				</p>
+				<ul class="mini-list">
+					<li>Zero conditional macrostate entropy</li>
+					<li>Pathological lock-in and overfit</li>
+					<li>Death by stasis</li>
+				</ul>
+			</article>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">What the program proves</span>
+			<h2 class="section-title">One theory spine, several fronts</h2>
+		</div>
+
+		<div class="card-grid">
+			{
+				highlights.map((item) => (
+					<article class="card">
+						<span class="tag">{item.tag}</span>
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="pillars">
+			<div class="callout">
+				<strong>Why it matters</strong>
+				<p>
+					If the theory holds, the pressure toward rigidity is not an accidental flaw
+					of successful systems. It is a structural consequence of the same mechanisms
+					that protect them from collapse.
+				</p>
+			</div>
+
+			<div class="quote">
+				The mechanisms that prevent dissolution are the same mechanisms that drive a
+				system toward crystallization.
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Research architecture</span>
+			<h2 class="section-title">The workspace is already shaped like a program</h2>
+			<p class="section-intro">
+				The formalization is organized as a living research environment rather than a
+				single manuscript folder. That makes the site a natural next layer, not a
+				separate project universe.
+			</p>
+		</div>
+
+		<div class="card-grid">
+			{
+				architecture.map((item) => (
+					<article class="card">
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="strip">
+			<p>
+				The next clean iteration is to turn selected essays, theorem summaries, and
+				visual diagrams into native website content while keeping
+				<code>Formalization/</code> as the source-of-truth research layer.
+			</p>
+			<a class="button primary" href="/program">Open the program map</a>
+		</div>
+	</section>
+</Layout>

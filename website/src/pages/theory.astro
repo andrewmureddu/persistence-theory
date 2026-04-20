@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const concepts = [
+	{
+		tag: 'ACP',
+		title: 'Anti-Crystallization Principle',
+		copy:
+			'A system retains future-bearing dynamics only while it occupies a nondegenerate interval between dissolution and crystallization.',
+	},
+	{
+		tag: 'CDT',
+		title: 'Crystallization Drift Theorem',
+		copy:
+			'Self-reinforcing mechanisms monotonically reduce conditional macrostate entropy unless sufficient perturbation interrupts the drift.',
+	},
+	{
+		tag: 'A.20',
+		title: 'Restraint-Power / coordination floor',
+		copy:
+			'A newer branch of the project links subsystem coordination concentration, decodable transformation, and the Heisenberg case as a quantum instantiation.',
+	},
+];
+
+const reductions = [
+	'Prigogine and dissipative structures',
+	'Kauffman and edge-of-chaos dynamics',
+	'Friston and free energy minimization',
+	'Zurek and quantum Darwinism',
+	'Bergstrom-Lachmann information bounds',
+	'Price equation and Fisher’s fundamental theorem',
+];
+
+const implications = [
+	{
+		title: 'Persistence is not passive',
+		copy:
+			'The theory treats persistence as a sustained achievement against both entropy and over-closure, not as a default steady state.',
+	},
+	{
+		title: 'Success creates its own danger',
+		copy:
+			'Mechanisms that stabilize a system can become the very source of lock-in, rigidity, and eventual loss of genuine alternatives.',
+	},
+	{
+		title: 'Unification is structural, not metaphorical',
+		copy:
+			'The point is not that these literatures merely resemble each other. The claim is that they instantiate the same mathematical object under different variables.',
+	},
+	{
+		title: 'Theory should also self-apply',
+		copy:
+			'The meta-theoretic branch asks whether a good unifying theory must avoid crystallizing its own inquiry space, generating more good questions than it closes.',
+	},
+];
+---
+
+<Layout
+	title="Persistence Theory | Theory"
+	description="A first-pass theory overview of the Anti-Crystallization Principle, the Crystallization Drift Theorem, and the project’s unification claim."
+>
+	<section class="hero">
+		<div class="hero-copy">
+			<span class="eyebrow">Theory overview</span>
+			<h1>The live conceptual map.</h1>
+			<p>
+				The current paper frames persistence as a structural interval problem.
+				Future-bearing dynamics requires enough organization to resist dispersion and
+				enough openness to resist total closure. The project then asks what drives
+				systems toward each boundary, and why successful persistence so often carries
+				the seed of eventual rigidity.
+			</p>
+
+			<div class="button-row">
+				<a class="button primary" href="/program">See where the work stands</a>
+				<a class="button" href="/">Back to the landing page</a>
+			</div>
+		</div>
+
+		<aside class="hero-panel">
+			<h2>Working draft context</h2>
+			<p>
+				The current manuscript is the internal v0.9 working draft from April 2026.
+				The site is not yet a paper mirror. It is a public explanation layer built
+				around the manuscript’s present structure.
+			</p>
+			<div class="dense">
+				<div>
+					<strong>Theory core</strong>
+					<p>ACP plus CDT, with coherent steering and compounding as the proof spine.</p>
+				</div>
+				<div>
+					<strong>Expansion layer</strong>
+					<p>Reductions, empirical predictions, non-Gaussian bounds, and the coordination floor program.</p>
+				</div>
+			</div>
+		</aside>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Statements</span>
+			<h2 class="section-title">Three claims that organize the project</h2>
+		</div>
+
+		<div class="card-grid">
+			{
+				concepts.map((concept) => (
+					<article class="card">
+						<span class="tag">{concept.tag}</span>
+						<h3>{concept.title}</h3>
+						<p>{concept.copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Structure</span>
+			<h2 class="section-title">How the argument moves</h2>
+		</div>
+
+		<div class="timeline">
+			<article class="timeline-item">
+				<h3>1. Fix the interval</h3>
+				<p>
+					Define the two absorbing boundaries: dissolution at the thermodynamic side,
+					crystallization at the organizational side.
+				</p>
+			</article>
+			<article class="timeline-item">
+				<h3>2. Show persistence is maintained</h3>
+				<p>
+					Future-bearing systems do not survive by default. They require continuous
+					work against the drift toward equilibrium.
+				</p>
+			</article>
+			<article class="timeline-item">
+				<h3>3. Prove the dual drift</h3>
+				<p>
+					Self-reinforcing mechanisms that hold the system together also narrow the
+					space of reachable futures unless countered.
+				</p>
+			</article>
+			<article class="timeline-item">
+				<h3>4. Translate across domains</h3>
+				<p>
+					The theory is then reduced into multiple existing literatures to show the
+					same structure appearing under different formal vocabularies.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Reductions</span>
+			<h2 class="section-title">The unification claim</h2>
+			<p class="section-intro">
+				The paper argues that these are not merely neighboring intuitions. They are
+				recoverable as special cases of a single law.
+			</p>
+		</div>
+
+		<div class="split-grid">
+			<article class="callout">
+				<strong>Reduction families</strong>
+				<ul class="mini-list">
+					{reductions.map((item) => <li>{item}</li>)}
+				</ul>
+			</article>
+
+			<article class="callout">
+				<strong>Empirical side</strong>
+				<p>
+					The current draft states ten testable predictions with protocols and
+					falsification criteria, including three predictions described as novel to the
+					unification.
+				</p>
+			</article>
+
+			<article class="callout">
+				<strong>What remains sharpest</strong>
+				<p>
+					The theory is strongest when it explains why persistence and rigidity are
+					co-produced, not merely adjacent. That is the project’s distinctive wager.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Implications</span>
+			<h2 class="section-title">What this framework changes</h2>
+		</div>
+
+		<div class="card-grid">
+			{
+				implications.map((item) => (
+					<article class="card">
+						<h3>{item.title}</h3>
+						<p>{item.copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>

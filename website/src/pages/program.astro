@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const fronts = [
+	{
+		title: 'Bibliography and submission packaging',
+		copy:
+			'The formal integrity pass is clean, but the paper still needs a final bibliography policy for a submission-ready bundle.',
+	},
+	{
+		title: 'Tier-1 computational tests',
+		copy:
+			'Predictions 8 and 9 are the clearest near-term computational targets, but the tier system and minimal simulation pipeline still need to be scoped.',
+	},
+	{
+		title: 'Journal strategy',
+		copy:
+			'The framing decision remains open: thermodynamic first-principles paper, broad unification paper, or information-theoretic submission.',
+	},
+	{
+		title: 'A.20 consequences',
+		copy:
+			'The Restraint-Power / Heisenberg result opens a larger downstream program around other commutation relations and operator-algebra extensions.',
+	},
+	{
+		title: 'Meta-theoretic coherence packaging',
+		copy:
+			'A.21-style work now exists as a proof document; the next choice is whether it becomes part of the main paper or remains a standalone extension.',
+	},
+	{
+		title: 'Arithmetic/operator frontier',
+		copy:
+			'The arithmetic shadow program has sharply narrowed the frontier to genuinely non-valuation defect terms and more exotic abelian targets.',
+	},
+];
+
+const openProblems = [
+	'Quantitative erosion constant for channel erosion',
+	'Transient dynamics during coherence crises',
+	'Schur bridge regularity, rank-loss, and rank-restoration questions',
+	'Reconciliation of the Schur Heisenberg question with A.20',
+	'Coordination neutrality under tree composition',
+	'Quantitative form of the generativity criterion',
+];
+
+const workspace = [
+	['paper/', 'The active manuscript spine.'],
+	['proofs/', 'Core theorem chain and standalone proof documents.'],
+	['reductions/', 'Formal special-case derivations across literatures.'],
+	['bridges/', 'Empirical, operator, arithmetic, and subsystem interfaces.'],
+	['special_cases/', 'Extended domain catalog.'],
+	['essays/', 'Interpretive and philosophical companion writing.'],
+	['audits/', 'Integrity audits and packaging checks.'],
+	['sessions/', 'Session-by-session research log.'],
+];
+---
+
+<Layout
+	title="Persistence Theory | Program"
+	description="Current status, active fronts, open problems, and workspace structure for the Persistence Theory formalization program."
+>
+	<section class="hero">
+		<div class="hero-copy">
+			<span class="eyebrow">Program status</span>
+			<h1>Where the project stands right now.</h1>
+			<p>
+				The formalization workspace is already functioning like a live research
+				program: active paper, proof archive, bridge documents, open-problem tracker,
+				and session log. This page turns that internal structure into a public map.
+			</p>
+
+			<div class="button-row">
+				<a class="button primary" href="/theory">Return to the theory</a>
+				<a class="button" href="/">Go to the overview</a>
+			</div>
+		</div>
+
+		<aside class="hero-panel">
+			<h2>Snapshot</h2>
+			<div class="dense">
+				<div>
+					<strong>Last updated</strong>
+					<p>April 20, 2026</p>
+				</div>
+				<div>
+					<strong>Active paper</strong>
+					<p><code>paper/acp_main_v10.md</code> with internal masthead v0.9</p>
+				</div>
+				<div>
+					<strong>Current emphasis</strong>
+					<p>Packaging, empirical test design, journal strategy, and downstream consequences of A.20 and A.21.</p>
+				</div>
+			</div>
+		</aside>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Active fronts</span>
+			<h2 class="section-title">The work is beyond the “just prove it” phase</h2>
+			<p class="section-intro">
+				The core proof spine is already substantial. The current frontier is about
+				sharpening, testing, packaging, and extending the theory.
+			</p>
+		</div>
+
+		<div class="card-grid">
+			{
+				fronts.map((front) => (
+					<article class="card">
+						<h3>{front.title}</h3>
+						<p>{front.copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="pillars">
+			<article class="callout">
+				<strong>Open problems still worth watching</strong>
+				<ul class="mini-list">
+					{openProblems.map((problem) => <li>{problem}</li>)}
+				</ul>
+			</article>
+
+			<article class="callout">
+				<strong>Recent momentum</strong>
+				<p>
+					The most recent wave of work added the Restraint-Power theorem, reconciled
+					several manuscript integrity issues, pushed the arithmetic shadow program
+					into a much narrower frontier, and formalized the meta-theoretic coherence
+					branch as an A.21-style proof document.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="section-head">
+			<span class="section-kicker">Workspace map</span>
+			<h2 class="section-title">How the formalization is organized</h2>
+		</div>
+
+		<div class="timeline">
+			{
+				workspace.map(([path, copy]) => (
+					<article class="timeline-item">
+						<h3><code>{path}</code></h3>
+						<p>{copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="strip">
+			<p>
+				The site can now grow in two directions: publishing selected research content
+				as native pages, or adding diagrams and interactive visualizations for the
+				productive interval, drift, and subsystem coordination stories.
+			</p>
+			<a class="button primary" href="/theory">Continue into the theory map</a>
+		</div>
+	</section>
+</Layout>
