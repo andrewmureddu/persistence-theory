@@ -2,8 +2,6 @@
 
 *On the hidden rules any persistent thing must obey*
 
-Andrew R. Hickey
-
 March 2026
 
 Prediction exists before measurement.
