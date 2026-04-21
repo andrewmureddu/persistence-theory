@@ -655,6 +655,7 @@ const navLinks = [
 		border-radius: var(--radius-lg);
 		padding: 1.6rem;
 		overflow: hidden;
+		min-width: 0;
 	}
 
 	:global(.doc-header) {
@@ -682,6 +683,7 @@ const navLinks = [
 		grid-template-columns: minmax(0, 1.65fr) minmax(240px, 0.6fr);
 		gap: 1rem;
 		align-items: start;
+		min-width: 0;
 	}
 
 	:global(.doc-sidebar) {
@@ -711,6 +713,14 @@ const navLinks = [
 		overflow-wrap: anywhere;
 		word-break: normal;
 		hyphens: auto;
+		min-width: 0;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	:global(.doc-prose > *) {
+		max-width: 100%;
+		min-width: 0;
 	}
 
 	:global(.doc-prose h1),
@@ -741,6 +751,23 @@ const navLinks = [
 	:global(.doc-prose li),
 	:global(.doc-prose blockquote) {
 		color: #2b3c46;
+		overflow-wrap: anywhere;
+		word-break: break-word;
+	}
+
+	:global(.doc-prose h1),
+	:global(.doc-prose h2),
+	:global(.doc-prose h3),
+	:global(.doc-prose h4),
+	:global(.doc-prose h5),
+	:global(.doc-prose h6),
+	:global(.doc-prose a),
+	:global(.doc-prose strong),
+	:global(.doc-prose em),
+	:global(.doc-prose td),
+	:global(.doc-prose th) {
+		overflow-wrap: anywhere;
+		word-break: break-word;
 	}
 
 	:global(.doc-prose a) {
@@ -766,6 +793,7 @@ const navLinks = [
 		-webkit-overflow-scrolling: touch;
 		font-size: 0.92rem;
 		line-height: 1.55;
+		max-width: 100%;
 	}
 
 	:global(.doc-prose pre code) {
@@ -812,6 +840,7 @@ const navLinks = [
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 		font-size: 0.95rem;
+		white-space: normal;
 	}
 
 	:global(.doc-prose th),
@@ -819,6 +848,7 @@ const navLinks = [
 		padding: 0.7rem;
 		border: 1px solid rgba(16, 36, 49, 0.12);
 		vertical-align: top;
+		white-space: normal;
 	}
 
 	:global(.doc-prose th) {
@@ -950,6 +980,10 @@ const navLinks = [
 			font-size: 0.99rem;
 			line-height: 1.7;
 			border-radius: 20px;
+		}
+
+		:global(.doc-prose > *) {
+			scroll-margin-top: 6rem;
 		}
 
 		:global(.doc-prose h2) {
