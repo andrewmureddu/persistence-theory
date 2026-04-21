@@ -1,0 +1,77 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLibraryEntries, getLibraryEntry, type LibraryEntry } from '../../../lib/library';
+
+export async function getStaticPaths() {
+	const entries = await getLibraryEntries();
+	return entries.map((entry) => ({
+		params: { section: entry.section, slug: entry.slug },
+	}));
+}
+
+const { section, slug } = Astro.params;
+const entry = (await getLibraryEntry(section ?? '', slug ?? '')) as LibraryEntry | undefined;
+
+if (!entry) {
+	return Astro.redirect('/library');
+}
+
+const module = await entry.load();
+const { Content, getHeadings } = module;
+const headings = getHeadings().filter((heading) => heading.depth <= 2);
+---
+
+<Layout
+	title={`Persistence Theory | ${entry.title}`}
+	description={entry.summary}
+>
+	<section class="doc-shell">
+		<div class="doc-frame">
+			<div class="doc-header">
+				<div>
+					<p class="doc-breadcrumb">
+						<a href="/library">Library</a>
+						<span>/</span>
+						<a href={`/library/${entry.section}`}>{entry.sectionLabel}</a>
+					</p>
+					<h1>{entry.title}</h1>
+					<p class="doc-summary">{entry.summary}</p>
+				</div>
+
+				<div class="doc-actions">
+					<span class="pill">{entry.sectionLabel}</span>
+					<code>{entry.sourcePath}</code>
+				</div>
+			</div>
+
+			<div class="doc-layout">
+				<article class="doc-prose">
+					<Content />
+				</article>
+
+				<aside class="doc-sidebar">
+					<div class="sidebar-card">
+						<strong>On this page</strong>
+						{
+							headings.length > 0 ? (
+								<ul class="mini-list">
+									{headings.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+								</ul>
+							) : (
+								<p class="subtle">This document does not expose a heading outline.</p>
+							)
+						}
+					</div>
+
+					<div class="sidebar-card">
+						<strong>Keep browsing</strong>
+						<p class="subtle">
+							Return to <a href={`/library/${entry.section}`}>{entry.sectionLabel}</a> or
+							open another section from the <a href="/library">library index</a>.
+						</p>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</section>
+</Layout>

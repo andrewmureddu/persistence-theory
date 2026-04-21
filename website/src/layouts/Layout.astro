@@ -12,6 +12,7 @@ const {
 const pathname = Astro.url.pathname;
 const navLinks = [
 	{ href: '/', label: 'Home' },
+	{ href: '/library', label: 'Library' },
 	{ href: '/theory', label: 'Theory' },
 	{ href: '/program', label: 'Program' },
 ];
@@ -598,6 +599,166 @@ const navLinks = [
 		font-size: 1.05rem;
 	}
 
+	:global(.document-list) {
+		display: grid;
+		gap: 1rem;
+	}
+
+	:global(.document-card),
+	:global(.doc-frame),
+	:global(.sidebar-card) {
+		background: linear-gradient(180deg, rgba(15, 35, 49, 0.92), rgba(8, 19, 29, 0.9));
+		border: 1px solid var(--surface-border);
+		box-shadow: var(--shadow);
+		backdrop-filter: blur(14px);
+	}
+
+	:global(.document-card) {
+		padding: 1.2rem;
+		border-radius: var(--radius-md);
+	}
+
+	:global(.document-card h2) {
+		margin: 0 0 0.5rem;
+		font-size: 1.4rem;
+	}
+
+	:global(.doc-meta),
+	:global(.doc-breadcrumb),
+	:global(.doc-actions) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+		align-items: center;
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	:global(.doc-meta) {
+		justify-content: space-between;
+		margin-top: 1rem;
+	}
+
+	:global(.doc-shell) {
+		padding: 3.5rem 0 1rem;
+	}
+
+	:global(.doc-frame) {
+		border-radius: var(--radius-lg);
+		padding: 1.6rem;
+	}
+
+	:global(.doc-header) {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1.4rem;
+	}
+
+	:global(.doc-header h1) {
+		margin: 0.5rem 0 0.5rem;
+		font-size: clamp(2.2rem, 5vw, 4rem);
+		line-height: 0.95;
+		max-width: 12ch;
+	}
+
+	:global(.doc-summary) {
+		margin: 0;
+		color: var(--muted);
+		max-width: 64ch;
+	}
+
+	:global(.doc-layout) {
+		display: grid;
+		grid-template-columns: minmax(0, 1.65fr) minmax(240px, 0.6fr);
+		gap: 1rem;
+		align-items: start;
+	}
+
+	:global(.doc-sidebar) {
+		display: grid;
+		gap: 1rem;
+		position: sticky;
+		top: 6.5rem;
+	}
+
+	:global(.sidebar-card) {
+		padding: 1rem;
+		border-radius: var(--radius-md);
+	}
+
+	:global(.sidebar-card strong) {
+		display: block;
+		margin-bottom: 0.6rem;
+	}
+
+	:global(.doc-prose) {
+		padding: 1.7rem;
+		border-radius: var(--radius-lg);
+		background: rgba(248, 241, 228, 0.98);
+		color: #18242c;
+	}
+
+	:global(.doc-prose h1),
+	:global(.doc-prose h2),
+	:global(.doc-prose h3),
+	:global(.doc-prose h4) {
+		color: #0d1d28;
+		scroll-margin-top: 7rem;
+	}
+
+	:global(.doc-prose p),
+	:global(.doc-prose li),
+	:global(.doc-prose blockquote) {
+		color: #2b3c46;
+	}
+
+	:global(.doc-prose a) {
+		color: #0f5f7c;
+		text-decoration: underline;
+		text-decoration-color: rgba(15, 95, 124, 0.35);
+	}
+
+	:global(.doc-prose code) {
+		background: rgba(12, 29, 41, 0.08);
+		padding: 0.1rem 0.28rem;
+		border-radius: 0.35rem;
+	}
+
+	:global(.doc-prose pre) {
+		background: #102431;
+		color: #f4efe1;
+		padding: 1rem;
+		border-radius: 1rem;
+		overflow-x: auto;
+	}
+
+	:global(.doc-prose pre code) {
+		background: transparent;
+		padding: 0;
+		color: inherit;
+	}
+
+	:global(.doc-prose blockquote) {
+		margin: 1.2rem 0;
+		padding: 0.8rem 1rem;
+		border-left: 3px solid #ea7c51;
+		background: rgba(16, 36, 49, 0.06);
+	}
+
+	:global(.doc-prose table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.4rem 0;
+	}
+
+	:global(.doc-prose th),
+	:global(.doc-prose td) {
+		padding: 0.7rem;
+		border: 1px solid rgba(16, 36, 49, 0.12);
+		vertical-align: top;
+	}
+
 	@keyframes rise {
 		from {
 			opacity: 0;
@@ -633,7 +794,8 @@ const navLinks = [
 		:global(.timeline),
 		:global(.split-grid),
 		:global(.interval-grid),
-		:global(.card-grid) {
+		:global(.card-grid),
+		:global(.doc-layout) {
 			grid-template-columns: 1fr;
 		}
 
@@ -643,6 +805,14 @@ const navLinks = [
 
 		.site-footer {
 			flex-direction: column;
+		}
+
+		:global(.doc-header) {
+			flex-direction: column;
+		}
+
+		:global(.doc-sidebar) {
+			position: static;
 		}
 	}
 

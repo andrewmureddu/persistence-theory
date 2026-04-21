@@ -1,0 +1,69 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import {
+	getSectionEntries,
+	getSectionList,
+	getSectionConfig,
+	type LibrarySection,
+} from '../../../lib/library';
+
+export async function getStaticPaths() {
+	return getSectionList().map((section) => ({
+		params: { section: section.key },
+		props: { sectionKey: section.key },
+	}));
+}
+
+const { sectionKey } = Astro.props as { sectionKey: LibrarySection };
+const section = getSectionConfig(sectionKey);
+const entries = await getSectionEntries(sectionKey);
+---
+
+<Layout
+	title={`Persistence Theory | ${section.label}`}
+	description={section.description}
+>
+	<section class="hero">
+		<div class="hero-copy">
+			<span class="eyebrow">Library section</span>
+			<h1>{section.label}</h1>
+			<p>{section.description}</p>
+
+			<div class="button-row">
+				<a class="button primary" href="/library">Back to library</a>
+				<a class="button" href={entries[0]?.path}>Open first document</a>
+			</div>
+		</div>
+
+		<aside class="hero-panel">
+			<h2>Section snapshot</h2>
+			<div class="dense">
+				<div>
+					<strong>{entries.length}</strong>
+					<p>documents in this section</p>
+				</div>
+				<div>
+					<strong>Source</strong>
+					<p>Rendered from the matching files in <code>Formalization/</code>.</p>
+				</div>
+			</div>
+		</aside>
+	</section>
+
+	<section class="section">
+		<div class="document-list">
+			{
+				entries.map((entry) => (
+					<article class="document-card">
+						<h2><a href={entry.path}>{entry.title}</a></h2>
+						<p>{entry.summary}</p>
+						<div class="doc-meta">
+							<span>{entry.sourcePath}</span>
+							<a href={entry.path}>Read document</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>

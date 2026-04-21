@@ -7,4 +7,11 @@ export default defineConfig({
 	build: {
 		format: 'directory',
 	},
+	vite: {
+		server: {
+			fs: {
+				allow: ['..'],
+			},
+		},
+	},
 });
