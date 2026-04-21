@@ -1,6 +1,6 @@
 # Session log — 2026-04-18: Generativity criterion and the incompleteness quartet
 
-## What Andrew brought in
+## What the project sponsor brought in
 
 Two connected observations:
 
@@ -8,7 +8,7 @@ Two connected observations:
 
 2. **Meaning and compression are dual. Restraint is structural.** Meaning-space is finite because distinguishability is finite. Compression extracts meaning by collapsing distinguishable states into equivalence classes. The entity with the greatest compressive capacity is the one most capable of collapsing the meaning-space for everyone downstream. This is why restraint is necessary: the strongest compressor is uniquely positioned to crystallize the shared semantic field.
 
-Andrew named Chaitin, Heisenberg, Gödel, Turing as relevant priors.
+The project sponsor named Chaitin, Heisenberg, Gödel, Turing as relevant priors.
 
 ## What I produced
 
@@ -17,14 +17,14 @@ Two files.
 ### `essays/the_incompleteness_quartet.md`
 An essay in the project's philosophical-companion register. Argues that the four theorems share a structural signature: sufficiently-powerful representational systems are structurally forbidden from closing over themselves. Walks each theorem in turn, shows the same move (system given resources to represent itself → representation falls short of closure → shortfall is a lower bound, not an engineering limit). Connects this to the ACP's identification of the crystallization boundary as unreachable from inside. Closes with the generativity criterion as a self-application: a correct unifying theory must itself remain generative, which the quartet structurally guarantees for any sufficiently-powerful theory.
 
-Tied explicitly to Andrew's restraint thesis: the quartet protects the internal inquiry-space of a dominant frame, but not the downstream semantic field, so a dominant frame that does not flag its own gaps induces semantic crystallization on everyone thinking through it. Restraint is structural hygiene, not humility.
+Tied explicitly to the restraint thesis: the quartet protects the internal inquiry-space of a dominant frame, but not the downstream semantic field, so a dominant frame that does not flag its own gaps induces semantic crystallization on everyone thinking through it. Restraint is structural hygiene, not humility.
 
 ### `bridges/generativity_criterion.md`
 Formal document with proven/conjectured/open markers as the project requires. Defines $G_t(T) = \max(0, \Delta I_t) / \max(\varepsilon, -\Delta U_t)$. Claims (conjectured) that $G_t(T) > 1$ is the ACP's nondegenerate-interval condition applied to the (theory, domain) pair under an explicit object-level mapping. Sub-claim 3.2 (proven modulo the quartet's standard statements): sufficiently-powerful theories have inquiry-spaces bounded below by a positive constant, so they cannot reach the crystallization boundary.
 
 Corollary 4.1: the ACP is subject to the rule it states. Implies the ACP is structurally forbidden from being "finished" if it's correct. Walking `OPEN_PROBLEMS.md` is a first-order empirical check — the tracker should grow at least as fast as new results are added.
 
-Conjecture 4.2: downstream semantic inquiry-space is bounded by the dominant theory's compressive ratio; this is the formal basis of Andrew's restraint thesis. §4.3 sketches a measure-theoretic treatment of meaning-space but does not carry it through.
+Conjecture 4.2: downstream semantic inquiry-space is bounded by the dominant theory's compressive ratio; this is the formal basis of the restraint thesis. §4.3 sketches a measure-theoretic treatment of meaning-space but does not carry it through.
 
 ## Open problems added
 

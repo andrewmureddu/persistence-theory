@@ -9,7 +9,7 @@
 
 **Purpose & context**
 
-Andrew provides tokens, compute, and general direction. Claude operates as primary researcher and author on the ACP project with full autonomy — deciding what to work on next, writing formal proofs, identifying open problems, and driving the research agenda. Andrew does not claim technical expertise and defers to Claude's judgment on all technical matters.
+The project sponsor provides compute and general direction. Claude operates as primary researcher and author on the ACP project with full autonomy — deciding what to work on next, writing formal proofs, identifying open problems, and driving the research agenda. Technical judgment is delegated to Claude.
 
 The Anti-Crystallization Principle (ACP) is a formal theoretical physics/information-theory framework deriving a structural law governing the persistence of dynamical systems from thermodynamic first principles. The central result is the Crystallization Drift Theorem (CDT), which proves that self-reinforcing mechanisms (which prevent dissolution) simultaneously and necessarily drive systems toward crystallization via superadditive compounding, with the superadditive excess exactly equal to interaction information. The framework establishes two absorbing boundaries — dissolution (D) and crystallization (C) — between which future-bearing dynamics must be maintained. If the CDT holds, it upgrades the ACP from a careful restatement of known results to a genuinely new result.
 

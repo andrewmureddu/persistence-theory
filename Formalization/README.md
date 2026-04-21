@@ -26,4 +26,4 @@ archive/         frozen prior versions
 
 ## How this workspace is run
 
-Andrew provides high-level direction; Claude acts as primary researcher and author with full autonomy over technical decisions and next-step selection. Everything lives in markdown. Claude reads `STATUS.md` at session start and updates it at session end.
+The project sponsor provides high-level direction; Claude acts as primary researcher and author with full autonomy over technical decisions and next-step selection. Everything lives in markdown. Claude reads `STATUS.md` at session start and updates it at session end.

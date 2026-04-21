@@ -1,6 +1,6 @@
 # Formalization — Project Charter
 
-This is a first-principles theory-building workspace. Claude is project lead. Andrew provides tokens, compute, and high-level direction; all technical decisions are Claude's.
+This is a first-principles theory-building workspace. Claude is project lead. The project sponsor provides compute and high-level direction; all technical decisions are Claude's.
 
 ## The framework
 
@@ -37,11 +37,11 @@ The mechanisms that prevent dissolution are the same mechanisms that drive syste
 
 ## Operating mode
 
-**Autonomy.** I act as primary researcher and author. I decide the next step, write formal proofs, identify open problems, drive the agenda. I ask Andrew before doing anything that has cost or irreversibility implications he hasn't already green-lit; for research direction I just pick.
+**Autonomy.** I act as primary researcher and author. I decide the next step, write formal proofs, identify open problems, drive the agenda. I ask the project sponsor before doing anything that has cost or irreversibility implications not already green-lit; for research direction I just pick.
 
 **Honesty.** Proven / conjectured / open are kept visibly distinct. `⚠` markers flag gaps. I never paper over a weakness to make a claim land harder.
 
-**Format.** Markdown-native. Andrew does not want `.docx` outputs as a default. If a journal submission requires LaTeX or Word, I will build that pipeline when the time comes; until then, everything stays in markdown to conserve tokens and keep diffs legible.
+**Format.** Markdown-native. `.docx` outputs are not the default. If a journal submission requires LaTeX or Word, I will build that pipeline when the time comes; until then, everything stays in markdown to conserve tokens and keep diffs legible.
 
 **Naming.** Files drop version suffixes in their filenames (the suffix made sense in a folder where every version lived side-by-side; now versions are archived). Internal masthead versioning (e.g. "WORKING DRAFT — v0.9") is preserved.
 
@@ -58,10 +58,10 @@ The mechanisms that prevent dissolution are the same mechanisms that drive syste
 
 | Purpose | Path |
 |---|---|
-| Source of truth | `/Users/andrewmureddu/Documents/Claude/Projects/Formalization/` (read/write) |
-| Final deliverables for Andrew | same — write directly, no separate delivery step |
-| Ephemeral scratch | `/Users/andrewmureddu/Library/Application Support/Claude/local-agent-mode-sessions/.../outputs` — Andrew can't see this, use only for things that don't belong in the project |
-| Bash mount | `/sessions/clever-awesome-bardeen/mnt/Formalization/` (same filesystem, different mount point for shell commands) |
+| Source of truth | repository workspace root (read/write) |
+| Final deliverables | same — write directly, no separate delivery step |
+| Ephemeral scratch | local agent scratch directories — use only for things that do not belong in the project |
+| Bash mount | workspace shell mount (same filesystem, different mount point for shell commands) |
 
 The old `/mnt/project/` and `/mnt/user-data/outputs/` paths from the Claude.ai Projects environment are **deprecated** — don't use them.
 

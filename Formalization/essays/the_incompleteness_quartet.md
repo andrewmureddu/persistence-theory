@@ -2,7 +2,6 @@
 
 *On why no sufficiently powerful system can close itself, and why this is the condition of continuing*
 
-
 April 2026
 
 There are four theorems that everyone has heard of and very few people have heard together.

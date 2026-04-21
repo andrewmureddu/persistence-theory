@@ -26,7 +26,7 @@ website/
 
 ## Commands
 
-Run commands from `/Users/andrewmureddu/Documents/Persistence Theory/website`.
+Run commands from `website/`.
 
 | Command | Action |
 | :------ | :----- |
@@ -54,7 +54,7 @@ If this workspace becomes a repo with both `Formalization/` and `website/`, set 
 
 ### CLI option
 
-If you prefer the CLI later, run Vercel commands from `/Users/andrewmureddu/Documents/Persistence Theory/website` so the deployment target is the site app rather than the research workspace.
+If you prefer the CLI later, run Vercel commands from `website/` so the deployment target is the site app rather than the research workspace.
 
 ## Notes
 
