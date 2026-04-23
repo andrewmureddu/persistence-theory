@@ -1,0 +1,100 @@
+---
+import PageHero from '../../../components/PageHero.astro';
+import SectionHead from '../../../components/SectionHead.astro';
+import Layout from '../../../layouts/Layout.astro';
+import {
+	getPresentationCollection,
+	getPresentationCollections,
+	type PresentationCollection,
+} from '../../../lib/presentations';
+
+export async function getStaticPaths() {
+	const collections = await getPresentationCollections();
+	return collections.map((collection) => ({
+		params: { collection: collection.key },
+		props: { collectionKey: collection.key },
+	}));
+}
+
+const { collectionKey } = Astro.props as { collectionKey: PresentationCollection };
+const collection = await getPresentationCollection(collectionKey);
+
+if (!collection) {
+	return Astro.redirect('/presentations');
+}
+---
+
+<Layout
+	title={`Persistence Theory | ${collection.label}`}
+	description={collection.description}
+>
+	<PageHero
+		eyebrow="Presentation collection"
+		title={collection.label}
+		asideTitle="Collection snapshot"
+		actions={[
+			{ href: '/presentations', label: 'Back to presentations', primary: true },
+		]}
+		stats={[
+			{ value: `${collection.entryCount}`, label: 'Folders in this collection' },
+			{ value: `${collection.assetReadyCount}`, label: 'Entries with media already present' },
+			{ value: `${collection.entryCount - collection.assetReadyCount}`, label: 'Scaffold-only entries' },
+		]}
+	>
+		<p slot="copy">
+			{collection.description} This collection is auto-generated from
+			<code>website/public/presentations/{collection.key}/</code>.
+		</p>
+
+		<div slot="sidebar" class="dense">
+			<div>
+				<strong>Publishing hint</strong>
+				<p>{collection.publishingHint}</p>
+			</div>
+			<div>
+				<strong>Recommended names</strong>
+				<p>{collection.recommendedNames.join(', ')}</p>
+			</div>
+		</div>
+	</PageHero>
+
+	<section class="section">
+		<SectionHead
+			kicker="Entries"
+			title="Folders currently tracked in this collection"
+		/>
+
+		<div class="document-list">
+			{
+				collection.entries.map((entry) => (
+					<article class="document-card">
+						<div class="presentation-meta">
+							<span class="pill">{entry.hasAssets ? 'Media ready' : 'Scaffold only'}</span>
+							<span class="pill">{entry.pdfs.length} PDFs</span>
+							<span class="pill">{entry.slides.length} slides</span>
+						</div>
+						<h2><a href={entry.path}>{entry.title}</a></h2>
+						<p>{entry.summary}</p>
+						<div class="doc-meta">
+							<span><code>{entry.assetFolder}</code></span>
+							<a href={entry.path}>Open details</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.presentation-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+		margin-bottom: 0.8rem;
+	}
+
+	.presentation-meta :global(.pill) {
+		margin-bottom: 0;
+	}
+</style>

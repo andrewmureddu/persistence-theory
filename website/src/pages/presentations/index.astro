@@ -1,0 +1,164 @@
+---
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getPresentationCollections, getPresentationEntries } from '../../lib/presentations';
+
+const collections = await getPresentationCollections();
+const entries = await getPresentationEntries();
+const readyEntries = entries.filter((entry) => entry.hasAssets);
+const heroActions = [
+	{ href: '/presentations/slidedecks', label: 'Browse slide decks', primary: true },
+	{ href: '/presentations/storytelling', label: 'Browse storytelling' },
+];
+const publishingRules = [
+	{
+		title: 'Keep original PDFs',
+		copy:
+			'Decks should stay as PDFs in the repo so the site can link and preview the exact source file.',
+	},
+	{
+		title: 'Use one cover image',
+		copy:
+			'Add a single `cover.webp` or similar image to give each deck a visual tile without screenshotting the whole thing.',
+	},
+	{
+		title: 'Export slide stories as images',
+		copy:
+			'For comics or narrative walkthroughs, export each slide as `slide-01.webp`, `slide-02.webp`, and so on.',
+	},
+];
+---
+
+<Layout
+	title="Persistence Theory | Presentations"
+	description="Slide decks, whiteboards, and storytelling visuals for the Persistence Theory project."
+>
+	<PageHero
+		eyebrow="Presentations"
+		title="Visual layers for the project."
+		asideTitle="Publishing model"
+		actions={heroActions}
+		stats={[
+			{ value: `${collections.length}`, label: 'Collections scaffolded' },
+			{ value: `${entries.length}`, label: 'Presentation folders tracked' },
+			{ value: `${readyEntries.length}`, label: 'Entries already carrying media' },
+		]}
+	>
+		<p slot="copy">
+			This section is built for two different kinds of visual material: PDF-first
+			slide decks and slide-by-slide storytelling sequences. The structure lives in
+			<code>website/public/presentations/</code>, so you can drop in assets without
+			reworking the pages themselves.
+		</p>
+
+		<div slot="sidebar" class="dense">
+			<div>
+				<strong>Deck workflow</strong>
+				<p>Keep the original PDF, add one cover image, and let the site handle the browsing surface.</p>
+			</div>
+			<div>
+				<strong>Story workflow</strong>
+				<p>Export individual slides as images when you want the page to read like a comic or visual essay.</p>
+			</div>
+			<div>
+				<strong>Current scaffold</strong>
+				<p>Overview, whiteboard, and persistence-issue-one folders are ready for assets.</p>
+			</div>
+		</div>
+	</PageHero>
+
+	<section class="section">
+		<SectionHead
+			kicker="Storage rules"
+			title="What belongs where"
+			intro="The site is ready for PDFs directly. Individual screenshots only matter when you want a narrative slide gallery rather than a deck viewer."
+		/>
+
+		<div class="card-grid">
+			{
+				publishingRules.map((rule) => (
+					<article class="card">
+						<h3>{rule.title}</h3>
+						<p>{rule.copy}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<SectionHead
+			kicker="Collections"
+			title="Two public-facing presentation modes"
+		/>
+
+		<div class="card-grid">
+			{
+				collections.map((collection) => (
+					<article class="card">
+						<span class="tag">{collection.entryCount} folders</span>
+						<h3><a href={collection.path}>{collection.label}</a></h3>
+						<p>{collection.description}</p>
+						<p class="subtle">
+							{collection.assetReadyCount} asset-ready, {collection.entryCount - collection.assetReadyCount} scaffold-only.
+						</p>
+						<ul class="mini-list">
+							{collection.entries.slice(0, 3).map((entry) => <li><a href={entry.path}>{entry.title}</a></li>)}
+						</ul>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<SectionHead
+			kicker="Current folders"
+			title="What is already scaffolded"
+		/>
+
+		<div class="document-list">
+			{
+				entries.map((entry) => (
+					<article class="document-card">
+						<div class="presentation-meta">
+							<span class="pill">{entry.collectionLabel}</span>
+							<span class="pill">{entry.hasAssets ? 'Media ready' : 'Scaffold only'}</span>
+						</div>
+						<h2><a href={entry.path}>{entry.title}</a></h2>
+						<p>{entry.summary}</p>
+						<div class="doc-meta">
+							<span><code>{entry.assetFolder}</code></span>
+							<a href={entry.path}>Open presentation page</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="strip">
+			<p>
+				When you start dropping assets in, the fastest naming scheme is
+				<code>deck.pdf</code>, <code>cover.webp</code>, and
+				<code>slide-01.webp</code> onward.
+			</p>
+			<a class="button primary" href="/presentations/slidedecks">Open the deck scaffold</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.presentation-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+		margin-bottom: 0.8rem;
+	}
+
+	.presentation-meta :global(.pill) {
+		margin-bottom: 0;
+	}
+</style>

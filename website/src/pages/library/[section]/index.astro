@@ -17,6 +17,14 @@ export async function getStaticPaths() {
 const { sectionKey } = Astro.props as { sectionKey: LibrarySection };
 const section = getSectionConfig(sectionKey);
 const entries = await getSectionEntries(sectionKey);
+
+if (entries.length === 0) {
+	return Astro.redirect('/library');
+}
+
+if (entries.length === 1) {
+	return Astro.redirect(entries[0].path);
+}
 ---
 
 <Layout

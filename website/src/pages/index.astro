@@ -7,6 +7,7 @@ import { getProjectTrackerSnapshot } from '../lib/projectTracker';
 const tracker = await getProjectTrackerSnapshot();
 const heroActions = [
 	{ href: '/library', label: 'Browse the library', primary: true },
+	{ href: '/presentations', label: 'Open presentations' },
 	{ href: '/theory', label: 'Read the theory map' },
 	{ href: '/program', label: 'See the program status' },
 ];
@@ -59,6 +60,11 @@ const architecture = [
 			'The simulation layer holds empirical prototypes and calibration tooling for testing whether the structural predictions leave measurable signatures.',
 	},
 	{
+		title: 'Presentations',
+		copy:
+			'A dedicated public layer now exists for decks, whiteboards, and storytelling slide sequences built from PDFs and exported slide images.',
+	},
+	{
 		title: 'Reductions',
 		copy:
 			'Formal reductions show how familiar results from separate literatures instantiate the same structural law under domain-specific variables.',
@@ -84,29 +90,27 @@ const currentSignals = [
 
 <Layout
 	title="Persistence Theory | A General Theory of Persistence"
-	description="A first public-facing site for the Persistence Theory project, centered on the Anti-Crystallization Principle and the Crystallization Drift Theorem."
+	description="A public-facing research site for A General Theory of Persistence: a project about the narrow interval where order and openness can survive together."
 >
 	<PageHero
 		eyebrow="Research program"
 		title="A general theory of persistence."
-		asideTitle="What this site is for"
+		asideTitle="What this project is"
 		actions={heroActions}
 		stats={currentSignals}
 	>
 		<p slot="copy">
-			The Persistence Theory project asks a sharp structural question: what lets a
-			system keep generating real futures without dissolving into noise or freezing
-			into total determinism? The current answer is the
-			<strong> Anti-Crystallization Principle</strong>, with the
-			<strong> Crystallization Drift Theorem</strong> giving the project’s central
-			novel result.
+			<strong>A General Theory of Persistence</strong> is an attempt to formalize
+			faith in its structural sense: not dogma, but the necessity of commitment
+			before complete proof. Reality persists by keeping enough order to matter and
+			enough openness to continue. Every serious framework that survives is touching
+			some part of that tension.
 		</p>
 
 		<p slot="sidebar">
-			This first version is a public layer for a markdown-first formalization
-			workspace. It is meant to explain the project clearly, show where the theory
-			stands, and give the website room to grow into a more polished publication
-			surface later.
+			This project is about the kind of truth that only exists in tension: too much
+			certainty kills it, too little structure dissolves it. Faith, science, reason,
+			love, and reality itself all seem to survive in the same narrow interval.
 		</p>
 
 		<div slot="sidebar" class="dense">

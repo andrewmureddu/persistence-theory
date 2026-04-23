@@ -1,0 +1,271 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import {
+	getPresentationCollections,
+	getPresentationEntry,
+	type PresentationEntry,
+} from '../../../lib/presentations';
+
+export async function getStaticPaths() {
+	const collections = await getPresentationCollections();
+	return collections.flatMap((collection) =>
+		collection.entries.map((entry) => ({
+			params: { collection: collection.key, slug: entry.slug },
+		})),
+	);
+}
+
+const { collection, slug } = Astro.params;
+const entry = (await getPresentationEntry(
+	collection ?? '',
+	slug ?? '',
+)) as PresentationEntry | undefined;
+
+if (!entry) {
+	return Astro.redirect('/presentations');
+}
+
+const primaryPdf = entry.pdfs[0] ?? null;
+---
+
+<Layout
+	title={`Persistence Theory | ${entry.title}`}
+	description={entry.summary}
+>
+	<section class="doc-shell">
+		<div class="doc-frame">
+			<div class="doc-header">
+				<div>
+					<p class="doc-breadcrumb">
+						<a href="/presentations">Presentations</a>
+						<span>/</span>
+						<a href={entry.collectionPath}>{entry.collectionLabel}</a>
+					</p>
+					<h1>{entry.title}</h1>
+					<p class="doc-summary">{entry.summary}</p>
+				</div>
+
+				<div class="doc-actions">
+					<span class="pill">{entry.collectionLabel}</span>
+					<code>{entry.assetFolder}</code>
+				</div>
+			</div>
+
+			<div class="presentation-layout">
+				<div class="presentation-main">
+					{
+						entry.coverHref && (
+							<section class="section-card media-panel">
+								<h2>Cover</h2>
+								<a href={entry.coverHref}>
+									<img
+										class="presentation-cover"
+										src={entry.coverHref}
+										alt={`Cover art for ${entry.title}`}
+										loading="lazy"
+									/>
+								</a>
+							</section>
+						)
+					}
+
+					{
+						entry.pdfs.length > 0 && (
+							<section class="section-card media-panel">
+								<h2>PDFs</h2>
+								<div class="button-row compact-row">
+									{
+										entry.pdfs.map((pdf, index) => (
+											<a
+												class:list={['button', { primary: index === 0 }]}
+												href={pdf.href}
+												target="_blank"
+												rel="noreferrer"
+											>
+												{index === 0 ? 'Open primary PDF' : `Open ${pdf.name}`}
+											</a>
+										))
+									}
+								</div>
+
+								{
+									primaryPdf && (
+										<iframe
+											class="pdf-frame"
+											src={primaryPdf.href}
+											title={`Preview of ${entry.title}`}
+											loading="lazy"
+										></iframe>
+									)
+								}
+							</section>
+						)
+					}
+
+					{
+						entry.slides.length > 0 && (
+							<section class="section-card media-panel">
+								<h2>Slides</h2>
+								<div class="slide-grid">
+									{
+										entry.slides.map((slide) => (
+											<a class="slide-card" href={slide.href}>
+												<img
+													src={slide.href}
+													alt={`${entry.title} — ${slide.name}`}
+													loading="lazy"
+												/>
+												<span>{slide.name}</span>
+											</a>
+										))
+									}
+								</div>
+							</section>
+						)
+					}
+
+					{
+						!entry.hasAssets && (
+							<section class="section-card media-panel">
+								<h2>Folder ready for assets</h2>
+								<p>
+									This page is already scaffolded. Drop presentation media into
+									<code>{entry.assetFolder}</code> and the site will pick it up on the
+									next build.
+								</p>
+								<div class="pillars">
+									<article class="callout">
+										<strong>Recommended names</strong>
+										<ul class="mini-list">
+											{entry.recommendedNames.map((name) => <li><code>{name}</code></li>)}
+										</ul>
+									</article>
+									<article class="callout">
+										<strong>Publishing hint</strong>
+										<p>{entry.publishingHint}</p>
+									</article>
+								</div>
+							</section>
+						)
+					}
+				</div>
+
+				<aside class="presentation-sidebar">
+					<div class="sidebar-card">
+						<strong>Asset counts</strong>
+						<ul class="mini-list">
+							<li>{entry.coverHref ? '1 cover image detected' : 'No cover image yet'}</li>
+							<li>{entry.pdfs.length} PDF file{entry.pdfs.length === 1 ? '' : 's'}</li>
+							<li>{entry.slides.length} slide image{entry.slides.length === 1 ? '' : 's'}</li>
+						</ul>
+					</div>
+
+					<div class="sidebar-card">
+						<strong>File location</strong>
+						<p class="subtle">
+							<code>{entry.assetFolder}</code>
+						</p>
+					</div>
+
+					<div class="sidebar-card">
+						<strong>Keep browsing</strong>
+						<p class="subtle">
+							Return to <a href={entry.collectionPath}>{entry.collectionLabel}</a> or go back
+							to the <a href="/presentations">presentations overview</a>.
+						</p>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.presentation-layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(260px, 0.34fr);
+		gap: 1.25rem;
+		margin-top: 1.4rem;
+	}
+
+	.presentation-main {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.presentation-sidebar {
+		display: grid;
+		gap: 1rem;
+		align-content: start;
+	}
+
+	.media-panel {
+		border-radius: var(--radius-md);
+		padding: 1.2rem;
+	}
+
+	.media-panel h2 {
+		margin: 0 0 0.85rem;
+		font-size: 1.35rem;
+	}
+
+	.presentation-cover {
+		width: 100%;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.compact-row {
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+
+	.pdf-frame {
+		width: 100%;
+		min-height: 760px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.03);
+	}
+
+	.slide-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.slide-card {
+		display: grid;
+		gap: 0.6rem;
+		padding: 0.8rem;
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.slide-card img {
+		width: 100%;
+		border-radius: 12px;
+	}
+
+	.slide-card span {
+		color: var(--muted);
+		font-size: 0.92rem;
+	}
+
+	@media (max-width: 980px) {
+		.presentation-layout {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.slide-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.pdf-frame {
+			min-height: 520px;
+		}
+	}
+</style>

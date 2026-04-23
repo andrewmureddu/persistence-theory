@@ -13,9 +13,18 @@ const pathname = Astro.url.pathname;
 const navLinks = [
 	{ href: '/', label: 'Home' },
 	{ href: '/library', label: 'Library' },
+	{ href: '/presentations', label: 'Presentations' },
 	{ href: '/theory', label: 'Theory' },
 	{ href: '/program', label: 'Program' },
 ];
+
+function isActiveNavLink(href: string) {
+	if (href === '/') {
+		return pathname === '/';
+	}
+
+	return pathname === href || pathname.startsWith(`${href}/`);
+}
 ---
 
 <!doctype html>
@@ -50,7 +59,7 @@ const navLinks = [
 								href={link.href}
 								class:list={[
 									'nav-link',
-									{ active: pathname === link.href },
+									{ active: isActiveNavLink(link.href) },
 								]}
 							>
 								{link.label}

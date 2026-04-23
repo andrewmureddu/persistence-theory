@@ -16,6 +16,18 @@ const featuredSections = await Promise.all(
 		entries: (await getSectionEntries(section.key)).slice(0, 3),
 	})),
 );
+
+function sectionHref(entries: Awaited<(typeof featuredSections)>[number]['entries'], key: string) {
+	return entries.length === 1 ? entries[0].path : `/library/${key}`;
+}
+
+function sectionTag(entries: Awaited<(typeof featuredSections)>[number]['entries']) {
+	if (entries.length === 1) {
+		return '1 document';
+	}
+
+	return `${entries.length} featured`;
+}
 ---
 
 <Layout
@@ -80,9 +92,9 @@ const featuredSections = await Promise.all(
 			{
 				featuredSections.map((section) => (
 					<article class="card">
-						<span class="tag">{section.entries.length} featured</span>
+						<span class="tag">{sectionTag(section.entries)}</span>
 						<h3>
-							<a href={`/library/${section.key}`}>{section.label}</a>
+							<a href={sectionHref(section.entries, section.key)}>{section.label}</a>
 						</h3>
 						<p>{section.description}</p>
 						<ul class="mini-list">
