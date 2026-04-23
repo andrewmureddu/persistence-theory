@@ -1,46 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { getProjectTrackerSnapshot } from '../lib/projectTracker';
 
-const fronts = [
-	{
-		title: 'Bibliography and submission packaging',
-		copy:
-			'The formal integrity pass is clean, but the paper still needs a final bibliography policy for a submission-ready bundle.',
-	},
-	{
-		title: 'Tier-1 computational tests',
-		copy:
-			'Predictions 8 and 9 are the clearest near-term computational targets, but the tier system and minimal simulation pipeline still need to be scoped.',
-	},
-	{
-		title: 'Journal strategy',
-		copy:
-			'The framing decision remains open: thermodynamic first-principles paper, broad unification paper, or information-theoretic submission.',
-	},
-	{
-		title: 'A.20 consequences',
-		copy:
-			'The Restraint-Power / Heisenberg result opens a larger downstream program around other commutation relations and operator-algebra extensions.',
-	},
-	{
-		title: 'Meta-theoretic coherence packaging',
-		copy:
-			'A.21-style work now exists as a proof document; the next choice is whether it becomes part of the main paper or remains a standalone extension.',
-	},
-	{
-		title: 'Arithmetic/operator frontier',
-		copy:
-			'The arithmetic shadow program has sharply narrowed the frontier to genuinely non-valuation defect terms and more exotic abelian targets.',
-	},
-];
-
-const openProblems = [
-	'Quantitative erosion constant for channel erosion',
-	'Transient dynamics during coherence crises',
-	'Schur bridge regularity, rank-loss, and rank-restoration questions',
-	'Reconciliation of the Schur Heisenberg question with A.20',
-	'Coordination neutrality under tree composition',
-	'Quantitative form of the generativity criterion',
+const tracker = await getProjectTrackerSnapshot();
+const fronts = tracker.activeFronts;
+const openProblems = tracker.openProblems.slice(0, 8);
+const recentChanges = tracker.recentChanges.slice(0, 4);
+const heroActions = [
+	{ href: '/library', label: 'Open the library', primary: true },
+	{ href: '/theory', label: 'Return to the theory', primary: true },
+	{ href: '/', label: 'Go to the overview' },
 ];
 
 const workspace = [
@@ -59,58 +30,81 @@ const workspace = [
 	title="Persistence Theory | Program"
 	description="Current status, active fronts, open problems, and workspace structure for the Persistence Theory formalization program."
 >
-	<section class="hero">
-		<div class="hero-copy">
-			<span class="eyebrow">Program status</span>
-			<h1>Where the project stands right now.</h1>
-			<p>
-				The formalization workspace is already functioning like a live research
-				program: active paper, proof archive, bridge documents, open-problem tracker,
-				and session log. This page turns that internal structure into a public map.
-			</p>
+	<PageHero
+		eyebrow="Program status"
+		title="Where the project stands right now."
+		asideTitle="Snapshot"
+		actions={heroActions}
+	>
+		<p slot="copy">
+			The formalization workspace is already functioning like a live research
+			program: active paper, proof archive, bridge documents, open-problem tracker,
+			and session log. This page turns that internal structure into a public map.
+		</p>
 
-			<div class="button-row">
-				<a class="button primary" href="/library">Open the library</a>
-				<a class="button primary" href="/theory">Return to the theory</a>
-				<a class="button" href="/">Go to the overview</a>
+		<div slot="sidebar" class="dense">
+			<div>
+				<strong>Last updated</strong>
+				<p>{tracker.lastUpdated}</p>
+			</div>
+			<div>
+				<strong>Active paper</strong>
+				<p>
+					<code>{tracker.activePaperPath}</code>
+					{tracker.activePaperMasthead && ` with internal masthead ${tracker.activePaperVersion}`}
+				</p>
+			</div>
+			<div>
+				<strong>Lead front</strong>
+				<p>{fronts[0]?.title ?? 'See STATUS.md for the current lead front.'}</p>
+			</div>
+			<div>
+				<strong>Open problems</strong>
+				<p>{tracker.openProblemCount} currently tracked in <code>OPEN_PROBLEMS.md</code>.</p>
 			</div>
 		</div>
+	</PageHero>
 
-		<aside class="hero-panel">
-			<h2>Snapshot</h2>
-			<div class="dense">
-				<div>
-					<strong>Last updated</strong>
-					<p>April 20, 2026</p>
-				</div>
-				<div>
-					<strong>Active paper</strong>
-					<p><code>paper/acp_main_v10.md</code> with internal masthead v0.9</p>
-				</div>
-				<div>
-					<strong>Current emphasis</strong>
-					<p>Packaging, empirical test design, journal strategy, and downstream consequences of A.20 and A.21.</p>
-				</div>
+	<section class="section">
+		<div class="tracker-callout license-callout">
+			<div>
+				<strong>Read the live tracker at the source.</strong>
+				<p>
+					<code>/program</code> now reflects <code>STATUS.md</code> and <code>OPEN_PROBLEMS.md</code>,
+					but the canonical research state still lives in those tracker documents.
+				</p>
 			</div>
-		</aside>
+
+			<div class="tracker-actions">
+				<a class="button primary" href="/library/project/status">Open STATUS</a>
+				<a class="button" href="/library/project/open-problems">Open Problems</a>
+			</div>
+		</div>
 	</section>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Active fronts</span>
-			<h2 class="section-title">The work is beyond the “just prove it” phase</h2>
-			<p class="section-intro">
-				The core proof spine is already substantial. The current frontier is about
-				sharpening, testing, packaging, and extending the theory.
-			</p>
-		</div>
+		<SectionHead
+			kicker="Active fronts"
+			title="The work is beyond the “just prove it” phase"
+			intro="The core proof spine is already substantial. The current frontier is about sharpening, testing, packaging, and extending the theory."
+		/>
 
 		<div class="card-grid">
 			{
 				fronts.map((front) => (
-					<article class="card">
+					<article class="card front-card">
+						<div class="front-meta">
+							<span class="tag">Front {front.index}</span>
+							{
+								front.priority && (
+									<span class="tag">
+										Priority: {front.priority.split('—')[0].trim()}
+									</span>
+								)
+							}
+						</div>
 						<h3>{front.title}</h3>
-						<p>{front.copy}</p>
+						<p>{front.summary}</p>
 					</article>
 				))
 			}
@@ -122,27 +116,43 @@ const workspace = [
 			<article class="callout">
 				<strong>Open problems still worth watching</strong>
 				<ul class="mini-list">
-					{openProblems.map((problem) => <li>{problem}</li>)}
+					{
+						openProblems.map((problem) => (
+							<li>
+								<strong>{problem.id}</strong> - {problem.title}
+							</li>
+						))
+					}
 				</ul>
+				<p class="subtle">
+					Showing {openProblems.length} of {tracker.openProblemCount}. The full tracker
+					lives in <a href="/library/project/open-problems">Open Problems</a>.
+				</p>
 			</article>
 
 			<article class="callout">
 				<strong>Recent momentum</strong>
-				<p>
-					The most recent wave of work added the Restraint-Power theorem, reconciled
-					several manuscript integrity issues, pushed the arithmetic shadow program
-					into a much narrower frontier, and formalized the meta-theoretic coherence
-					branch as an A.21-style proof document.
+				<ul class="mini-list">
+					{
+						recentChanges.map((change) => (
+							<li>
+								<strong>{change.date}</strong> - {change.title}
+							</li>
+						))
+					}
+				</ul>
+				<p class="subtle">
+					This list is pulled from the live <a href="/library/project/status">STATUS changelog</a>.
 				</p>
 			</article>
 		</div>
 	</section>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Workspace map</span>
-			<h2 class="section-title">How the formalization is organized</h2>
-		</div>
+		<SectionHead
+			kicker="Workspace map"
+			title="How the formalization is organized"
+		/>
 
 		<div class="timeline">
 			{
@@ -167,3 +177,42 @@ const workspace = [
 		</div>
 	</section>
 </Layout>
+
+<style>
+	.tracker-callout {
+		gap: 1.25rem;
+	}
+
+	.tracker-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+	}
+
+	.front-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+	}
+
+	.front-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+	}
+
+	.front-card :global(.tag) {
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 720px) {
+		.tracker-callout {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.tracker-actions {
+			width: 100%;
+		}
+	}
+</style>

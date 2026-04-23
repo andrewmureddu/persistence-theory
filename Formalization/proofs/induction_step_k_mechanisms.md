@@ -1,6 +1,6 @@
 **The Induction Step for k ****>**** 2 Mechanisms**
 
-*Resolving Open Problem 3 from Appendix A.8*
+*Partial Closure of Open Problem 3 from Appendix A.8*
 
 Appendix A.9 to the Compounding Lemma Proof
 
@@ -18,9 +18,21 @@ The challenge is threefold: (i) we must show that the compound mechanism R̅*k* 
 
 ## A.9.2 The Compound Mechanism Is Self-Reinforcing
 
-***Lemma A.9.1 (Closure of self-reinforcement under intersection). ****Let R**₁** and R**₂** be self-reinforcing mechanisms (Definition 4.7) with reinforcement strengths α(R**₁**), α(R**₂**) **>** 0 and nonempty intersection R**₁** ∩ R**₂** ≠ ∅. Then R̅ = R**₁** ∩ R**₂** is self-reinforcing with reinforcement strength α(R̅) ≥ α(R**₁**) + α(R**₂**) − 1.*
+***Lemma A.9.1 (Conditional closure of self-reinforcement under intersection). ****Let R**₁** and R**₂** be self-reinforcing mechanisms (Definition 4.7) with reinforcement strengths α(R**₁**), α(R**₂**) **>** 0 and nonempty intersection R**₁** ∩ R**₂** ≠ ∅. Assume additionally:*
 
-***Proof. ***By Definition 4.7, a mechanism R is self-reinforcing if P(m(t+Δt) ∈ R | m(t) ∈ R) > P(m(t+Δt) ∈ R), i.e., being in R increases the probability of remaining in R. We need to show the analogous inequality for R̅ = R₁ ∩ R₂.
+*(i) **Intersection-compatibility:** for i = 1, 2, starting from the deeper set R̅ = R**₁** ∩ R**₂** is at least as favorable to return to R**i** as starting from R**i** in general, i.e.*
+
+$$P(m' \in R_i \mid m \in \bar R) \ge P(m' \in R_i \mid m \in R_i).$$
+
+*(ii) **Strong-overlap threshold:** the inclusion-exclusion lower bound coming from the two return channels dominates the exterior return probability to the intersection, i.e.*
+
+$$P(m' \in R_1 \mid m \in \bar R) + P(m' \in R_2 \mid m \in \bar R) - 1 > P(m' \in \bar R \mid m \notin \bar R).$$
+
+*Then R̅ = R**₁** ∩ R**₂** is self-reinforcing.*
+
+***Proof. ***By Definition 4.7, a mechanism R is self-reinforcing if occupancy increases the probability of returning to R relative to starting outside it. We therefore need to show:
+
+$$P(m(t+\Delta t) \in \bar R \mid m(t) \in \bar R) > P(m(t+\Delta t) \in \bar R \mid m(t) \notin \bar R).$$
 
 For m(t) ∈ R̅, we have m(t) ∈ R₁ and m(t) ∈ R₂ simultaneously. The probability of the next state lying in R̅ satisfies:
 
@@ -30,15 +42,15 @@ By the inclusion-exclusion bound on the complement:
 
 P(m(t+Δt) ∈ R₁ ∩ R₂ | m(t) ∈ R̅) ≥ P(m' ∈ R₁ | m ∈ R̅) + P(m' ∈ R₂ | m ∈ R̅) − 1
 
-Since R̅ ⊆ R₁, the self-reinforcement of R₁ gives P(m' ∈ R₁ | m ∈ R̅) ≥ P(m' ∈ R₁ | m ∈ R₁) > P(m' ∈ R₁), and similarly for R₂. The first inequality holds because R̅ ⊆ R₁ and the transition kernel, restricted to R₁, is at least as concentrated toward R₁ when started from the more constrained set R̅ (by the monotonicity of conditional concentration for nested sets under the self-reinforcement property).
+By assumption (i), each term on the right is at least as large as the corresponding basin-return probability from the full basin. Assumption (ii) then upgrades the inclusion-exclusion lower bound into exactly the self-reinforcement inequality needed for R̅:
 
-More precisely: for nested self-reinforcing sets R̅ ⊆ R₁, if the transition kernel P(m' | m) is such that states deeper in R₁ (closer to the interior of R₁) map with higher probability to R₁—which is the content of the reinforcement basin being a basin (Definition 4.9)—then starting from R̅ ⊆ R₁ gives at least as much return probability as starting from R₁ in general.
+$$P(m' \in \bar R \mid m \in \bar R) > P(m' \in \bar R \mid m \notin \bar R).$$
 
-Therefore P(m' ∈ R̅ | m ∈ R̅) ≥ α(R₁) + α(R₂) − 1 > P(m' ∈ R̅) whenever α(R₁) + α(R₂) > 1 + P(m' ∈ R̅), which is satisfied for sufficiently strong mechanisms. ■
+Hence the compound basin is itself self-reinforcing. ■
 
-*Remark A.9.2. *The bound α(R̅) ≥ α(R₁) + α(R₂) − 1 is conservative. The superadditivity established in the Compounding Lemma implies that the compound mechanism typically has *stronger* self-reinforcement than this lower bound suggests, because the interaction between mechanisms amplifies their individual effects. The bound suffices for the induction step; a tighter bound would require quantitative estimates on the interaction term.
+*Remark A.9.2. *Lemma A.9.1 is deliberately stated as a **conditional closure lemma**. The hidden content in earlier drafts was exactly the pair of assumptions now made explicit: an intersection-compatibility property for nested basins and a threshold ensuring that the combined return channels dominate the exterior return probability to the intersection. In Gaussian systems, the Schur-complement picture strongly suggests these hypotheses are natural. In the generic case, however, they are real assumptions that should not be silently smuggled into the induction.
 
-***Corollary A.9.3 (Iterated closure). ****By induction, if R**₁**, …, R**k** are self-reinforcing with pairwise nonempty intersections and reinforcement strengths α(R**i**) **>** 0, then the compound R̅**k** = R**₁** ∩ … ∩ R**k** is self-reinforcing (provided R̅**k** ≠ ∅).*
+***Corollary A.9.3 (Iterated conditional closure). ****By induction, if R**₁**, …, R**k** are self-reinforcing with pairwise nonempty intersections and each successive pair (R̅**j**, R**j+1**) satisfies the hypotheses of Lemma A.9.1, then the compound R̅**k** = R**₁** ∩ … ∩ R**k** is self-reinforcing (provided R̅**k** ≠ ∅).*
 
 ## A.9.3 The Compound Inherits the Mediation Property
 
@@ -92,15 +104,23 @@ The critical algebraic fact: the effective cross-precision between X*k+1* and Xe
 
 ## A.9.5 The Complete Induction
 
-***Theorem A.9.9 (Inductive Compounding). ****Let R**₁**, R**₂**, …, R**n** be self-reinforcing mechanisms on a shared dynamical system with pairwise nonempty intersections and shared substrate coupling. For each k = 1, …, n−1, the interaction information I(X**e**; X̅**k**; X**k+1**) ≥ 0, with strict inequality on a set of full measure. Consequently, the compound entropy reduction satisfies:*
+***Theorem A.9.9 (Conditional inductive compounding). ****Let R**₁**, R**₂**, …, R**n** be self-reinforcing mechanisms on a shared dynamical system with pairwise nonempty intersections and shared substrate coupling. Assume that for each k = 1, …, n−1:*
+
+*(i) the pair (R̅**k**, R**k+1**) satisfies the closure hypotheses of Lemma A.9.1;*
+
+*(ii) the compound mediation statement of Proposition A.9.4 applies; and*
+
+*(iii) the effective-kernel map used in Proposition A.9.7 has the full-rank genericity required in Remark A.9.8.*
+
+*Then for each k = 1, …, n−1, the interaction information I(X**e**; X̅**k**; X**k+1**) ≥ 0, with strict inequality on a set of full measure. Consequently, the compound entropy reduction satisfies:*
 
 ΔH(R̅*n*) > ΔH(R̅*n−1*) + ΔH(R*n*)
 
-*for each n, and the rate of conditional entropy decrease accelerates:*
+*for each n. In Gaussian systems, the rate of conditional entropy decrease accelerates exactly; in the generic case, the acceleration claim is structural / conditional:*
 
 ΔH(R̅*k+1*) − ΔH(R̅*k*) > ΔH(R̅*k*) − ΔH(R̅*k−1*)
 
-*generically (i.e., on a set of full measure in kernel space).*
+*generically (i.e., on a set of full measure in kernel space) once the above hypotheses are in force.*
 
 ***Proof. ***By induction on k.
 
@@ -108,7 +128,7 @@ The critical algebraic fact: the effective cross-precision between X*k+1* and Xe
 
 **Inductive step: **Assume the result holds for the compound R̅*k* of k mechanisms. We show it holds for R̅*k+1* = R̅*k* ∩ R*k+1*.
 
-(i) R̅*k* is self-reinforcing: by Lemma A.9.1 (iterated via Corollary A.9.3).
+(i) R̅*k* is self-reinforcing: by Lemma A.9.1 (iterated via Corollary A.9.3), i.e. under the explicit closure hypotheses recorded there.
 
 (ii) The mediation condition holds for R̅*k*: by Proposition A.9.4.
 
@@ -122,23 +142,25 @@ For the accelerating rate claim: the increment at step k+1 is
 
 by the chain rule of mutual information. This conditional mutual information is at least I(Xe; X*k+1*) (by non-negative interaction information), and it grows with k because conditioning on a larger set X̅*k* provides more context for synergistic interaction. In the Gaussian case, this is exact: each Schur complement elimination increases the effective precision between X*k+1* and Xe (by propagating indirect couplings), so the conditional mutual information at step k+1 exceeds that at step k.
 
-In the general case, the acceleration is a consequence of the growing compound providing an increasingly informative context for the new mechanism. The interaction information I(Xe; X̅*k*; X*k+1*) is at least as large as I(Xe; X̅*k−1*; X*k+1*) generically, because the larger compound X̅*k* ⊃ X̅*k−1* provides a strictly richer conditioning set (the data processing inequality gives the weak version; the generic structure of shared substrate coupling gives the strict version). ■
+In the general case, the acceleration is a structural continuation of the Gaussian picture rather than a completely closed theorem. The interaction information I(Xe; X̅*k*; X*k+1*) is at least as large as I(Xe; X̅*k−1*; X*k+1*) under the same genericity and closure assumptions, because the larger compound X̅*k* ⊃ X̅*k−1* provides a richer conditioning set. The data processing inequality gives the weak version; the strict version remains a separate generic-constancy problem. ■
 
 ## A.9.6 What This Resolves and What Remains
 
-**Resolved: **Open Problem 3 from Section A.8.7 is now resolved. The two-mechanism result (Theorem A.8.9) extends by induction to k mechanisms. The key ingredients are: (1) closure of self-reinforcement under intersection (Lemma A.9.1), (2) inheritance of the mediation property by compounds (Proposition A.9.4), and (3) generic Coherent Steering for compound-new-mechanism pairs (Proposition A.9.7). The Crystallization Drift Theorem’s accelerating rate (Theorem 4.19) now rests on a complete formal chain from axioms to conclusion.
+**Partially resolved: **Open Problem 3 from Section A.8.7 is now split cleanly into a Gaussian-closed branch and a generic-conditional branch. The two-mechanism result (Theorem A.8.9) extends by induction to k mechanisms once three ingredients are supplied explicitly: (1) conditional closure of self-reinforcement under intersection (Lemma A.9.1), (2) inheritance of the mediation property by compounds (Proposition A.9.4), and (3) generic Coherent Steering for compound-new-mechanism pairs (Proposition A.9.7). What has been removed is the hidden overclaim: the generic induction is no longer described as unconditional when it still depends on those closure hypotheses.
 
 **Strengthened: **The induction reveals a structural insight that was not visible in the two-mechanism case: the Schur complement propagation of indirect couplings (Proposition A.9.6) means that even mechanisms with no *direct* coupling to each other can interact synergistically through intermediaries. Mechanism R3 may have zero direct coupling to R7, but the compound R̅6 may have created an effective coupling between them via the Schur complement propagation of R4 and R5. This is the algebraic mechanism behind the “web of interactions” described informally in Section A.7 of the Compounding Lemma proof.
 
 **What remains open:**
 
-⚠ **Open Problem (monotonicity of interaction information in k). **The acceleration claim—that the increment at step k+1 strictly exceeds the increment at step k—is proven for Gaussian systems (where the Schur complement algebra gives an exact result) and argued structurally for the general case. A fully rigorous general proof would require showing that the interaction information I(Xe; X̅*k*; X*k+1*) is strictly monotonically increasing in k, which is a stronger claim than non-negativity. The Gaussian case establishes the template, and the data processing inequality provides the weak version (≥), but the strict version (>) in the general case requires ruling out the measure-zero set where the increment is exactly constant. This is a technical refinement rather than a structural gap.
+⚠ **Open Problem (generic intersection closure). **Lemma A.9.1 now states the real hidden hypotheses explicitly. The remaining job is to derive the intersection-compatibility and strong-overlap threshold directly from the ACP / CDT setting, rather than taking them as assumptions in the generic branch. The Gaussian case suggests this should be possible in structured classes of kernels, but it is not yet proved in full generality.
+
+⚠ **Open Problem (monotonicity of interaction information in k). **The acceleration claim—that the increment at step k+1 strictly exceeds the increment at step k—is proven for Gaussian systems (where the Schur complement algebra gives an exact result) and argued structurally for the general case. A fully rigorous general proof would require showing that the interaction information I(Xe; X̅*k*; X*k+1*) is strictly monotonically increasing in k, which is a stronger claim than non-negativity. The Gaussian case establishes the template, and the data processing inequality provides the weak version (≥), but the strict version (>) in the general case requires ruling out the measure-zero set where the increment is exactly constant.
 
 ⚠ **Open Problem (quantitative acceleration rate). **The induction shows that drift accelerates but does not bound the rate of acceleration. A quantitative bound—expressing the acceleration in terms of the coupling structure and reinforcement strengths—would require solving Open Problem 2 (quantitative non-Gaussian bounds) from Section A.8.7 first. The Gaussian case gives the template: the acceleration rate is expressible in terms of the eigenvalues of the precision matrix, and scales with the product of coupling strengths along the Schur complement chain.
 
 ## A.9.7 Summary of the Formal Chain
 
-The Crystallization Drift Theorem (Theorem 4.19) now rests on the following complete formal chain:
+The Crystallization Drift Theorem (Theorem 4.19 in the standalone note) now rests on the following strongest-current formal chain:
 
 1. Self-reinforcing mechanisms reduce conditional entropy (Lemma 4.13).
 
@@ -148,13 +170,13 @@ The Crystallization Drift Theorem (Theorem 4.19) now rests on the following comp
 
 4. Self-reinforcing mechanisms are generically synergistic: the interaction information is non-negative (Theorem A.8.9, via Coherent Steering and do-calculus).
 
-5. The compound of self-reinforcing mechanisms is itself self-reinforcing (Lemma A.9.1), inherits mediation (Proposition A.9.4), and satisfies Coherent Steering generically with new mechanisms (Proposition A.9.7).
+5. The compound of self-reinforcing mechanisms is itself self-reinforcing **under the explicit closure hypotheses of Lemma A.9.1**, inherits mediation (Proposition A.9.4), and satisfies Coherent Steering generically with new mechanisms once the effective-kernel map has the required rank properties (Proposition A.9.7 / Remark A.9.8).
 
-6. By induction, k mechanisms compound with accelerating superadditivity (Theorem A.9.9). Conditional entropy decreases at an increasing rate.
+6. By induction, k mechanisms compound with accelerating superadditivity in Gaussian systems, and conditionally in the generic case (Theorem A.9.9).
 
 7. No endogenous reversal is possible (Lemma 4.17). Only external perturbation can interrupt the drift.
 
-8. Therefore: a system with multiple self-reinforcing mechanisms drifts toward crystallization at an accelerating rate, requiring increasingly large external perturbation to maintain the productive interval (Theorem 4.19). ■
+8. Therefore: the Gaussian branch yields a closed accelerating-compounding theorem, while the generic branch reduces the remaining debt to explicit closure hypotheses rather than hidden assumptions. This is enough to support the core entropy-drift theorem architecture, but not to overstate the generic acceleration claim as fully closed. ■
 
 # Additional References for Appendix A.9
 

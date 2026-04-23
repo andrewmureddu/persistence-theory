@@ -10,16 +10,28 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 
 ### OP-1 — Quantitative erosion constant
 **Statement.** Channel Erosion Theorem (Appendix A.10) establishes that anti-coherent mechanisms decay, with positive decay rate. A sharp general bound on the erosion constant as a function of the coupling strength and mechanism geometry has not been given.
-**Status.** Open.
+**Status.** Partial — `bridges/non_gaussian_bounds.md` now supplies a computable lower-bound route via maximal correlation, but not a sharp characterization.
 **Where discussed.** `proofs/coherent_steering_derivation.md` (the theorem itself); `bridges/non_gaussian_bounds.md` (partial quantitative work in the Gaussian / χ²-contraction regime).
 **Why it matters.** Without a quantitative erosion rate, the self-grounding argument (Coherent Steering as necessary consequence rather than external assumption) remains qualitative. A quantitative version would let us predict timescales of coherence crises empirically.
-**Adjacent to.** Prediction #8 (regulatory-network aging) in `bridges/empirical_predictions.md` — erosion timescale is the natural observable.
+**Adjacent to.** Prediction #9 (regulatory-network aging) in `bridges/empirical_predictions.md` — erosion timescale is the natural observable.
 
 ### OP-2 — Coherence crisis transient dynamics
 **Statement.** What happens during the regime change when one mechanism erodes another? The steady-state endpoints are known (the loser is shed); the transient — possibly exhibiting oscillation, delayed collapse, or hysteresis — is not characterized.
 **Status.** Open.
 **Where discussed.** `proofs/coherent_steering_derivation.md`.
 **Why it matters.** The transient dynamics are where empirical signatures live. A monotone-exponential prediction and an oscillatory prediction look different in data.
+
+### OP-16 — Maintenance lemma / net reinforcement pressure
+**Statement.** The paper now isolates a closed core entropy-drift theorem: if the active self-reinforcing repertoire exerts non-decreasing net entropy-reducing pressure, then conditional macrostate entropy contracts. What is still missing is the dynamical lemma that upgrades Lemma 4.14's fraction monotonicity to either monotone non-decrease of the active reinforcement load or an equivalent sustained-pressure statement.
+**Status.** Open.
+**Where discussed.** `paper/acp_main_v10.md` §4.4, §7; `proofs/crystallization_drift_theorem.md`; `audits/proof_debt_v11.md`.
+**Why it matters.** This is now the single sharpest remaining gap in the full four-part CDT package. Without it, the load / basin / asymptotic claims are best read as conditional extensions rather than closed theorems.
+
+### OP-17 — Generic k-mechanism closure under intersection
+**Statement.** Appendix A.9 now states explicitly what earlier drafts used implicitly: the generic k-mechanism induction needs an intersection-compatibility hypothesis for compound basins and a threshold ensuring the combined return channels dominate the exterior return probability to the intersection. Derive those hypotheses from the ACP / CDT setting rather than assuming them outside the Gaussian branch.
+**Status.** Open.
+**Where discussed.** `proofs/induction_step_k_mechanisms.md`; `audits/proof_debt_v11.md`.
+**Why it matters.** The Gaussian induction is clean, but the generic induction is only as strong as the closure lemma carrying the compound basin forward. Closing this would remove the most serious remaining overreach in the k > 2 story.
 
 ### OP-3 — Schur bridge: precision-matrix regularity conditions
 **Statement.** The four identifications in `bridges/schur_complement.md` (productive interval ↔ well-conditioned internal block; crystallization ↔ rank-deficient D; etc.) assume the partitioned precision matrix is well-defined and invertible on the internal block. State precisely the regularity conditions needed on the full system so that these identifications apply, particularly in infinite-dimensional / continuum cases.
@@ -36,22 +48,17 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 **Status.** Open.
 **Where discussed.** `bridges/schur_complement.md`.
 
-### OP-6 — Heisenberg derivation: reconciliation with A.20
-**Statement.** The schur bridge posed the Heisenberg derivation as an open problem. A.20 (Restraint-Power, in `bridges/restraint_power.md`) now delivers Heisenberg as the quantum-scale instantiation of the coordination floor for a two-MASA operator-algebra partition. Reconcile the two: does A.20 close the schur-bridge's Heisenberg problem entirely, or do they answer slightly different questions?
-**Status.** Partial — needs reconciliation pass.
-**Where discussed.** `bridges/schur_complement.md` (question); `bridges/restraint_power.md` (A.20 result).
-**Action.** Next pass: write a short reconciliation note. If A.20 closes it fully, move this problem to Resolved.
-
 ### OP-7 — Coordination neutrality under tree composition
 **Statement.** Two-argument coordination-neutral operators B(x,y) satisfy B(y,x) = 1/B(x,y). Log-lift L(x,y) = log|B(x,y)| is swap-antisymmetric. The bridge family (exp–log operators, e.g. Odrzywolek's eml(x,y) = exp(x) − ln(y)) is CN pairwise. Under tree composition required for multi-party coordination, this family fails joint-inversion invariance, which is the preservation condition. **Characterize which operator families preserve CN under composition.**
 **Status.** Open.
 **Where discussed.** `bridges/coordination_neutrality.md`; external reference `references/odrzywolek_2026_eml_operator.pdf`.
 **Why it matters.** Without a CN-preserving composition, multi-party coordination cannot be built purely from pairwise primitives — has consequences for how A.20's subsystem-partition argument scales beyond binary partitions.
 
-### OP-9 — Tier-1 computational tests for Predictions 8 and 9
-**Statement.** Legacy memory names "Tier-1 computational tests for Predictions 8 and 9" as on-the-horizon work. Scope this: (a) which predictions in `bridges/empirical_predictions.md` are numbered 8 and 9 in v10, (b) define the tier system formally (Tier-1 vs 2 vs 3), (c) propose the minimal simulation pipeline for each.
+### OP-18 — Mechanism-preserving vs kernel-preserving conservation
+**Statement.** Appendix A.20 now states coordination conservation for kernel-preserving mechanism-preserving transformations, i.e. transformations that explicitly commute with the transition kernel. The residual question is whether the weaker physical idea of "mechanism-preserving" (no recruitment, no shedding, no coherence crisis, no large external perturbation) implies this kernel-preserving automorphism condition in useful generality.
 **Status.** Open.
-**Where discussed.** `bridges/empirical_predictions.md`; legacy `memory.md`.
+**Where discussed.** `bridges/restraint_power.md`; `paper/acp_main_v10.md` §8.
+**Why it matters.** This is the exact premise-sharpening step that prevents the coordination-conservation theorem from becoming circular. Either it should be proved, or the kernel-preserving form should remain the permanent theorem statement.
 
 ### OP-10 — Downstream inquiry-space bound under theory dominance
 **Statement.** (Conjecture 4.2 of `bridges/generativity_criterion.md`.) For a dominant theory $T$ with compressive ratio $\rho$ on domain $D$, the collective semantic field $S$ of downstream researchers has an effective inquiry-space $I_t(S) \leq f(\rho) \cdot I_t(T)$ for some decreasing $f$. As $\rho \to 1$, $I_t(S)$ can approach zero even while $I_t(T)$ remains positive (the latter being guaranteed by the incompleteness quartet applied to $T$). The ACP protects $T$'s internal openness; it does not automatically protect the openness of researchers who think *through* $T$.
@@ -70,12 +77,6 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 **Status.** Open.
 **Where discussed.** `bridges/generativity_criterion.md` §5; `proofs/meta_theoretic_coherence_theorem.md` §A.21.6.
 **Why it matters.** A quantitative generativity bound would let us distinguish healthy research programs from stalled ones empirically, and would make Corollary 4.1 (ACP's own generativity) falsifiable.
-
-### OP-14 — Bibliography packaging policy for the main paper
-**Statement.** `paper/acp_main_v10.md` appears to carry a bibliography broader than its own visible citations, likely because some references are used in the externally stored appendix documents. Decide whether the active paper should have (a) a paper-only bibliography, or (b) a shared bibliography for the paper-plus-appendix submission bundle, and reconcile the references accordingly.
-**Status.** Open.
-**Where discussed.** `audits/integrity_audit_v10.md`; `paper/acp_main_v10.md`.
-**Why it matters.** This is a submission-packaging issue rather than a theory flaw, but unresolved bibliography policy creates avoidable reviewer/editor friction.
 
 ### OP-15 — Arithmetic shadows of coordination-neutral operators
 **Statement.** Characterize the coordination-neutral operators $B : D \subseteq \mathbb{R}_{>0}^2 \to \mathbb{R}_{>0}$ for which there exist an abelian group $G$, an injective encoding $\eta : \operatorname{im}(B) \to G$, and a one-variable coordinate map $\psi$ such that $\eta(B(x,y)) = \psi(x) - \psi(y)$ on the regular domain. The ratio operator on $\mathbb{Q}_{>0}^{\times}$ realizes this with $G = \bigoplus_p \mathbb{Z}$ via prime valuations; determine whether this is an isolated case or the first member of a wider arithmetic class.
@@ -97,3 +98,18 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 **Resolved:** 2026-04-20.
 **Resolution summary.** Completed in `audits/integrity_audit_v10.md`. The old Section 4 numbering gaps are gone; the `T`/temperature clash is fixed via `T_env`; the remaining `ε*(T)` inconsistency in Section 6.7 was corrected to `ε*(T*)`; and the live manuscript now points to the new audit file rather than the stale v07 report.
 **Closed in.** `audits/integrity_audit_v10.md`; `paper/acp_main_v10.md`; session log `sessions/2026-04-20_v10_integrity_audit.md`.
+
+### OP-6 — Heisenberg derivation: reconciliation with A.20
+**Resolved:** 2026-04-21.
+**Resolution summary.** Resolved by splitting the old single question into two layers in `bridges/schur_complement.md` §6.4. Appendix A.20 closes the structural Heisenberg question: once a two-MASA partition with commutator `[A,B] = i\kappa I` is given, the restraint-power coordination floor coincides with the Robertson bound, so Heisenberg is indeed the quantum-scale coordination floor. What remains open is the stronger ACP-internal derivation of the commutator / CCR structure itself from the persistence condition `rank(D) > 0`, and that residual problem is already tracked more precisely as OP-RP-5 in `bridges/restraint_power.md`.
+**Closed in.** `bridges/schur_complement.md`; `bridges/restraint_power.md`; session log `sessions/2026-04-21_heisenberg_reconciliation.md`.
+
+### OP-14 — Bibliography packaging policy for the main paper
+**Resolved:** 2026-04-21.
+**Resolution summary.** Resolved by choosing policy (b): `paper/acp_main_v10.md` now explicitly states that its references section is a shared bibliography for the main paper plus the externally stored appendix documents cited throughout the manuscript. This matches the paper's current architecture, where the body repeatedly cites appendices A.8-A.20 that are maintained outside the file. The bibliography was therefore reconciled by clarifying scope rather than mechanically pruning entries to a paper-only list.
+**Closed in.** `paper/acp_main_v10.md`; `STATUS.md`; session log `sessions/2026-04-21_bibliography_policy.md`.
+
+### OP-9 — Tier-1 computational tests for Predictions 8 and 9
+**Resolved:** 2026-04-21.
+**Resolution summary.** Resolved by operationalizing the tier system directly inside `bridges/empirical_predictions.md` §A.16.11, explicitly identifying Prediction 8 as Dissipative Aging and Prediction 9 as Regulatory Network Aging, and specifying a first-pass simulation pipeline for each. The resolution also records an important modeling distinction: Prediction 9 can be tested in a standard evolutionary Boolean-network simulator, while Prediction 8's minimal Tier-1 test should be an ACP-informed reduced mode-competition model with slow reinforcement memory rather than a bare fixed-coefficient Bénard solver.
+**Closed in.** `bridges/empirical_predictions.md`; session log `sessions/2026-04-21_tier1_scope.md`.

@@ -1,9 +1,18 @@
-> **⚠ LEGACY — DO NOT TRUST AS LIVE STATE.**
-> This file is a frozen snapshot from the Claude.ai Projects era, prior to the 2026-04-17 migration to Cowork. It asserts the paper is at v09; v10 exists and includes A.20 (Restraint-Power + Heisenberg as special case). It also references deprecated paths (`/mnt/project/`, `/mnt/user-data/outputs/`) that no longer apply.
+> **⚠ LEGACY SNAPSHOT BELOW — DO NOT TRUST AS LIVE STATE.**
+> This file preserves the pre-2026-04-17 Claude.ai Projects snapshot for audit. A short live continuity addendum appears immediately below; the long-form body that follows remains the legacy snapshot and still contains stale claims such as "v09 is current" plus deprecated paths (`/mnt/project/`, `/mnt/user-data/outputs/`).
 >
 > For live project state, read `STATUS.md`, `OPEN_PROBLEMS.md`, and `CLAUDE.md` at the workspace root. For persistent memory, the Cowork memory system has been populated with an up-to-date two-tier structure.
 >
-> This file is preserved for audit only.
+> The legacy body below is intentionally retained rather than rewritten.
+
+## 2026-04-22 live continuity addendum
+
+- **Active paper and trackers.** The live manuscript is `paper/acp_main_v10.md`; `STATUS.md` and `OPEN_PROBLEMS.md` are the canonical continuity documents.
+- **Best current reading of the claim.** The repo now presents the program in three layers: six explicit productive-interval reductions, the CDT core entropy-drift theorem as the principal new theorem, and restraint-power / vulnerable-margin as a broader comparative and empirical program rather than a fully closed reduction stack.
+- **Recent empirical state.** Both Tier-1 simulation targets now have first-pass code: `simulations/prediction9_boolean_network.py` plus `simulations/prediction8_dissipative_modes.py`. Prediction 9's current lead calibration is `(fitness_threshold = 0.85, population_size = 28, stability_weight = 0.2)` with only modest separation, so more confirmation or proxy refinement is still needed. Prediction 8's reduced simulator shows the intended directional contrast in smoke tests and is ready for calibration sweeps.
+- **Recent conceptual clarifications.** Heisenberg is now treated as the structural coordination-floor special case already captured by A.20, while the stronger CCR / operator-algebra derivation remains open. Bibliography policy is settled as shared across the main paper and the external appendix bundle. Prediction 10 is now framed as a shared drift-template test across currently operationalized reduced domains, not as a blanket universality forecast.
+- **Main live proof gaps.** The sharpest current open items are OP-16 (maintenance lemma / sustained reinforcement pressure), OP-17 (generic k-mechanism intersection closure), and OP-18 (mechanism-preserving vs kernel-preserving conservation), alongside OP-1 / OP-2 and the semantic-field / generativity extensions OP-10 through OP-12.
+- **Architectural framing.** The current philosophical continuity note is that restraint is the constructive name for anti-crystallization under asymmetric power, and edge-first failure is its diagnostic companion; this is partly formalized in A.20 and A.21 but not yet fully closed in the vulnerable-margin and semantic-field directions.
 
 ---
 

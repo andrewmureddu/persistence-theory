@@ -1,6 +1,6 @@
 # Non-Gaussian Bounds on Interaction Information
 
-## Appendix A.17: Resolution of OP2
+## Appendix A.17: Partial Resolution of OP2
 
 *Working Draft — April 2026*
 
@@ -10,18 +10,18 @@
 
 ## A.17.1 The Problem
 
-The Crystallization Drift Theorem (Theorem 4.19) establishes that self-reinforcing mechanisms drive monotonic non-increase of conditional macrostate entropy H(m′|m). The *rate* of this drift depends on the interaction information I(Xₑ; X₁; X₃), which measures the superadditive excess of compound self-reinforcement (Lemma 4.16). For Gaussian systems, the interaction information has an exact closed-form expression in terms of the precision matrix entries (Proposition A.1). For non-Gaussian systems, we have established:
+The Crystallization Drift Theorem (Theorem 4.19 in the standalone proof note) establishes the core entropy-drift direction: maintained self-reinforcement drives monotonic non-increase of conditional macrostate entropy H(m′|m). The *rate* of this drift depends on the interaction information I(Xₑ; X₁; X₃), which measures the superadditive excess of compound self-reinforcement (Lemma 4.16). For Gaussian systems, the interaction information has an exact closed-form expression in terms of the precision matrix entries (Proposition A.1). For non-Gaussian systems, we have established:
 
 - **Qualitative result** (Theorem A.8.9): I(Xₑ; X₁; X₃) ≥ 0 under Coherent Steering, with strict positivity on a set of full measure.
 - **No quantitative bound**: We lacked a lower bound expressing I(Xₑ; X₁; X₃) in terms of physically meaningful quantities (coupling strength, reinforcement strengths α(R₁), α(R₂)).
 
-This appendix resolves the problem by establishing quantitative lower bounds for general (non-Gaussian) systems using three complementary techniques:
+This appendix advances the problem by assembling a quantitative program for general (non-Gaussian) systems using three complementary techniques:
 
 1. **Gaussian copula lower bound** (Section A.17.3): Uses the maximum-entropy property of the Gaussian to bound the interaction information from below by the Gaussian interaction information computed from the correlation structure.
 2. **χ²-contraction coefficient bound** (Section A.17.4): Uses strong data processing inequalities to bound the interaction information in terms of the maximal correlation coefficient of the coupling.
 3. **Perturbative expansion** (Section A.17.5): For systems "near Gaussian" (in an information-geometric sense), provides a correction formula in terms of higher-order cumulants.
 
-Together, these yield: for any system with nonzero coupling between mechanisms, the interaction information is bounded below by a positive, computable function of the coupling strength and reinforcement strengths.
+Taken together, these yield one strongest-current generic route (the maximal-correlation / reinforcement-strength route) together with two sharper but still partly conditional refinements. The goal of this appendix is therefore not to hide the remaining debt, but to localize it.
 
 ---
 
@@ -135,7 +135,7 @@ The first two terms are bounded below by their Gaussian copula values, but the t
 
 However, we can establish the bound for the *interventional* interaction information (Definition A.8.2), which is the physically relevant quantity for self-reinforcing mechanisms.
 
-**Theorem A.17.7 (Non-Gaussian bound on interventional interaction information).** Let R₁ and R₂ be two self-reinforcing mechanisms satisfying the Coherent Steering condition (Definition A.8.3), acting on variables X₁, X₃ of a shared substrate with coupling strength κ > 0. Let ρ_{3e,S} denote the Spearman correlation between X₃ and Xₑ, and let κ_S = |ρ_{13|e,S}| denote the magnitude of the partial Spearman correlation between X₁ and X₃ given Xₑ. Then:
+**Theorem A.17.7 (Conditional non-Gaussian bound on interventional interaction information).** Let R₁ and R₂ be two self-reinforcing mechanisms satisfying the Coherent Steering condition (Definition A.8.3), acting on variables X₁, X₃ of a shared substrate with coupling strength κ > 0. Let ρ_{3e,S} denote the Spearman correlation between X₃ and Xₑ, and let κ_S = |ρ_{13|e,S}| denote the magnitude of the partial Spearman correlation between X₁ and X₃ given Xₑ. Assume further that among post-intervention models with the same second-order statistics, the linear structural model gives the smallest X₃–Xₑ mutual-information enhancement. Then:
 
 I^{do}(Xₑ; X₁; X₃) ≥ ½ ln(1 + κ²_S · ρ²_{3e,S} / (1 − ρ²_{3e,S}))
 
@@ -181,7 +181,7 @@ I^{do} ≥ ½ ln(1 + κ²_S · ρ²_{3e,S} / (1 − ρ²_{3e,S}))
 
 This is positive whenever κ_S ≠ 0 and ρ_{3e,S} ≠ 0.  ■
 
-**Remark A.17.7.1 (Conservatism).** The bound uses the linear structural model, which gives the minimal enhancement. Nonlinear structural equations generically produce larger enhancements because the copula of the post-intervention distribution concentrates more than the Gaussian copula. The Gaussian copula bound in Step 3 adds a second layer of conservatism. The combined effect is that Theorem A.17.7 is a doubly conservative lower bound: the true interaction information is generically strictly larger.
+**Remark A.17.7.1 (Conservatism).** The bound uses the linear structural model, which is being treated here as the minimal-enhancement model. Nonlinear structural equations should generically produce larger enhancements because the copula of the post-intervention distribution concentrates more than the Gaussian copula. The Gaussian copula bound in Step 3 adds a second layer of conservatism. The combined effect is that Theorem A.17.7 is a sharpened lower bound **conditional on the linear-conservatism hypothesis**: if that hypothesis is true, the true interaction information is generically strictly larger.
 
 **⚠ The claim in Step 5 that the linear model provides the most conservative bound requires formal verification. The argument is structural: linearity minimizes higher-order dependencies, and the Gaussian copula bound already accounts for all second-order structure. A rigorous proof would verify that nonlinear structural equations with the same second-order statistics produce post-intervention distributions with at least as much mutual information as the linear case. This is plausible but not proven in full generality.**
 
@@ -300,34 +300,34 @@ with equality iff P is Gaussian. The non-Gaussian corrections are generically po
 
 Combining the three approaches, we arrive at the main result:
 
-**Theorem A.17.16 (Quantitative non-Gaussian bound on interaction information — Main Result).** Let R₁, R₂ be self-reinforcing mechanisms with reinforcement strengths α(R₁), α(R₂) > 0, acting on a shared substrate with coupling strength κ > 0 (measured by the partial correlation ρ₁₃|ₑ between X₁ and X₃ given Xₑ). Suppose the mechanisms satisfy Coherent Steering (Definition A.8.3). Then:
+**Theorem A.17.16 (Quantitative non-Gaussian bound package — Main Result).** Let R₁, R₂ be self-reinforcing mechanisms with reinforcement strengths α(R₁), α(R₂) > 0, acting on a shared substrate with coupling strength κ > 0 (measured by the partial correlation ρ₁₃|ₑ between X₁ and X₃ given Xₑ). Suppose the mechanisms satisfy Coherent Steering (Definition A.8.3). Then the current quantitative picture consists of three layers:
 
-**Bound 1 (Gaussian copula bound):**
+**Bound 1 (conditional Gaussian-copula interventional bound):**
 
 I(Xₑ; X₁; X₃) ≥ I^{do}(Xₑ; X₁; X₃) ≥ ½ ln(1 + κ² · ρ²_{3e,S} / (1 − ρ²_{3e,S}))
 
-where κ = |ρ₁₃|ₑ,S| is the Spearman partial correlation and ρ_{3e,S} is the Spearman correlation between X₃ and Xₑ.
+where κ = |ρ₁₃|ₑ,S| is the Spearman partial correlation and ρ_{3e,S} is the Spearman correlation between X₃ and Xₑ. This is the sharpening supplied by Theorem A.17.7 and therefore inherits its linear-conservatism hypothesis.
 
-**Bound 2 (Maximal correlation bound):**
+**Bound 2 (maximal-correlation lower bound):**
 
 I(Xₑ; X₁; X₃) ≥ ½ · ρ²_m(1,3|e) · ρ²_m(3,e) / (1 + ρ²_m(3,e))
 
-**Bound 3 (Reinforcement-strength bound):** Combining Bound 2 with Proposition A.17.12:
+**Bound 3 (reinforcement-strength lower bound):** Combining Bound 2 with Proposition A.17.12:
 
 I(Xₑ; X₁; X₃) ≥ ½ · (1 − e^{−2α_κ}) · (1 − e^{−2α(R₂)}) / (2 − e^{−2α(R₂)})
 
 where α_κ is the effective reinforcement strength of the coupling channel (the concentration induced by R₁ on the X₁–X₃ coupling, projected onto the substrate-relevant dimensions).
 
-**Corollary A.17.17 (Quantitative crystallization drift rate).** For a system with k self-reinforcing mechanisms of average reinforcement strength ᾱ and average coupling strength κ̄, the rate of conditional entropy decrease satisfies:
+**Corollary A.17.17 (Quantitative crystallization drift-rate template).** Within the maximal-correlation / reinforcement-strength route, a system with k self-reinforcing mechanisms of average reinforcement strength ᾱ and average coupling strength κ̄ satisfies:
 
 dH(m′|m)/dt ≤ −k · [½ · κ̄² · (1 − e^{−2ᾱ}) / (2 − e^{−2ᾱ})]
 
-This is a quantitative version of the Crystallization Drift Theorem. The drift rate is:
+This is the strongest current generic quantitative template for the Crystallization Drift Theorem. The drift rate is:
 - Proportional to k (number of mechanisms)
 - Increasing in κ̄ (coupling strength) — quadratically for weak coupling
 - Increasing in ᾱ (reinforcement strength) — approximately linearly for strong reinforcement
 
-**Corollary A.17.18 (Quantitative time to crystallization).** Under constant conditions (no external perturbation), the time from initial state to the C-boundary satisfies:
+**Corollary A.17.18 (Time-to-crystallization template).** Under constant conditions (no external perturbation) and the drift-rate template of Corollary A.17.17, the time from initial state to the C-boundary satisfies:
 
 T_cryst ≤ H₀ / [k · ½ · κ̄² · (1 − e^{−2ᾱ}) / (2 − e^{−2ᾱ})]
 
@@ -339,24 +339,24 @@ where H₀ is the initial conditional macrostate entropy. This upper bound is do
 
 ### For the Open Problems
 
-**OP2 (Non-Gaussian bounds): Substantially resolved.** Theorem A.17.16 provides three complementary quantitative lower bounds on the interaction information for general (non-Gaussian) systems. The Gaussian copula lower bound on pairwise MI (Theorem A.17.6) is rigorous. The extension to interventional interaction information (Theorem A.17.7) is rigorous modulo one structural claim (that the linear model provides the most conservative bound, flagged with ⚠). The maximal correlation bound (Theorem A.17.11) and reinforcement-strength bound (Proposition A.17.12) are proven. The perturbative expansion (Theorem A.17.14) is exact; the claim that corrections are generically positive under self-reinforcement (Corollary A.17.15) is argued structurally. **Overall assessment: OP2 is resolved at the level required for the paper's purposes — all predictions can now be stated quantitatively with conservative bounds — but two secondary claims carry ⚠ markers.**
+**OP2 (Non-Gaussian bounds): Partially resolved.** Theorem A.17.16 now separates the strongest-current generic route from the sharper conditional refinements. The Gaussian copula lower bound on pairwise MI (Theorem A.17.6) is rigorous. The extension to interventional interaction information (Theorem A.17.7) is useful but conditional on the linear-conservatism hypothesis flagged above. The maximal-correlation bound (Theorem A.17.11) and reinforcement-strength bound (Proposition A.17.12) provide the strongest current generic quantitative route. The perturbative expansion (Theorem A.17.14) is exact as an expansion, while the claim that corrections are generically positive under self-reinforcement (Corollary A.17.15) remains structural. **Overall assessment: OP2 is no longer best described as "resolved"; it is better described as a partial quantitative closure with one strongest-current generic route and two sharper conditional routes.**
 
-**OP-new-2 (Quantitative acceleration rate): Partially resolved.** Corollary A.17.17 gives a quantitative drift rate. The acceleration (growth of the rate with k) follows from the superadditive compounding: each new mechanism increases both k and κ̄ (via Schur complement enrichment). A fully explicit acceleration formula requires bounding the rate of κ̄ growth, which depends on the system's specific topology.
+**OP-new-2 (Quantitative acceleration rate): Partially resolved.** Corollary A.17.17 gives a quantitative drift-rate template. The acceleration (growth of the rate with k) follows from the superadditive compounding picture: each new mechanism increases both k and, in structured classes, κ̄ via Schur complement enrichment. A fully explicit acceleration formula still requires bounding the rate of κ̄ growth, which depends on the system's specific topology.
 
-**OP-new-3 (Quantitative erosion constant): Resolved.** The erosion rate in the channel erosion theorem (Theorem A.10.7) can now be bounded: the constant c in dα₂/dt ≤ −c·δ·α₁·α₂ satisfies:
+**OP-new-3 (Quantitative erosion constant): Partially resolved.** The erosion rate in the channel erosion theorem (Theorem A.10.7) can now be bounded: the constant c in dα₂/dt ≤ −c·δ·α₁·α₂ satisfies:
 
 c ≥ ½ · ρ²_m(1,2) / (1 + ρ²_m(1,2))
 
-where ρ_m(1,2) is the maximal correlation between the two mechanism channels. This follows from applying Bound 2 to the erosion channel.
+where ρ_m(1,2) is the maximal correlation between the two mechanism channels. This follows from applying Bound 2 to the erosion channel. The existence of a computable lower bound is progress, but the sharp characterization of c remains open.
 
 ### For the Empirical Predictions
 
-All ten predictions in A.16 can now be stated quantitatively:
+The drift-sensitive predictions in A.16 can now be parameterized quantitatively, though not all at the same level of rigor:
 
 - **Prediction 1** (boundary conditions): The conditional entropy H(m′|m) decreases at rate ≥ k · f(κ̄, ᾱ) per characteristic time.
 - **Prediction 8** (dissipative aging): The mode count N(m) decreases at rate bounded by the drift rate formula, with the coupling strength identifiable from the system's Jacobian.
 - **Prediction 9** (regulatory network aging): The frozen component fraction f(t) increases at rate bounded by the drift rate, with κ̄ measurable from the network's adjacency matrix.
-- **Prediction 10** (drift rate universality): The normalized drift rate γ = |ΔH|/(k · τ_char) is now predicted to lie in the interval [f(κ̄_min, ᾱ_min), f(κ̄_max, ᾱ_max)], bounded from below by the non-Gaussian bound.
+- **Prediction 10** (drift rate universality): The normalized drift rate γ = |ΔH|/(k · τ_char) can now be constrained by the current quantitative template, with sharper interval claims remaining conditional on which non-Gaussian route is adopted.
 
 ---
 

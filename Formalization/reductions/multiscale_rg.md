@@ -195,7 +195,7 @@ This provides a new interpretation of universality: systems in the same class *p
 
 ## A.18.7 Inter-Scale Crystallization Drift
 
-***Theorem A.18.14 (Upward crystallization propagation).*** Let S be a system with a scale tower in which crystallization drift (Theorem 4.17) operates at scale ℓ. Define:
+***Theorem A.18.14 (Upward crystallization propagation).*** Let S be a system with a scale tower in which the core entropy-drift layer of crystallization drift (Theorem 4.17(a)) operates at scale ℓ. Define:
 
 - τ_drift^{(ℓ)}: the characteristic crystallization drift timescale at scale ℓ (the time for H_ℓ to decrease by one unit under the compound self-reinforcing mechanisms at scale ℓ).
 - τ_eq^{(ℓ,ℓ+1)}: the inter-scale equilibration time — the timescale on which changes in scale-ℓ macrostates propagate to changes in scale-(ℓ+1) macrostates.
@@ -214,11 +214,11 @@ where ∂H_{ℓ+1}/∂H_ℓ is the *inter-scale entropy sensitivity* — how muc
 
 *Proof.*
 
-(a) At scale ℓ, the Crystallization Drift Theorem (Theorem 4.17) gives dH_ℓ/dt ≤ 0. Under σ_{ℓ+1}-coherence, the self-reinforcing mechanisms at scale ℓ project onto self-reinforcing mechanisms at scale ℓ+1 (a mechanism that constrains scale-ℓ dynamics also constrains the induced scale-(ℓ+1) dynamics). The scale-(ℓ+1) conditional entropy H_{ℓ+1} depends on the scale-ℓ dynamics. By the chain rule:
+(a) At scale ℓ, assume the CDT core gives dH_ℓ/dt ≤ 0 because the scale-ℓ maintained-pressure hypothesis is satisfied. Under σ_{ℓ+1}-coherence, the self-reinforcing mechanisms at scale ℓ project onto self-reinforcing mechanisms at scale ℓ+1 (a mechanism that constrains scale-ℓ dynamics also constrains the induced scale-(ℓ+1) dynamics). The scale-(ℓ+1) conditional entropy H_{ℓ+1} depends on the scale-ℓ dynamics. By the chain rule:
 
 dH_{ℓ+1}/dt = Σ_i (∂H_{ℓ+1}/∂α_i^{(ℓ)}) · (dα_i^{(ℓ)}/dt)
 
-where {α_i^{(ℓ)}} are the coupling parameters of the scale-ℓ self-reinforcing mechanisms. Since the CDT shows dα_i^{(ℓ)}/dt ≥ 0 (mechanisms strengthen) and ∂H_{ℓ+1}/∂α_i^{(ℓ)} ≤ 0 (stronger mechanisms reduce conditional entropy at all scales), we get dH_{ℓ+1}/dt ≤ 0 with a propagation delay of at most τ_eq^{(ℓ,ℓ+1)}.
+where {α_i^{(ℓ)}} are the coupling parameters of the scale-ℓ self-reinforcing mechanisms. If, in addition, the scale-ℓ maintenance dynamics strengthen or at least do not weaken those effective couplings, so dα_i^{(ℓ)}/dt ≥ 0, and if ∂H_{ℓ+1}/∂α_i^{(ℓ)} ≤ 0 (stronger mechanisms reduce conditional entropy at all scales), then dH_{ℓ+1}/dt ≤ 0 with a propagation delay of at most τ_eq^{(ℓ,ℓ+1)}.
 
 (b) Direct application of the chain rule.
 
@@ -242,7 +242,7 @@ where {α_i^{(ℓ)}} are the coupling parameters of the scale-ℓ self-reinforci
 
 Therefore, sustained multi-scale persistence requires either a perturbation source whose influence spans multiple scales, or independent anti-crystallization mechanisms at each scale.
 
-*Proof.* Follows from the upward propagation theorem (A.18.14) run in reverse: to *undo* crystallization drift at scale ℓ+1, one must undo the scale-ℓ crystallization that drives it. But the critical perturbation threshold at scale ℓ, ε*_ℓ(t), is (by Corollary 4.21) monotonically non-decreasing in time. Furthermore, the perturbation must propagate through σ_{ℓ+1}, which generically attenuates it (the coarse-graining map is many-to-one, so a perturbation at scale ℓ affects only one of many fine-grained degrees of freedom contributing to a scale-(ℓ+1) macrostate). Effective anti-crystallization at scale ℓ+1 therefore requires perturbation in excess of what single-scale anti-crystallization provides. ■
+*Proof.* Follows from the upward propagation theorem (A.18.14) run in reverse: to *undo* crystallization drift at scale ℓ+1, one must undo the scale-ℓ crystallization that drives it. If the scale-wise analogue of Corollary 4.21 applies, then the critical perturbation threshold at scale ℓ, ε*_ℓ(t), is monotonically non-decreasing in time. Furthermore, the perturbation must propagate through σ_{ℓ+1}, which generically attenuates it (the coarse-graining map is many-to-one, so a perturbation at scale ℓ affects only one of many fine-grained degrees of freedom contributing to a scale-(ℓ+1) macrostate). Effective anti-crystallization at scale ℓ+1 therefore requires perturbation in excess of what single-scale anti-crystallization provides. ■
 
 ***Remark A.18.17 (Natural multi-scale perturbation sources).*** In practice, multi-scale anti-crystallization is provided by:
 

@@ -192,7 +192,7 @@ The five formal reductions (A.11–A.15) yield predictions that are novel to the
 
 ### **A.16.9.3 Prediction 10: Cross-Domain Drift Rate Universality**
 
-**Prediction 10 (Drift Rate Universality). **If the crystallization drift is a universal consequence of self-reinforcing mechanisms (Theorem 4.19), then the *normalized* drift rate—the rate of conditional entropy decrease per self-reinforcing mechanism per characteristic time—should be of the same order across domains. Define the normalized drift rate:
+**Prediction 10 (Drift Rate Universality). **If the common CDT template recovered by the current formal reductions is quantitatively real and not merely qualitative, then the *normalized* drift rate—the rate of conditional entropy decrease per self-reinforcing mechanism per characteristic time—should be of the same order across the five currently operationalized reduced domains. Define the normalized drift rate:
 
 γ = |ΔH(m′ | m)| / (k · τchar)
 
@@ -200,7 +200,7 @@ where k is the number of identified self-reinforcing mechanisms and τchar is th
 
 **Protocol: **Measure the conditional entropy decrease rate in each of the five domains using domain-appropriate metrics (N(m) for Prigogine, f(t) for Kauffman, policy entropy for Friston, redundancy Rδ for Zurek, strategy entropy for Bergstrom–Lachmann). Normalize by mechanism count and characteristic time. Compare the resulting γ values.
 
-**Statistical test: **Coefficient of variation (CV) of log(γ) across domains. The ACP predicts CV < 1 (values cluster within a few orders of magnitude). The null hypothesis (domain-specific dynamics with no universal drift) predicts CV ≫ 1. This is the most ambitious prediction—it would, if confirmed, provide the strongest evidence for ACP as a genuine universal law rather than a collection of analogies.
+**Statistical test: **Coefficient of variation (CV) of log(γ) across domains. The ACP predicts CV < 1 (values cluster within a few orders of magnitude). The null hypothesis (domain-specific dynamics with no shared normalized drift template) predicts CV ≫ 1. This is the most ambitious prediction—it would, if confirmed, provide the strongest evidence that the reduced cases share one recurring drift law rather than only a loose family of structural parallels.
 
 ## **A.16.10 Summary of Predictions and Protocols**
 
@@ -219,17 +219,59 @@ where k is the number of identified self-reinforcing mechanisms and τchar is th
 
 ## **A.16.11 Discussion**
 
-The ten predictions range from immediately tractable (Predictions 3, 8, 9—achievable with existing simulation and experimental infrastructure) to deeply ambitious (Prediction 10—requiring coordinated measurement across five domains spanning quantum to institutional scales). We recommend the following priority ordering for initial empirical investigation:
+The ten predictions range from immediately tractable (Predictions 3, 8, 9—achievable with existing simulation or standard experimental infrastructure) to deeply ambitious (Prediction 10—requiring coordinated measurement across five domains spanning quantum to institutional scales). We recommend the following priority ordering for initial empirical investigation.
 
-**Tier 1 (immediate, computational): **Predictions 8 and 9 (dissipative and regulatory network aging) can be tested entirely in silico with existing simulation frameworks. Prediction 5 in the Kauffman domain (success–crystallization coupling in Boolean networks) is similarly accessible. These provide the fastest path to initial empirical evidence.
+To make the tier language operational rather than rhetorical, we define the tiers by the *cheapest decisive falsification path* for the prediction:
 
-**Tier 2 (near-term, observational): **Predictions 1 and 6 (boundary symmetry and crystallization early warning signals) can be tested using existing empirical databases (PBDB, Compustat, V-Dem). These require careful operationalization of the crystallization/dissolution classification but no new data collection.
+**Tier 1 (immediate, computational).** A closed in silico experiment suffices. All state variables, interventions, and readouts are generated inside the simulator; the ACP observable is computed directly from the simulated trajectory; the null can be implemented in the same codebase by removing or freezing the candidate self-reinforcing mechanism; and a workstation-scale parameter sweep is enough to determine the sign of the effect.
 
-**Tier 3 (medium-term, experimental): **Predictions 2 and 3 (dual critical slowing down and perturbation absorption scaling) require controlled experiments in the Prigogine domain (Bénard cells, BZ reactions). These are feasible with standard nonlinear dynamics laboratory equipment.
+**Tier 2 (near-term, observational).** Existing empirical datasets suffice, but the ACP observables must be recovered indirectly through operational proxies, labeling rules, or event classification. No new laboratory apparatus is required, but the main difficulty is measurement design rather than simulation design.
 
-**Tier 4 (long-term, coordinated): **Predictions 4, 7, and 10 (voluntary restraint, reformation timescale, and drift rate universality) require extensive cross-domain data collection and coordination. Prediction 10 in particular is a grand challenge—but its confirmation would constitute the strongest possible evidence for the ACP as a universal law.
+**Tier 3 (medium-term, experimental).** A decisive test requires new controlled physical experiments in which the perturbation protocol or boundary conditions are actively imposed. Existing data are insufficient because the relevant ACP quantities are intervention-defined.
 
-A negative result on any single prediction would not falsify the ACP framework as a whole, since each prediction draws on different aspects of the theory. However, a systematic failure across multiple predictions—especially Predictions 1 and 5, which follow most directly from the core theorem—would constitute strong evidence against the framework. The most decisive test is Prediction 10: if normalized drift rates across domains differ by many orders of magnitude, the ACP’s claim to universality would be substantially undermined.
+**Tier 4 (long-term, coordinated).** The test requires cross-domain measurement programs, long historical curation, or coordinated data collection across multiple communities. The difficulty is organizational and comparative, not only computational.
+
+Under this definition, the immediate Tier-1 targets in v10 are specifically **Prediction 8 (Dissipative Aging, A.16.9.1)** and **Prediction 9 (Regulatory Network Aging, A.16.9.2)**. Prediction 5 in the Kauffman domain remains a natural extension once the Prediction 9 simulator exists, but it is not required for the first pass.
+
+### **A.16.11.1 First-pass Tier-1 objective**
+
+The first Tier-1 pass should aim at **directional falsification** of the CDT's monotone-drift claim in the two domains where the bridge variables are already explicit: accessible dissipative mode count $N(m)$ in the Prigogine reduction and frozen component fraction $f(t)$ in the Kauffman reduction. The goal of the first pass is not full domain realism. It is to build the cheapest simulation object that still contains the specific self-reinforcing mechanism identified in A.14.5 or A.15.5 and then ask whether the ACP-predicted monotone drift appears.
+
+### **A.16.11.2 Prediction 9: minimal computational pipeline**
+
+For Prediction 9, the bridge variable is already operational in a standard evolutionary Boolean-network model, so the first pass can be close to the appendix protocol:
+
+(i) **Model class.** Use an ensemble of random Boolean networks evolved under a fixed target Boolean function, with network size $N$ and connectivity $K$ held fixed within a run and initial bias chosen near the critical surface so that the starting ensemble lies inside the productive interval rather than already deep in the ordered regime.
+
+(ii) **Selection rule.** Evolve each population until the target function is achieved to a high threshold (e.g. fitness at or above the appendix's 0.99 benchmark), then continue selection with the target and fitness rule unchanged for a long post-optimality window. This isolates crystallization drift after overt optimization has effectively saturated.
+
+(iii) **Primary observables.** Record $f(t)$ each generation, together with $\lambda(t)$ and a simple attractor-diversity statistic as secondary readouts. The ACP's primary prediction is positive post-optimal drift in $f(t)$; the expected companion signal is non-increasing $\lambda(t)$.
+
+(iv) **Primary statistic.** For each replicate, fit the slope of $f(t)$ over the post-optimality window. The main test is whether the median slope is positive and whether the fraction of positive-slope runs is substantially above a matched null.
+
+(v) **Null controls.** The minimal null is a post-threshold control where retention is neutral among fitness-equivalent networks, so that function is preserved but continued selection for dynamical stability is removed. A second useful null is mutation-only drift with no selective retention.
+
+(vi) **Pass/fail criterion.** The Tier-1 pass counts as supportive if post-optimal $f(t)$ continues to rise in a clear majority of runs and the effect exceeds the null controls. It counts as a directional failure if $f(t)$ plateaus immediately after threshold in both the selected and null ensembles.
+
+### **A.16.11.3 Prediction 8: minimal computational pipeline**
+
+Prediction 8 needs one modeling caution. A bare fixed-coefficient Bénard or reaction-diffusion solver with no slow state variable for pathway reinforcement would test only transient mode selection, not the A.14.5 claim that *successful dissipative pathways rigidify under continued operation*. The minimal Tier-1 object should therefore be an ACP-informed reduced simulator rather than a full laboratory-fidelity fluid code.
+
+(i) **Model class.** Use a reduced mode-competition system with amplitudes for a finite family of candidate dissipative modes under constant drive, together with a slow reinforcement variable that increases when a mode remains active and feeds back by stabilizing the occupied pathway relative to its competitors. This slow reinforcement field is the computational proxy for the pathway accumulation described in Proposition A.14.5.
+
+(ii) **Operational observable.** Define the accessible mode count not as an abstract theoretical $N(m)$ but as a probe-based quantity $N_\epsilon(t)$: the number of distinct post-perturbation modes reachable from the current state at age $t$ under a fixed library of equal-magnitude kicks.
+
+(iii) **Protocol.** Run the system under constant boundary conditions. At probe ages $t_1 < \cdots < t_J$, clone the state into many replicas, apply the same perturbation library to the replicas, relax each replica, cluster the resulting macroscopic patterns, and count the number of distinct recovered modes. In parallel, estimate $\epsilon^*(t_j)$ by finding the smallest perturbation magnitude that reliably ejects the system from its incumbent mode.
+
+(iv) **Primary statistics.** The ACP predicts that $N_\epsilon(t)$ is non-increasing with age and typically strictly decreasing, while $\epsilon^*(t)$ is non-decreasing. The first is the direct test of dissipative aging; the second is the perturbation-threshold companion predicted in A.14.5(d).
+
+(v) **Null control.** Freeze or remove the slow reinforcement update while leaving the fast mode dynamics unchanged. Under that null, the post-transient accessible-mode count should be stationary up to sampling noise. This creates the cleanest same-codebase falsification test.
+
+(vi) **Pass/fail criterion.** The Tier-1 pass counts as supportive if the reinforced model shows declining $N_\epsilon(t)$ and rising $\epsilon^*(t)$ relative to the no-reinforcement null. It counts as a directional failure if both quantities remain stationary once initial transients are excluded.
+
+In implementation order, Prediction 9 should be built first because its simulator is the most direct transcription of A.15. Prediction 8 should follow immediately after, but its first computational pass should be treated as an ACP-informed reduced model of pathway rigidification rather than as a surrogate for the full Tier-3 Bénard experiment.
+
+A negative result on any single prediction would not falsify the ACP framework as a whole, since each prediction draws on different aspects of the theory. However, a systematic failure across multiple predictions—especially Predictions 1 and 5, which follow most directly from the core theorem—would constitute strong evidence against the framework. The most decisive test is Prediction 10: if normalized drift rates across domains differ by many orders of magnitude, the ACP's broader recurring-law claim would need to be narrowed to a more local or qualitative statement.
 
 **Relationship to OP2. **Resolution of OP2 (non-Gaussian bounds) would enable quantitative predictions of drift rates, perturbation thresholds, and early warning signal lead times that are currently stated only qualitatively or in terms of scaling relations. The predictions stated here are deliberately structured to be testable even without OP2—using scaling relations, rank orderings, and qualitative trends rather than absolute magnitudes. OP2 resolution would upgrade each prediction from ‘directional’ to ‘quantitative.’
 

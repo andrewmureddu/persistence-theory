@@ -1,6 +1,6 @@
 # STATUS
 
-**Last updated:** 2026-04-20
+**Last updated:** 2026-04-22
 **Active paper:** `paper/acp_main_v10.md` (internal masthead: "WORKING DRAFT — v0.9")
 **Active special-cases catalog:** `special_cases/acp_special_cases_v03.md`
 **Active integrity audit:** `audits/integrity_audit_v10.md`
@@ -11,23 +11,28 @@
 
 v10 includes, relative to what `memory.md` (legacy) describes as the v09 state:
 
-- **A.20 Restraint-Power Theorem** + **Heisenberg uncertainty principle as the quantum-scale instantiation** of the coordination floor for a two-MASA operator-algebra partition. This is a substantial new result not reflected in the legacy memory file.
+- **A.20 Restraint-Power Theorem** + **Heisenberg uncertainty principle as the quantum-scale instantiation** of the coordination floor for a two-MASA operator-algebra partition, with the coordination-conservation premise now stated explicitly on kernel-preserving mechanism-preserving transformations.
 - The Price / Fisher reduction (A.19) is fully integrated.
 - Ten testable predictions are stated with experimental protocols and falsification criteria (Section 6 + Appendix A.16).
-- Quantitative lower bounds on the drift rate for non-Gaussian systems (A.17).
+- A partial quantitative lower-bound program for the drift rate in non-Gaussian systems (A.17): the maximal-correlation route is the strongest current generic template, while the sharper copula/cumulant routes remain partly conditional.
+- Bibliography policy is now explicit: `paper/acp_main_v10.md` carries a shared references list for the main paper plus the externally stored appendix documents cited throughout it.
+- A second-pass research-positioning synthesis now distinguishes formal reductions already proved in-repo from merely adjacent structural neighbors, especially for the CDT and the restraint-power / visibility package.
+- Prediction 10 is now framed as the decisive shared drift-template test across the currently operationalized reduced domains, rather than as a blanket universality forecast.
+
+Best current reading of the overall claim: (i) the productive-interval geometry is theorem-level in six explicit reductions; (ii) the CDT's core entropy-drift theorem is the principal new result, with the stronger load / basin / asymptotic package still dependent on the maintenance and generic-closure problems tracked in `OPEN_PROBLEMS.md`; and (iii) restraint-power plus vulnerable-margin are currently supported by a disciplined structural-neighbor map and empirical program, not yet by the same kind of completed cross-domain reduction stack.
 
 The full result inventory, as of v10 plus current standalone appendix drafts:
 
 | # | Result | Where |
 |---|---|---|
-| 1–5 | Core proof chain (ACP statement, CDT, compounding lemma, Claim A.3 interventional, induction to k mechanisms) | `paper/` + `proofs/` |
+| 1–5 | Core proof chain (ACP statement, CDT core entropy theorem, compounding lemma, Claim A.3 interventional, induction to k mechanisms with Gaussian-strongest / generic-conditional split) | `paper/` + `proofs/` |
 | 6–10 | A.11–A.15: five reductions (Friston, Zurek, Bergstrom–Lachmann, Prigogine, Kauffman) | `reductions/` |
-| 11 | A.16 empirical predictions (10 predictions, 3 novel from unification) | `bridges/empirical_predictions.md` |
-| 12 | A.17 non-Gaussian bounds (non-Gaussian systems crystallize *faster* than Gaussian — Gaussian is the conservative lower bound) | `bridges/non_gaussian_bounds.md` |
+| 11 | A.16 empirical predictions (10 predictions, 3 novel from unification, now with operational tier definitions and first-pass Tier-1 simulation scope for Predictions 8 and 9) | `bridges/empirical_predictions.md` |
+| 12 | A.17 non-Gaussian quantitative program (strongest current generic route via maximal correlation / reinforcement strength; sharper Gaussian-copula and cumulant routes still partly conditional) | `bridges/non_gaussian_bounds.md` |
 | 13 | A.18 multiscale RG (C/D asymmetry, productive interval as RG-invariant subset) | `reductions/multiscale_rg.md` |
 | 14 | A.19 Price / Fisher (selection = crystallization drift; Fisher's theorem = CDT applied to fitness space) | `reductions/price_equation.md` |
-| 15 | A.20 Restraint-Power + Coordination Conservation; Heisenberg as special case | `bridges/restraint_power.md` + `bridges/syndrome_coordination.md` + `bridges/coordination_neutrality.md` |
-| 16 | Schur complement bridge — four identifications unifying thermodynamic (ACP) and algebraic (Schur) registers; proposes Heisenberg derivation (now delivered by A.20) | `bridges/schur_complement.md` |
+| 15 | A.20 Restraint-Power + Coordination Conservation under kernel-preserving transformations; Heisenberg as special case | `bridges/restraint_power.md` + `bridges/syndrome_coordination.md` + `bridges/coordination_neutrality.md` |
+| 16 | Schur complement bridge — four identifications unifying thermodynamic (ACP) and algebraic (Schur) registers; Heisenberg connection now reconciled with A.20 so the residual open piece is the stronger CCR / operator-algebra derivation | `bridges/schur_complement.md` |
 | 17 | A.21 draft meta-theoretic coherence — generativity as the anti-crystallization condition for theory evolution; quartet inquiry floor; ACP self-application | `proofs/meta_theoretic_coherence_theorem.md` |
 | 18 | Valuation / arithmetic bridge — ratio operator on $\mathbb{Q}_{>0}^{\times}$ lifts exactly to the prime-valuation lattice, giving an additive arithmetic shadow of coordination-neutrality | `bridges/valuation_cocycle_bridge.md` |
 | 19 | Unique-factorization rigidity for arithmetic shadows — on free arithmetic state spaces, any additive shadow whose one-variable coordinate respects orthogonal-support additivity and prime-ray additivity is forced to be valuation-type | `bridges/valuation_cocycle_bridge.md` |
@@ -36,11 +41,11 @@ The full result inventory, as of v10 plus current standalone appendix drafts:
 
 ## Active fronts
 
-**1. Bibliography / submission packaging cleanup.** The v10 integrity audit is now complete and the paper-level inconsistencies it found have been corrected. The main remaining manuscript-state issue is bibliography policy: decide whether `paper/acp_main_v10.md` carries a paper-only reference list or a shared bibliography for the paper plus external appendix documents. *(Priority: medium; important for submission packaging, but no longer blocking formal integrity.)*
+**1. Prediction 9 aligned confirmation after helper-default fix.** A methodological issue surfaced in the calibration tooling: `simulations/prediction9_calibration_sweep.py` had drifted away from the direct simulator's defaults (`settle_steps`, `attractor_steps`, `derrida_samples`, `max_generations`, `post_optimal_generations`), so helper-driven rankings and direct runs were not fully comparable. The defaults are now unified and both tools write explicit config snapshots. Under the aligned settings, the lead candidate `(fitness_threshold = 0.85, population_size = 28, stability_weight = 0.2)` remains positive but modest: the aligned eight-replicate rerun gave slope gap `~0.00337` and positive-fraction gap `~0.61`, while a larger aligned sixteen-replicate direct rerun reduced that to slope gap `~0.00149` and positive-fraction gap `~0.36`. The previously tracked backup `(0.85, 24, 0.4)` is now effectively flat / slightly negative in the aligned check (`slope gap ~-2.7e-4`). The next step is therefore not a broader grid search but one more larger aligned confirmation run on `(0.85, 28, 0.2)`, followed by proxy refinement if the effect keeps shrinking with sample size. *(Priority: medium — still the fastest route to concrete empirical traction, now on firmer methodological footing.)*
 
-**2. Tier-1 computational tests for Predictions 8 and 9.** Named in legacy memory as on-the-horizon work. Need scoping: which empirical predictions in `bridges/empirical_predictions.md` are Tier-1 and what does "Tier-1" mean precisely? *(Priority: medium — not blocking, but a credibility multiplier if done.)*
+**2. Prediction 8 reduced simulator + calibration.** The first reduced Tier-1 simulator now exists at `simulations/prediction8_dissipative_modes.py`. It implements the scoped same-codebase comparison between a `reinforced` regime and a `no_reinforcement` null, uses a slow reinforcement field plus fast mode competition, and reads out both probe-based accessible mode count $N_\epsilon(t)$ and perturbation threshold estimate $\epsilon^*(t)$. The current paired-seed smoke settings produce the intended directional contrast: the reinforced regime contracts from mean accessible-mode count `5.0` to `1.0` with mean slope `~-0.23`, while the null stays flat at `5.0` with mean slope `0.0`; the reinforced $\epsilon^*(t)$ slope is also positive while the null is essentially stationary. The next step is a broader calibration sweep over kick magnitudes, drive asymmetry, and reinforcement strength to see how robust that contrast is away from the tuned pilot defaults. *(Priority: medium — now concrete and ready for parameter sweeps rather than design work.)*
 
-**3. Journal selection.** Not yet decided. Candidates depend on whether we pitch the paper as (a) a thermodynamic first-principles paper (PRE, J. Stat. Phys.), (b) a unification across disciplines (Physics Reports, Reviews of Modern Physics), or (c) an information-theoretic paper (IEEE TIT, Entropy). This is a strategic call I should make once the v10 audit is clean. *(Priority: medium.)*
+**3. Journal selection.** Not yet decided. Candidates depend on whether we pitch the paper as (a) a thermodynamic first-principles paper (PRE, J. Stat. Phys.), (b) a unification across disciplines (Physics Reports, Reviews of Modern Physics), or (c) an information-theoretic paper (IEEE TIT, Entropy). This is a strategic call I should make once the v10 audit is clean, the bibliography policy is explicit, and the Tier-1 pilot runs are in hand. *(Priority: medium.)*
 
 **4. Heisenberg / A.20 consequences.** If A.20 genuinely recovers Heisenberg as a special case of the coordination floor, there is a large downstream program: are there other canonical commutation relations recoverable? Is A.20 compatible with the Robertson bound's tightness conditions? Does it extend to infinite-dimensional MASAs? *(Priority: exploratory; open problem territory.)*
 
@@ -52,13 +57,64 @@ The full result inventory, as of v10 plus current standalone appendix drafts:
 
 Canonical tracker: `OPEN_PROBLEMS.md`. Headline items:
 
-- **OP-1: Quantitative erosion constant** (named "OP-new-2" in legacy memory). Channel Erosion (A.10) gives the rate is positive; we don't have a sharp numerical bound in general.
+- **OP-1: Quantitative erosion constant** (named "OP-new-2" in legacy memory). Channel Erosion (A.10) gives the rate is positive, and A.17 now supplies a computable lower-bound route, but we still do not have a sharp numerical characterization in general.
 - **OP-2: Coherence crisis transient dynamics.** What happens *during* the regime change when one mechanism erodes another?
-- **OP-3 through OP-6: Schur complement bridge open problems.** Four listed at the bottom of `bridges/schur_complement.md`, including the original Heisenberg derivation (partly answered by A.20 — needs reconciliation).
+- **OP-3 through OP-5: Schur complement bridge open problems.** Three listed at the bottom of `bridges/schur_complement.md`. The old Heisenberg reconciliation item (OP-6) is now closed: A.20 settles the structural uncertainty-floor question, and the stronger residual operator-algebra problem is tracked as OP-RP-5 in `bridges/restraint_power.md`.
 - **OP-7: Coordination neutrality under tree composition.** Named in `bridges/coordination_neutrality.md`. The bridge family (exp / log operators — cf. Odrzywolek's eml in `references/`) is CN pairwise but may fail joint-inversion invariance under composition.
 - **OP-15: Arithmetic shadows of coordination-neutral operators.** Now partial from `bridges/valuation_cocycle_bridge.md`: the entire smooth finite-dimensional real-target case collapses to ratio-up-to-reparameterization, and the free-arithmetic valuation-type discrete case collapses to weighted prime-valuation shadows. The open part is the genuinely non-valuation discrete/infinite-rank case.
+- **OP-16: Maintenance lemma / net reinforcement pressure.** The core entropy form of the CDT is isolated, but the stronger load / basin / asymptotic package still needs the missing lemma upgrading Lemma 4.14's fraction monotonicity to sustained reinforcement pressure or monotone load growth.
+- **OP-17: Generic k-mechanism closure under intersection.** Appendix A.9 is now honest about its closure hypotheses; what remains is to derive those hypotheses generically rather than assume them outside the Gaussian branch.
+- **OP-18: Mechanism-preserving vs kernel-preserving conservation.** Appendix A.20 now states the exact premise it uses. The residual question is whether the weaker physical notion of "mechanism-preserving" implies the kernel-preserving automorphism condition in useful generality.
 
 ## Changelog
+
+### 2026-04-22 — Prediction 9 helper/default alignment
+- Found a methodological mismatch in the empirical tooling: `simulations/prediction9_calibration_sweep.py` had diverged from `simulations/prediction9_boolean_network.py` on several hidden simulation defaults, so helper-driven calibration results were not directly comparable to direct simulator runs.
+- Centralized the canonical Prediction 9 defaults inside `simulations/prediction9_boolean_network.py` and made the sweep helper inherit them rather than maintaining a stale copy.
+- Added explicit output-side provenance files: `simulation_config.json` for direct simulator runs and `sweep_parameters.json` for sweep runs.
+- Verified the fix by rerunning the lead configuration through both entry points and confirming they now agree numerically on the same slope-gap summary.
+- Ran one larger aligned direct confirmation at `16` replicates for `(0.85, 28, 0.2)`. The lead remained positive but attenuated, with mean slope gap `~0.00149` and positive-fraction gap `~0.36`, so the live question is now stability under further replication rather than helper/direct comparability.
+- Session log: `sessions/2026-04-22_prediction9_alignment.md`.
+
+### 2026-04-22 — tracker refresh after conversation review
+- Reviewed the recent `sessions/` logs against `STATUS.md` and `memory.md` to make sure the continuity layer still matches the actual project conversations.
+- Added the missing continuity note for the 2026-04-22 overall-claim rigor pass, including the narrower Prediction 10 framing.
+- Refreshed `memory.md` with a brief live addendum while preserving the pre-migration legacy snapshot below for audit.
+- Session log: `sessions/2026-04-22_tracker_refresh.md`.
+
+### 2026-04-22 — overall-claim rigor pass
+- Tightened `paper/acp_main_v10.md` so the top-level claim is now stated in three layers: six explicit productive-interval reductions, the CDT core entropy-drift theorem as the principal new theorem, and restraint-power / vulnerable-margin as the broader comparative and empirical program.
+- Softened local overextensions in the Zurek and Bergstrom-Lachmann reductions so the "What the ACP adds" language no longer implies theorem-level reduction where the project currently has only disciplined structural adjacency.
+- Recast Prediction 10 in `paper/acp_main_v10.md` and `bridges/empirical_predictions.md` as the decisive test of a shared normalized drift template across the currently operationalized reduced domains, rather than as a blanket universality forecast.
+- Session log: `sessions/2026-04-22_overall_claim_rigor.md`.
+
+### 2026-04-22 — Prediction 8 simulator scaffold
+- Added `simulations/prediction8_dissipative_modes.py`, a pure-Python reduced dissipative-mode competition simulator for the Tier-1 Prediction 8 program.
+- Implemented two same-codebase regimes: `reinforced` (slow pathway reinforcement active) and `no_reinforcement` (slow field frozen), with paired seeds so both branches start from the same settled pre-aging state.
+- Implemented the appendix's intended observables directly: probe-based accessible mode count `N_epsilon(t)` from a fixed kick library, plus a lower-bound estimate of the perturbation threshold `epsilon*(t)`.
+- Updated `simulations/README.md` to document the new simulator and its output files.
+- Verified the code path with `python3 -m py_compile` and a four-replicate smoke pilot. Under the current defaults, the reinforced regime shows declining `N_epsilon(t)` and rising `epsilon*(t)`, while the null remains effectively stationary.
+- Session log: `sessions/2026-04-22_prediction8_simulator.md`.
+
+### 2026-04-22 — cathedral map / restraint framing
+- Added `sessions/2026-04-22_cathedral_of_restraint.md` to capture the project's current architectural reading: ACP as foundation, restraint as cornerstone, restraint-power / vulnerable-margin as the power geometry, and generativity as the theory-level self-application.
+- Recorded the sharper philosophical-program claim that the ethical implications are not merely downstream commentary: in asymmetric systems, restraint becomes load-bearing wherever persistence depends on keeping the productive interval open.
+- Clarified the current honesty line for this framing: parts of it are already formal in A.20 and A.21, while the downstream semantic-field extension, vulnerable-margin closure, and the full maintenance lemma remain open.
+- Session log: `sessions/2026-04-22_cathedral_of_restraint.md`.
+
+### 2026-04-22 — research synthesis integrated into theorem positioning
+- Used `reductions/restraint_power_literature_scan.md` to recast the CDT and restraint-power writeups in terms of structural-neighbor clusters rather than implying a single pre-existing analog theorem.
+- Tightened `proofs/crystallization_drift_theorem.md` and `paper/acp_main_v10.md` so the CDT now distinguishes formal reductions already carried by the project (notably Kauffman and Friston) from adjacent external literatures that capture only part of the theorem.
+- Tightened `bridges/restraint_power.md` so the appendix now says explicitly that the "strongest goes first" clause and the "visibility / decodability" clause are best supported by different adjacent literatures, and that A.20's distinctiveness is their conjunction under a coordination-floor argument.
+- Session log: `sessions/2026-04-22_research_synthesis_integration.md`.
+
+### 2026-04-21 — reviewer-driven rigor remediation
+- Recast `paper/acp_main_v10.md` so the CDT is presented in two layers: a closed core entropy-drift theorem plus stronger conditional repertoire-geometry consequences.
+- Tightened `proofs/induction_step_k_mechanisms.md` by making the generic intersection-closure hypotheses explicit and downgrading the appendix from "resolved" to "Gaussian-closed / generic-conditional."
+- Tightened `bridges/restraint_power.md` so coordination conservation is stated only for kernel-preserving mechanism-preserving transformations, matching the proof actually given.
+- Reframed `bridges/non_gaussian_bounds.md` as a partial quantitative program rather than a fully resolved non-Gaussian rate theorem.
+- Added new canonical open problems OP-16 through OP-18 to track the newly isolated proof obligations.
+- Session log: `sessions/2026-04-21_review_rigor_remediation.md`.
 
 ### 2026-04-20 — valuation cocycle bridge / arithmetic entry
 - New bridge: `bridges/valuation_cocycle_bridge.md` — opens the number-theoretic entry to the operator program by treating the ratio operator on $\mathbb{Q}_{>0}^{\times}$ as a coordination-neutral baseline with an exact lift to the prime-valuation lattice $\bigoplus_p \mathbb{Z}$.
@@ -110,6 +166,59 @@ Canonical tracker: `OPEN_PROBLEMS.md`. Headline items:
 - Updated `bridges/generativity_criterion.md` so the proved core now points to the A.21 draft while leaving the downstream semantic-field program explicitly open.
 - Resolved the methodological fork formerly tracked as OP-13 by choosing the single-theorem route: a unified A.21-style proof document rather than four disjoint reductions.
 - Session log: `sessions/2026-04-20_meta_theoretic_coherence.md`.
+
+### 2026-04-21 — Heisenberg reconciliation after A.20
+- Reconciled `bridges/schur_complement.md` §6.4 with `bridges/restraint_power.md` A.20.27 / A.20.28.
+- Closed OP-6 in `OPEN_PROBLEMS.md`: A.20 settles the structural question "where does the uncertainty floor live?" by identifying Heisenberg with the coordination floor on a two-MASA partition.
+- Isolated the residual stronger question as the already-existing operator-algebra extension OP-RP-5: derive the commutator / CCR structure itself from the ACP persistence condition `rank(D) > 0`.
+- Session log: `sessions/2026-04-21_heisenberg_reconciliation.md`.
+
+### 2026-04-21 — bibliography policy resolved
+- Made the references scope explicit in `paper/acp_main_v10.md`: the bibliography is shared across the main paper and the externally stored appendix documents cited by it.
+- Closed OP-14 in `OPEN_PROBLEMS.md` by choosing the shared-bibliography policy rather than a brittle paper-only prune.
+- This removes the last manuscript-state ambiguity surfaced by `audits/integrity_audit_v10.md`; remaining fronts are now substantive or strategic rather than packaging-ambiguous.
+- Session log: `sessions/2026-04-21_bibliography_policy.md`.
+
+### 2026-04-21 — Tier-1 computational scope resolved
+- Operationalized the four empirical tiers in `bridges/empirical_predictions.md` by defining them through the cheapest decisive falsification path rather than informal difficulty labels.
+- Closed OP-9 in `OPEN_PROBLEMS.md` by explicitly identifying Predictions 8 and 9 as the Tier-1 targets and specifying first-pass simulation pipelines for both.
+- Recorded the key modeling distinction that Prediction 9 can be tested in a standard evolutionary Boolean-network simulator, whereas Prediction 8's Tier-1 computational object should be a reduced dissipative-mode model with slow reinforcement memory, not a bare fixed-coefficient Bénard solver.
+- Session log: `sessions/2026-04-21_tier1_scope.md`.
+
+### 2026-04-21 — Prediction 9 simulator scaffold
+- Created `simulations/` as the workspace home for empirical prototypes and added `simulations/README.md`.
+- Added `simulations/prediction9_boolean_network.py`, a pure-Python first-pass Tier-1 simulator for regulatory-network aging with three regimes: `selected`, `neutral_post_threshold`, and `mutation_only`.
+- The script writes generation-level metrics plus replicate and aggregate summaries, including post-optimal slope estimates for the frozen component fraction when the target threshold is reached.
+- Verified the code path with a smoke test and a low-threshold pilot run to confirm that the post-optimal branch and slope reporting execute end-to-end.
+- Session log: `sessions/2026-04-21_prediction9_simulator.md`.
+
+### 2026-04-21 — Prediction 9 calibration + score-ranking fix
+- Ran the first calibration sweeps for `simulations/prediction9_boolean_network.py` and used them to compare threshold-reaching fractions and post-optimal `f(t)` slopes across selected and neutral-post-threshold regimes.
+- Found and fixed an implementation bug in the simulator: network ranking was using `(correctness, stability)` and therefore ignoring the weighted `score`, which meant `--stability-weight` had no effect on selection.
+- Tightened the ranking semantics further so `score` is primary and correctness is the only tie-breaker, preventing stability from leaking into the `stability_weight = 0.0` case.
+- Post-fix pilot checks suggest that `fitness_threshold = 0.85`, `population_size = 24`, and `stability_weight = 0.3` are a reasonable provisional operating region, but the replicate-level sign split is still noisy enough that broader sweeps are the next step.
+- Session log: `sessions/2026-04-21_prediction9_calibration.md`.
+
+### 2026-04-21 — Prediction 9 sweep helper + targeted ranked grid
+- Added `simulations/prediction9_calibration_sweep.py`, which runs small calibration grids for Prediction 9 and writes ranked configuration summaries instead of scattered one-off pilot outputs.
+- Updated `simulations/README.md` to document the sweep helper and its output files.
+- Ran the first helper-driven targeted grid over thresholds `0.82, 0.85`, population size `24`, and stability weights `0.2, 0.3`.
+- The best tested configuration in that grid was `threshold = 0.82`, `population = 24`, `weight = 0.2`, but its slope gap was only barely positive (`~5.6e-4`), so no robust operating region has been established yet.
+- Session log: `sessions/2026-04-21_prediction9_sweep_helper.md`.
+
+### 2026-04-21 — Prediction 9 broader ranked sweep
+- Let the larger helper-driven post-fix grid complete over thresholds `0.82, 0.85, 0.88`, population sizes `24, 28`, and stability weights `0.2, 0.3, 0.4`.
+- The strongest tested candidate was `(0.85, 28, 0.4)`, with selected mean post-optimal slope `~0.0552`, neutral mean post-optimal slope `~-0.0025`, and slope gap `~0.0577`.
+- The next-best candidate was `(0.85, 24, 0.2)`, with slope gap `~0.0553` and a small positive positive-fraction gap.
+- This materially improves the calibration picture relative to the earlier targeted grid, but still calls for larger-replicate confirmation before treating either configuration as the new default.
+- Session log: `sessions/2026-04-21_prediction9_ranked_sweep.md`.
+
+### 2026-04-21 — Prediction 9 candidate confirmation
+- Ran a larger-replicate follow-up sweep focused on the four `(threshold = 0.85)` candidates generated by the broader ranked grid: populations `24, 28` crossed with stability weights `0.2, 0.4`.
+- The confirmed best setting in that follow-up was `(0.85, 28, 0.2)`, with slope gap `~0.0077` and positive-fraction gap `~0.30`.
+- `(0.85, 24, 0.4)` remained weakly positive, but `(0.85, 24, 0.2)` and `(0.85, 28, 0.4)` both flipped negative, showing that the earlier four-replicate ranking was materially sample-sensitive.
+- This narrows the live calibration frontier: the project no longer has "many plausible candidates," but one lead configuration plus one weaker backup.
+- Session log: `sessions/2026-04-21_prediction9_candidate_confirm.md`.
 
 ### 2026-04-18 — generativity criterion + incompleteness quartet
 - New essay: `essays/the_incompleteness_quartet.md` — argues Heisenberg, Gödel, Turing, Chaitin share a structural signature (sufficiently-powerful representational systems cannot close over themselves) that is exactly the ACP's crystallization boundary being unreachable.

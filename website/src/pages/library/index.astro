@@ -1,9 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
 import { getLibraryEntries, getSectionList, getSectionEntries } from '../../lib/library';
 
 const sections = getSectionList();
 const allEntries = await getLibraryEntries();
+const heroActions = [
+	{ href: '/library/paper/acp_main_v10', label: 'Open the paper', primary: true },
+	{ href: '/library/essays', label: 'Browse essays' },
+];
 const featuredSections = await Promise.all(
 	sections.map(async (section) => ({
 		...section,
@@ -16,56 +22,39 @@ const featuredSections = await Promise.all(
 	title="Persistence Theory | Library"
 	description="Browse the paper, proofs, reductions, bridges, essays, audits, and session notes from the Persistence Theory workspace."
 >
-	<section class="hero">
-		<div class="hero-copy">
-			<span class="eyebrow">Library</span>
-			<h1>The project corpus, readable on the site.</h1>
-			<p>
-				This library turns the formalization workspace into a browsable reading
-				interface. The source files still live in <code>Formalization/</code>, but the
-				site now exposes them as a navigable corpus instead of a static summary.
-			</p>
+	<PageHero
+		eyebrow="Library"
+		title="The project corpus, readable on the site."
+		asideTitle="How to use it"
+		actions={heroActions}
+		stats={[
+			{ value: `${allEntries.length}`, label: 'Readable documents' },
+			{ value: `${sections.length}`, label: 'Sections in the library' },
+			{ value: 'Live', label: 'Rendered from the workspace source' },
+		]}
+	>
+		<p slot="copy">
+			This library turns the formalization workspace into a browsable reading
+			interface. The source files still live in <code>Formalization/</code>, but the
+			site now exposes them as a navigable corpus instead of a static summary.
+		</p>
 
-			<div class="button-row">
-				<a class="button primary" href="/library/paper/acp_main_v10">Open the paper</a>
-				<a class="button" href="/library/essays">Browse essays</a>
+		<p slot="sidebar">
+			Start with the paper if you want the spine, proofs if you want the theorem
+			chain, reductions if you want the unification argument, and essays if you want
+			the wider philosophical register.
+		</p>
+		<div slot="sidebar" class="dense">
+			<div>
+				<strong>Best entry point</strong>
+				<p>The paper and project docs establish the vocabulary before the deeper branches split.</p>
 			</div>
-
-			<div class="stat-grid">
-				<div class="stat">
-					<strong>{allEntries.length}</strong>
-					<span>Readable documents</span>
-				</div>
-				<div class="stat">
-					<strong>{sections.length}</strong>
-					<span>Sections in the library</span>
-				</div>
-				<div class="stat">
-					<strong>Live</strong>
-					<span>Rendered from the workspace source</span>
-				</div>
+			<div>
+				<strong>Most technical track</strong>
+				<p>Proofs, bridges, and reductions carry the densest formal argument.</p>
 			</div>
 		</div>
-
-		<aside class="hero-panel">
-			<h2>How to use it</h2>
-			<p>
-				Start with the paper if you want the spine, proofs if you want the theorem
-				chain, reductions if you want the unification argument, and essays if you want
-				the wider philosophical register.
-			</p>
-			<div class="dense">
-				<div>
-					<strong>Best entry point</strong>
-					<p>The paper and project docs establish the vocabulary before the deeper branches split.</p>
-				</div>
-				<div>
-					<strong>Most technical track</strong>
-					<p>Proofs, bridges, and reductions carry the densest formal argument.</p>
-				</div>
-			</div>
-		</aside>
-	</section>
+	</PageHero>
 
 	<section class="section">
 		<div class="license-callout">
@@ -81,10 +70,10 @@ const featuredSections = await Promise.all(
 	</section>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Browse by section</span>
-			<h2 class="section-title">A reading surface for the whole program</h2>
-		</div>
+		<SectionHead
+			kicker="Browse by section"
+			title="A reading surface for the whole program"
+		/>
 
 		<div class="card-grid">
 			{

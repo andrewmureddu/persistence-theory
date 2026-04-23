@@ -1,0 +1,76 @@
+---
+interface HeroAction {
+	href: string;
+	label: string;
+	primary?: boolean;
+}
+
+interface HeroStat {
+	value: string;
+	label: string;
+}
+
+interface Props {
+	eyebrow: string;
+	title: string;
+	asideTitle: string;
+	actions?: HeroAction[];
+	stats?: HeroStat[];
+}
+
+const {
+	eyebrow,
+	title,
+	asideTitle,
+	actions = [],
+	stats = [],
+} = Astro.props;
+---
+
+<section class="hero">
+	<div class="hero-copy">
+		<span class="eyebrow">{eyebrow}</span>
+		<h1>{title}</h1>
+		<slot name="copy" />
+
+		{
+			actions.length > 0 && (
+				<div class="button-row">
+					{
+						actions.map((action) => (
+							<a
+								class:list={[
+									'button',
+									{ primary: action.primary },
+								]}
+								href={action.href}
+							>
+								{action.label}
+							</a>
+						))
+					}
+				</div>
+			)
+		}
+
+		{
+			stats.length > 0 && (
+				<div class="stat-grid">
+					{
+						stats.map((stat) => (
+							<div class="stat">
+								<strong>{stat.value}</strong>
+								<span>{stat.label}</span>
+							</div>
+						))
+					}
+				</div>
+			)
+		}
+	</div>
+
+	<aside class="hero-panel">
+		<h2>{asideTitle}</h2>
+		<slot name="sidebar" />
+	</aside>
+</section>

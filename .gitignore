@@ -1,2 +1,6 @@
 .DS_Store
 **/.DS_Store
+agent_handler/*.db
+agent_handler/*.db-shm
+agent_handler/*.db-wal
+agent_handler/.venv/

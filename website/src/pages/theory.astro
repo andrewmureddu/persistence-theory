@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const heroActions = [
+	{ href: '/library/reductions', label: 'Browse the reductions', primary: true },
+	{ href: '/program', label: 'See where the work stands', primary: true },
+	{ href: '/', label: 'Back to the landing page' },
+];
 
 const concepts = [
 	{
@@ -59,50 +67,42 @@ const implications = [
 	title="Persistence Theory | Theory"
 	description="A first-pass theory overview of the Anti-Crystallization Principle, the Crystallization Drift Theorem, and the project’s unification claim."
 >
-	<section class="hero">
-		<div class="hero-copy">
-			<span class="eyebrow">Theory overview</span>
-			<h1>The live conceptual map.</h1>
-			<p>
-				The current paper frames persistence as a structural interval problem.
-				Future-bearing dynamics requires enough organization to resist dispersion and
-				enough openness to resist total closure. The project then asks what drives
-				systems toward each boundary, and why successful persistence so often carries
-				the seed of eventual rigidity.
-			</p>
+	<PageHero
+		eyebrow="Theory overview"
+		title="The live conceptual map."
+		asideTitle="Working draft context"
+		actions={heroActions}
+	>
+		<p slot="copy">
+			The current paper frames persistence as a structural interval problem.
+			Future-bearing dynamics requires enough organization to resist dispersion and
+			enough openness to resist total closure. The project then asks what drives
+			systems toward each boundary, and why successful persistence so often carries
+			the seed of eventual rigidity.
+		</p>
 
-			<div class="button-row">
-				<a class="button primary" href="/library/reductions">Browse the reductions</a>
-				<a class="button primary" href="/program">See where the work stands</a>
-				<a class="button" href="/">Back to the landing page</a>
+		<p slot="sidebar">
+			The current manuscript is the internal v0.9 working draft from April 2026.
+			The site is not yet a paper mirror. It is a public explanation layer built
+			around the manuscript’s present structure.
+		</p>
+		<div slot="sidebar" class="dense">
+			<div>
+				<strong>Theory core</strong>
+				<p>ACP plus CDT, with coherent steering and compounding as the proof spine.</p>
+			</div>
+			<div>
+				<strong>Expansion layer</strong>
+				<p>Reductions, empirical predictions, non-Gaussian bounds, and the coordination floor program.</p>
 			</div>
 		</div>
-
-		<aside class="hero-panel">
-			<h2>Working draft context</h2>
-			<p>
-				The current manuscript is the internal v0.9 working draft from April 2026.
-				The site is not yet a paper mirror. It is a public explanation layer built
-				around the manuscript’s present structure.
-			</p>
-			<div class="dense">
-				<div>
-					<strong>Theory core</strong>
-					<p>ACP plus CDT, with coherent steering and compounding as the proof spine.</p>
-				</div>
-				<div>
-					<strong>Expansion layer</strong>
-					<p>Reductions, empirical predictions, non-Gaussian bounds, and the coordination floor program.</p>
-				</div>
-			</div>
-		</aside>
-	</section>
+	</PageHero>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Statements</span>
-			<h2 class="section-title">Three claims that organize the project</h2>
-		</div>
+		<SectionHead
+			kicker="Statements"
+			title="Three claims that organize the project"
+		/>
 
 		<div class="card-grid">
 			{
@@ -118,10 +118,10 @@ const implications = [
 	</section>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Structure</span>
-			<h2 class="section-title">How the argument moves</h2>
-		</div>
+		<SectionHead
+			kicker="Structure"
+			title="How the argument moves"
+		/>
 
 		<div class="timeline">
 			<article class="timeline-item">
@@ -156,14 +156,11 @@ const implications = [
 	</section>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Reductions</span>
-			<h2 class="section-title">The unification claim</h2>
-			<p class="section-intro">
-				The paper argues that these are not merely neighboring intuitions. They are
-				recoverable as special cases of a single law.
-			</p>
-		</div>
+		<SectionHead
+			kicker="Reductions"
+			title="The unification claim"
+			intro="The paper argues that these are not merely neighboring intuitions. They are recoverable as special cases of a single law."
+		/>
 
 		<div class="split-grid">
 			<article class="callout">
@@ -193,10 +190,10 @@ const implications = [
 	</section>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Implications</span>
-			<h2 class="section-title">What this framework changes</h2>
-		</div>
+		<SectionHead
+			kicker="Implications"
+			title="What this framework changes"
+		/>
 
 		<div class="card-grid">
 			{

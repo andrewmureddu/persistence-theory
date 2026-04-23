@@ -1,52 +1,55 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const heroActions = [
+	{ href: '/library', label: 'Browse the library', primary: true },
+	{
+		href: 'https://github.com/andrewmureddu/persistence-theory/blob/main/LICENSE',
+		label: 'Read the full license',
+	},
+];
 ---
 
 <Layout
 	title="Persistence Theory | CC0"
 	description="This website and repository are offered under CC0 to encourage unrestricted reuse, remixing, adoption, and exploration."
 >
-	<section class="hero">
-		<div class="hero-copy">
-			<span class="eyebrow">CC0</span>
-			<h1>Take the insights. No strings attached.</h1>
-			<p>
-				This project is released under <strong>CC0 1.0</strong> so people can explore,
-				reuse, remix, translate, quote, fork, and build on the work without needing
-				to negotiate permissions first.
-			</p>
+	<PageHero
+		eyebrow="CC0"
+		title="Take the insights. No strings attached."
+		asideTitle="Plain-language intent"
+		actions={heroActions}
+	>
+		<p slot="copy">
+			This project is released under <strong>CC0 1.0</strong> so people can explore,
+			reuse, remix, translate, quote, fork, and build on the work without needing
+			to negotiate permissions first.
+		</p>
 
-			<div class="button-row">
-				<a class="button primary" href="/library">Browse the library</a>
-				<a class="button" href="https://github.com/andrewmureddu/persistence-theory/blob/main/LICENSE">Read the full license</a>
+		<p slot="sidebar">
+			The point is not just legal openness. It is to make the ideas portable. If
+			something here is useful, take it into your own framework, your own project,
+			your own vocabulary, and keep going.
+		</p>
+		<div slot="sidebar" class="dense">
+			<div>
+				<strong>You can</strong>
+				<p>Reuse, adapt, republish, translate, excerpt, commercialize, and build on it.</p>
+			</div>
+			<div>
+				<strong>You do not need</strong>
+				<p>Special permission, bespoke licensing, or a closed loop back to the project.</p>
 			</div>
 		</div>
-
-		<aside class="hero-panel">
-			<h2>Plain-language intent</h2>
-			<p>
-				The point is not just legal openness. It is to make the ideas portable. If
-				something here is useful, take it into your own framework, your own project,
-				your own vocabulary, and keep going.
-			</p>
-			<div class="dense">
-				<div>
-					<strong>You can</strong>
-					<p>Reuse, adapt, republish, translate, excerpt, commercialize, and build on it.</p>
-				</div>
-				<div>
-					<strong>You do not need</strong>
-					<p>Special permission, bespoke licensing, or a closed loop back to the project.</p>
-				</div>
-			</div>
-		</aside>
-	</section>
+	</PageHero>
 
 	<section class="section">
-		<div class="section-head">
-			<span class="section-kicker">Why this matters</span>
-			<h2 class="section-title">The site should invite adoption, not caution.</h2>
-		</div>
+		<SectionHead
+			kicker="Why this matters"
+			title="The site should invite adoption, not caution."
+		/>
 
 		<div class="pillars">
 			<article class="callout">

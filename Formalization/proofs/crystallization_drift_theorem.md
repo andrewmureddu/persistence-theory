@@ -32,13 +32,23 @@ By Definition 4.7, α(R, t) > 0 for all self-reinforcing mechanisms. When α = 0
 
 ## **4.4.2 The Pattern Repertoire and Its Evolution**
 
-**Definition 4.10 (Pattern repertoire). **The *pattern repertoire* of a system S at time t, denoted Ρ(t), is the set of all self-reinforcing mechanisms currently active—that is, the set of all R such that m(t) ∈ R. The *reinforcement load* is |Ρ(t)|, the number of simultaneously active self-reinforcing mechanisms.
+**Definition 4.10 (Active pattern family and self-reinforcing repertoire). **Let A(t) denote the family of organizational patterns currently active in system S at time t, whether or not they are self-reinforcing. The self-reinforcing repertoire, denoted Ρ(t), is the subset of A(t) consisting of the active patterns that satisfy Definition 4.7 at time t. The *reinforcement load* is |Ρ(t)|, the number of simultaneously active self-reinforcing mechanisms. When |A(t)| > 0, write
+
+f_SR(t) = |Ρ(t)| / |A(t)|
+
+for the self-reinforcing fraction.
 
 **Definition 4.11 (Compound reinforcement basin). **For a pattern repertoire Ρ(t) = {R₁, R₂, …, Rₖ}, the *compound reinforcement basin* is the intersection
 
 R̅ = R₁ ∩ R₂ ∩ ⋯ ∩ Rₖ ⊆ M.
 
 This is the set of macrostates simultaneously consistent with all active self-reinforcing mechanisms. As k increases and new mechanisms are added, R̅ can only shrink or remain the same (by the properties of intersection). It cannot grow.
+
+**Definition 4.11a (Net entropy-reducing pressure). **Let Π(t) denote the coarse-grained total entropy-reducing pressure exerted by the active self-reinforcing repertoire. Write
+
+Π(t) = Σ_{R ∈ Ρ(t)} π(R, t) + Ξ(t),
+
+where π(R, t) ≥ 0 is the one-step entropy-reduction contribution attributed to mechanism R, and Ξ(t) ≥ 0 is the coherent superadditive excess contributed by the active interactions when the sign conditions from Appendices A.8-A.10 hold. The exact numerical form of π and Ξ is not fixed here; Π(t) is the bookkeeping functional used by the CDT core. OP-16 asks for dynamical conditions guaranteeing that Π(t) is maintained or increases along unperturbed trajectories.
 
 *Remark 4.12.* The compound reinforcement basin R̅ may be empty, in which case the system cannot simultaneously satisfy all active mechanisms. This is a *coherence crisis*—the system's accumulated commitments are mutually incompatible. In practice, the system resolves this by abandoning one or more mechanisms (releasing a pattern), which is the organizational equivalent of a phase transition. See Section 4.4.5.
 
@@ -58,13 +68,13 @@ That is: the presence of an active self-reinforcing mechanism strictly reduces t
 
 ***Lemma 4.14 (Survivorship selection for self-reinforcement).***
 
-In a system maintained away from the dissolution boundary D, the fraction of self-reinforcing patterns in the pattern repertoire Ρ(t) is monotonically non-decreasing in t.
+In a system maintained away from the dissolution boundary D, the self-reinforcing fraction f_SR(t) = |Ρ(t)| / |A(t)| is monotonically non-decreasing in t.
 
 *Proof sketch.* Consider the population of organizational patterns (transition biases, correlations, routines) active in S at time t. Partition these into self-reinforcing (those satisfying Definition 4.7 with α > 0) and non-self-reinforcing (α ≤ 0). Non-self-reinforcing patterns, by definition, have no occupancy advantage—their persistence probability from inside the basin does not exceed their entry probability from outside. In a noisy environment (Axiom 3), such patterns decay at a rate determined by the noise level.
 
 Self-reinforcing patterns, by contrast, resist decay: their occupancy advantage α > 0 means perturbations that push the system out of R are counteracted by the bias toward re-entry. The expected lifetime of a self-reinforcing pattern exceeds that of a neutral pattern by a factor that grows with α.
 
-Therefore, at each moment, the system loses non-self-reinforcing patterns faster than it loses self-reinforcing ones. The composition of Ρ(t) shifts monotonically toward self-reinforcing patterns. This is a selection argument: the environment (including the system's own dynamics) selects for patterns that resist displacement. The patterns that resist displacement are, by definition, the self-reinforcing ones. ■
+Therefore, at each moment, the system loses non-self-reinforcing patterns faster than it loses self-reinforcing ones. The composition of A(t) shifts monotonically toward the self-reinforcing subset Ρ(t). This is a selection argument: the environment (including the system's own dynamics) selects for patterns that resist displacement. The patterns that resist displacement are, by definition, the self-reinforcing ones. ■
 
 *Remark 4.15.* This is formally analogous to natural selection acting on replicators with differential fitness. The self-reinforcing patterns are the fit variants; the non-self-reinforcing patterns are the unfit ones. The selection pressure is provided by the system's own noisy dynamics. The result—progressive enrichment of the population for self-reinforcing elements—follows from the same mathematics (Price equation) that describes biological selection.
 
@@ -84,7 +94,7 @@ In Arthur's formulation (1989), this appears as the compounding of increasing re
 
 ***Lemma 4.17 (No endogenous reversal).***
 
-A system whose pattern repertoire Ρ(t) consists entirely of self-reinforcing mechanisms has no endogenous mechanism to increase its conditional macrostate entropy. That is: if every active pattern is self-reinforcing, then
+A system whose active pattern family A(t) coincides with its self-reinforcing repertoire Ρ(t) has no endogenous mechanism to increase its conditional macrostate entropy. That is: if every active pattern is self-reinforcing, then
 
 H(m(t+Δt) | m(t)) ≤ H(m(t) | m(t−Δt))
 
@@ -96,35 +106,51 @@ This is the formal sense in which the crystallization boundary is absorbing for 
 
 *Remark 4.18.* This lemma is the organizational analogue of Lemma 4.1 (dissolution is absorbing). There, the second law prevents an isolated system from spontaneously leaving equilibrium. Here, the self-reinforcement dynamics prevent a fully reinforced system from spontaneously increasing its conditional entropy. The parallel is precise: both are absorbing conditions from which no internal mechanism provides escape.
 
+## **4.4.3a Dependency Map for Theorem 4.19**
+
+The current proof obligations split into two layers.
+
+`Core drift layer.` The main content of the CDT is part (a): monotone non-increase of conditional macrostate entropy. To obtain this, the present file needs three ingredients: (i) active self-reinforcing mechanisms reduce conditional entropy (Lemma 4.13), (ii) interacting mechanisms compound with non-negative superadditive excess (Lemma 4.16 together with Appendices A.8-A.10), and (iii) the net entropy-reducing pressure Π(t) of Definition 4.11a does not decrease along the unperturbed trajectory. Ingredient (iii) is the main remaining closure step at the level of this document.
+
+`Repertoire-geometry layer.` Parts (b)-(d) are stronger than the entropy statement. Part (b) requires a dynamical birth-death or replenishment lemma for active mechanisms; Lemma 4.14 alone only gives monotone increase in the self-reinforcing fraction f_SR(t), not in the total reinforcement load. Part (c) then follows from Definition 4.11 once part (b) is available. Part (d) requires part (a), Lemma 4.17, and a characterization of when coherence crisis is absent or resolves without increasing conditional entropy.
+
+This split matters because the universal content of the CDT sits in the entropy-drift claim itself. The repertoire-accumulation claims should not be allowed to hide a stronger dynamical assumption than the text has actually proved.
+
 ## **4.4.4 The Crystallization Drift Theorem**
 
 **Theorem 4.19 (Crystallization Drift). **Let S = (Ω, σ, T, μ) be a system satisfying Axioms 1–3 that maintains itself away from the dissolution boundary D through self-reinforcing mechanisms (i.e., the system's resistance to dissolution is mediated by a non-empty pattern repertoire Ρ(t)). Then, in the absence of external perturbation of magnitude exceeding a critical threshold ε*:
 
-(a) The conditional macrostate entropy H(m(t+Δt) | m(t)) is monotonically non-increasing in t.
+(a) If the net entropy-reducing pressure Π(t) of Definition 4.11a is non-decreasing along the unperturbed trajectory, then the conditional macrostate entropy H(m(t+Δt) | m(t)) is monotonically non-increasing in t.
 
-(b) The reinforcement load |Ρ(t)| is monotonically non-decreasing in t.
+(b) If, in addition, the reinforcement load |Ρ(t)| is monotonically non-decreasing in t, then the compound reinforcement basin R̅(t) is monotonically non-increasing (in the set-inclusion sense) in t.
 
-(c) The compound reinforcement basin R̅(t) is monotonically non-increasing (in the set-inclusion sense) in t.
+(c) Under the same load-growth hypothesis as part (b), the repertoire-geometry layer contracts rather than expands: each newly stabilized mechanism can only add another intersection constraint, never enlarge the admissible macrostate set.
 
-(d) The system's default organizational trajectory is toward the crystallization boundary C.
+(d) Under part (a), Lemma 4.17, and absence of sufficiently large external perturbation or unresolved coherence crisis, the system's default organizational trajectory is toward the crystallization boundary C.
 
-*Proof.* By Lemma 4.14, the fraction of self-reinforcing patterns in Ρ(t) is non-decreasing. Since the system resists dissolution through self-reinforcing mechanisms, the total number of active mechanisms is maintained or increased (any mechanism lost to decay is replaced by the mechanisms that enable the system to resist dissolution in the first place—which are, by the selection argument, predominantly self-reinforcing). This establishes (b).
+*Current proof status.* The argument below isolates the remaining debt rather than hiding it. Part (a) is the closed core once its explicit Π-hypothesis is stated. Parts (b)-(d) are stronger dynamical consequences and currently reduce to one unresolved closure step: upgrading Lemma 4.14's fraction monotonicity to monotone non-decrease of the active reinforcement load, or deriving sufficient conditions under which Π(t) is maintained without stipulating it directly.
 
-By Lemma 4.13, each active self-reinforcing mechanism reduces conditional entropy. By (b), the number of such mechanisms is non-decreasing. By Lemma 4.16, their compound effect is superadditive when they interact. Therefore the total reduction in conditional entropy is non-decreasing in t. Since conditional entropy is bounded below by zero, the sequence H(m(t+Δt) | m(t)) is monotonically non-increasing and bounded below—hence convergent. This establishes (a).
+*Proof.* We separate the four claims by dependency level.
 
-By Definition 4.11, R̅(t) = ∩{R : R ∈ Ρ(t)}. Since |Ρ(t)| is non-decreasing (by (b)) and each new mechanism adds an intersection constraint, R̅(t) is non-increasing in the set-inclusion ordering. This establishes (c).
+**Part (a).** This is now the explicit core. By Definition 4.11a, Π(t) packages the single-mechanism entropy-reduction contributions from Lemma 4.13 together with the non-negative coherent excess supplied by Lemma 4.16 and Appendices A.8-A.10. Therefore, if Π(t) is non-decreasing, the active repertoire's total entropy-reducing pressure cannot weaken. Since H(m(t+Δt) | m(t)) is bounded below by zero, the sequence is monotonically non-increasing. This isolates the universal core of the CDT: maintained self-reinforcement drives monotone entropy contraction.
 
-By Lemma 4.17, the system has no endogenous mechanism to reverse the decrease in conditional entropy. Therefore the monotonic decrease continues until either: (i) H reaches zero (crystallization boundary C), (ii) external perturbation exceeding ε* disrupts one or more self-reinforcing mechanisms, or (iii) the system enters a coherence crisis (R̅ = ∅) and undergoes a phase transition. In the absence of (ii) and (iii), the trajectory terminates at C. This establishes (d). ■
+**Part (b).** Lemma 4.14 proves that the *fraction* f_SR(t) of active patterns that are self-reinforcing is monotonically non-decreasing. That does not by itself imply that the *total* reinforcement load |Ρ(t)| is monotonically non-decreasing: a system could shed mechanisms overall while becoming more dominated by the self-reinforcing ones that remain. To prove part (b) as stated, one needs an additional dynamical closure lemma, namely that mechanisms lost to decay are replenished at least one-for-one by newly stabilized self-reinforcing mechanisms, or some equivalent maintenance condition that keeps the active load from weakening. That lemma is the main remaining proof obligation for the repertoire-geometry layer.
+
+**Part (c).** This part is downstream of part (b). By Definition 4.11, R̅(t) = ∩{R : R ∈ Ρ(t)}. If the active reinforcement load is monotonically non-decreasing and each newly stabilized mechanism contributes an additional intersection constraint, then R̅(t) is monotonically non-increasing in the set-inclusion ordering. In that precise sense the repertoire-geometry layer contracts rather than expands.
+
+**Part (d).** This part is downstream of part (a) together with Lemma 4.17. Once conditional entropy is known to be monotonically non-increasing and no endogenous reversal is available, the default unperturbed trajectory is toward C unless one of two exceptional events occurs: a sufficiently large external perturbation or a coherence crisis in which the compound basin empties and the repertoire reorganizes. Thus the asymptotic claim reduces to two subproblems: the entropy-drift core, and the dynamical treatment of coherence crisis.
+
+The theorem is therefore best read in two layers. The core entropy-drift claim is explicit and closed relative to Π(t). The stronger repertoire-geometry claims then follow conditionally once the maintenance lemma is supplied. ■
 
 ## **4.4.5 Corollaries**
 
-**Corollary 4.20 (The Double Bind). **The second law (Axiom 1) establishes D as the thermodynamic attractor: isolated systems drift toward maximum entropy. Theorem 4.19 establishes C as the organizational attractor: self-maintaining systems drift toward minimum conditional entropy. Therefore, any system exhibiting future-bearing dynamics is subject to two simultaneous drifts in opposite directions. Persistence requires active management of both boundaries: continuous thermodynamic work to resist D (Prigogine 1977), and continuous self-disruption to resist C.
+**Corollary 4.20 (The Double Bind). **The second law (Axiom 1) establishes D as the thermodynamic attractor: isolated systems drift toward maximum entropy. Theorem 4.19 identifies an organizational drift toward C under the maintained-pressure hypothesis of part (a): self-maintaining systems contract their conditional entropy when their self-reinforcing pressure does not weaken. Therefore, any system exhibiting future-bearing dynamics is subject to two simultaneous drifts in opposite directions. Persistence requires active management of both boundaries: continuous thermodynamic work to resist D (Prigogine 1977), and continuous self-disruption to resist C.
 
 *Remark 4.21.* The double bind explains why Holling's adaptive cycle (1973) requires a release phase (Ω). The system cannot remain indefinitely in the conservation phase (K) because the accumulation of self-reinforcing mechanisms during K drives it toward C. Release—the deliberate or catastrophic dissolution of accumulated structure—is not a failure of the system but the mechanism by which it avoids crystallization. Holling's observation that 'processes of destruction and reorganization are often neglected in favor of growth and conservation' is precisely the asymmetry noted in Remark 4.6: the crystallization threat receives less attention than the dissolution threat, despite being equally terminal.
 
-**Corollary 4.22 (Restating Remark 4.6). **There *is* a formal dual to the second law for organizational systems. The second law states: the Boltzmann entropy S(m) of an isolated system is monotonically non-decreasing. The organizational dual states: the conditional macrostate entropy H(m(t+Δt) | m(t)) of a self-maintaining system is monotonically non-increasing, absent external perturbation. The first is driven by the thermodynamic arrow (toward equilibrium). The second is driven by the selection arrow (toward lock-in). Together they define the two absorbing boundaries between which all future-bearing dynamics must navigate.
+**Corollary 4.22 (Restating Remark 4.6). **There *is* a formal dual to the second law for organizational systems. The second law states: the Boltzmann entropy S(m) of an isolated system is monotonically non-decreasing. The organizational dual states: under the maintained-pressure hypothesis of Theorem 4.19(a), the conditional macrostate entropy H(m(t+Δt) | m(t)) of a self-maintaining system is monotonically non-increasing. The first is driven by the thermodynamic arrow (toward equilibrium). The second is driven by the selection arrow (toward lock-in). Together they define the two absorbing boundaries between which all future-bearing dynamics must navigate.
 
-**Corollary 4.23 (The critical perturbation threshold). **Let ε*(t) denote the minimum external perturbation magnitude required to reverse the crystallization drift at time t—i.e., to increase H(m(t+Δt) | m(t)). By Lemma 4.16 (compounding), ε*(t) is monotonically non-decreasing in t: the more self-reinforcing mechanisms have accumulated, the larger the perturbation required to disrupt them. This means that systems deep in the crystallization drift require increasingly violent disruptions to escape—a prediction consistent with the observation that institutional rigidity, once established, requires crisis rather than reform to break.
+**Corollary 4.23 (The critical perturbation threshold). **Let ε*(t) denote the minimum external perturbation magnitude required to reverse the crystallization drift at time t—i.e., to increase H(m(t+Δt) | m(t)). If the maintenance step behind Theorem 4.19(b) is supplied so that self-reinforcing constraints accumulate without net loss, then ε*(t) is monotonically non-decreasing in t: the more self-reinforcing mechanisms have accumulated, the larger the perturbation required to disrupt them. This means that systems deep in the crystallization drift require increasingly violent disruptions to escape—a prediction consistent with the observation that institutional rigidity, once established, requires crisis rather than reform to break.
 
 *Remark 4.24 (Connection to Schur complement structure).* In the algebraic framework developed in companion work, the productive interval corresponds to the regime where the Schur complement M/D of the internal block D is well-defined and non-degenerate. Crystallization drift corresponds to the progressive degeneration of D: as self-reinforcing mechanisms accumulate, the internal degrees of freedom of the system are progressively eliminated (locked into determined values), and D approaches singularity. When D becomes singular, the Schur complement is undefined—the system can no longer be decomposed into effective boundary behavior and eliminated internal structure, because there is no internal structure left to eliminate. This is crystallization stated algebraically: the system has become its own boundary, with no interior.
 
@@ -132,17 +158,17 @@ By Lemma 4.17, the system has no endogenous mechanism to reverse the decrease in
 
 ## **4.4.6 Relationship to Existing Results**
 
-Theorem 4.19 unifies several previously independent observations:
+The current research synthesis in `reductions/restraint_power_literature_scan.md` suggests a cleaner positioning of Theorem 4.19. No single prior theorem in the scan already packages the full CDT. The closest external neighbors split across several literatures, each capturing one major slice of the structure.
 
-**Arthur (1989): **In models of competing technologies with increasing returns to adoption, lock-in to a single technology is an absorbing state reached with probability 1 in finite time. This is a special case of the Crystallization Drift Theorem restricted to a single self-reinforcing mechanism (network externalities) in a market with two technologies. The theorem generalizes Arthur's result to arbitrary systems with arbitrary numbers of interacting self-reinforcing mechanisms.
+**Productive-interval geometry and stabilizer-becomes-destabilizer.** Cascade, interdependence, and resilience-threshold results are the strongest neighbors of the ACP/CDT geometry. They identify a workable middle regime, show that the very couplings that suppress local failure can become new cascade channels when over-accumulated, and explain why both too little and too much stabilization are dangerous.
 
-**Kauffman (1993): **In random Boolean networks, selection drives systems toward the ordered regime (low K), where the frozen component expands and the network's dynamical behavior becomes increasingly predictable. This is the crystallization drift operating on genetic regulatory networks: the frozen component is the growing compound reinforcement basin, and the decrease in dynamical unpredictability is the decrease in conditional macrostate entropy.
+**Rigidity from successful adaptation.** Arthur-style lock-in, competency-trap results, and robust-yet-fragile design results are the strongest neighbors of the CDT's directional claim. They capture the central intuition that the mechanisms that improve short-run fit also narrow future options and make reversal progressively harder.
 
-**Holling (1973): **The adaptive cycle's conservation phase (K) is the period during which crystallization drift operates. The release phase (Ω) is the external or endogenous perturbation that resets the conditional entropy. The panarchy framework (Holling & Gunderson 2002) describes how crystallization drift operates at multiple scales simultaneously—a prediction that follows directly from the multi-scale extension of the ACP (Open Problem 7.3).
+**Release, reset, and threshold crossing.** Holling's adaptive-cycle picture is the cleanest ecological neighbor of the theorem's boundary-management reading: conservation without release pushes the system toward overclosure, while release is the mechanism by which the trajectory is kicked back away from C.
 
-**Friston (2010): **The free energy principle's distinction between perception (updating the model to fit the data) and action (changing the data to fit the model) maps onto the two boundaries: perception resists dissolution (maintaining model accuracy), while action risks crystallization (reshaping the environment to confirm existing predictions rather than revising them). The system that acts primarily to confirm its model rather than test it is undergoing crystallization drift—reducing its own conditional entropy by reducing the entropy of its environment.
+**Kauffman and Friston.** In this project these are no longer merely analogical neighbors. They are treated by explicit reductions in Appendices A.15 and A.11. That matters for rigor: the theorem's relation to those literatures is stronger than "same pattern," while its relation to the other clusters remains that of structural proximity rather than an already-existing proof.
 
-**Ostrom (1990): **Long-enduring institutions exhibit graduated sanctions (Design Principle 5)—calibrated disruption that prevents crystallization without inducing dissolution. The graduation is the institutional counterpart of managing the critical perturbation threshold ε*(t): perturbations must be large enough to disrupt emerging rigidities but not so large as to destroy institutional coherence.
+What remains distinctive about the CDT is therefore the composition, not any one ingredient taken alone: maintained self-reinforcement, coherent compounding, and monotone contraction of conditional macrostate entropy are combined into one theorem. The scan sharpens that claim by showing exactly where the nearest predecessors stop.
 
 ## **4.4.7 Additional Testable Predictions**
 
@@ -155,6 +181,8 @@ Theorem 4.19 unifies several previously independent observations:
 ## **4.4.8 What Remains Open**
 
 The Crystallization Drift Theorem, as stated, leaves several problems unresolved.
+
+**The maintenance lemma behind part (b). **The current proof of Theorem 4.19 uses a stronger statement than Lemma 4.14 provides. Lemma 4.14 yields monotone enrichment of the active pattern family for self-reinforcing patterns, i.e. monotone growth of f_SR(t); the theorem's stronger layer needs monotone non-decrease of the total reinforcement load, or at least of the repertoire's net entropy-reducing pressure Π(t). Closing this gap requires either a birth-death/replenishment lemma for active mechanisms or a sharper dynamical theorem that derives monotonicity of Π(t) from lower-level maintenance assumptions rather than stipulating it directly.
 
 **The quantitative drift rate. **Theorem 4.19 establishes the direction of the drift (toward C) but not its rate. How fast does conditional entropy decrease? The rate depends on the reinforcement strengths α(R, t), the interaction structure between mechanisms, and the noise level from external perturbation. A quantitative theory would require specifying a dynamical equation for H(t)—an organizational analogue of the Boltzmann H-theorem. The most promising candidate is a master equation on macrostate space with transition rates modified by the reinforcement structure.
 

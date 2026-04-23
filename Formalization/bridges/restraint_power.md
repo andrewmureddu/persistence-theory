@@ -11,15 +11,15 @@ The main paper (Prediction 4, §6.4) states the *restraint-power law*: among sys
 
 This appendix formalizes the restraint-power law as a theorem derivable from the ACP/CDT framework, unifies it with a coordination conservation statement, and establishes the Heisenberg uncertainty principle as a special case. Five formal results are proved:
 
-- **Theorem A.20.10 (Coordination Conservation):** Under mechanism-preserving transformations of a system S, the total coordination uncertainty H(m′|m) is conserved exactly; the redistribution across a partition into subsystems is unrestricted by conservation alone.
+- **Theorem A.20.10 (Coordination Conservation):** Under kernel-preserving mechanism-preserving transformations of a system S, the total coordination uncertainty H(m′|m) is conserved exactly; the redistribution across a partition into subsystems is unrestricted by conservation alone.
 - **Theorem A.20.14 (Restraint-Power Theorem):** When the global coordination uncertainty approaches either boundary, the subsystem with the highest coordination concentration must undergo a mechanism-changing transformation before any other subsystem does, and before the global floor is breached.
 - **Theorem A.20.18 (Visibility Necessity):** A mechanism-changing transformation by the most concentrated subsystem stabilizes the composite productive interval only if the transformation is decodable by a non-trivial subset of receiving subsystems.
-- **Theorem A.20.22 (Restraint-Power = Coordination Conservation):** The Restraint-Power Theorem is logically equivalent to the Coordination Conservation Theorem applied at the subsystem partition; the two statements are two registers of the same fact.
+- **Theorem A.20.22 (Restraint-Power = Coordination Conservation):** The Restraint-Power Theorem is logically equivalent to the kernel-preserving coordination-conservation theorem applied at the subsystem partition; the two statements are two registers of the same fact.
 - **Theorem A.20.27 (Heisenberg Uncertainty as Special Case):** Applied to a quantum system with conjugate observables (Q, P) satisfying [Q, P] = iℏI, the Restraint-Power Theorem predicts a strictly positive coordination floor that coincides with the Robertson uncertainty bound σ(Q)σ(P) ≥ ℏ/2. The existence of the floor is the ACP's structural prediction; the numerical value ℏ/2 is supplied by the quantum commutator.
 
 Taken together, these results resolve the conjectured unification laid out in the status document of this project (§5e and §7 of `ACP_PROJECT_STATUS.md`, session 17): Pattern 10 and the coordination conservation conjecture (session 16) are shown to be formally equivalent, with Heisenberg as a specific instantiation.
 
-The strategy throughout is to take the existing ACP machinery — the CDT (Theorem 4.17), Coherent Steering (Theorem A.10.9), channel erosion (Theorem A.10.7), Schur complement propagation (Theorem A.9.9), and multi-scale embedding (Theorem A.18.14) — and show that a natural additional structure (the subsystem partition of the internal block D) supports a conservation law that, combined with the CDT's directional drift, forces the restraint-power dynamics as its unique stable form.
+The strategy throughout is to take the existing ACP machinery — the core entropy form of the CDT (Theorem 4.17), Coherent Steering (Theorem A.10.9), channel erosion (Theorem A.10.7), Schur complement propagation (Theorem A.9.9), and multi-scale embedding (Theorem A.18.14) — and show that a natural additional structure (the subsystem partition of the internal block D) supports a conservation law that, combined with the CDT's directional drift, forces the restraint-power dynamics as its unique stable form.
 
 ⚠ The status of each result is marked explicitly. The three central theorems (A.20.10, A.20.14, A.20.18) are proved from the ACP axioms and prior appendices (A.9, A.10, A.17). The equivalence theorem (A.20.22) is proved modulo the ACP axioms. The Heisenberg reduction (A.20.27) establishes that the Robertson inequality *coincides* with the restraint-power floor applied to the two-MASA partition of a quantum operator algebra; the quantitative form σ(A)σ(B) ≥ κ/2 is imported from standard quantum mechanics (Cauchy-Schwarz), not rederived. The framework's contribution is structural — establishing that a floor must exist and identifying the two-MASA partition as its location — rather than numerical. Full derivation of the canonical commutation relation from ACP axioms alone is open (OP-RP-5).
 
@@ -109,7 +109,7 @@ where γ_{ij} = C_{ij}/C_{tot}.
 
 The CDT describes dynamics under which new self-reinforcing mechanisms can be recruited or existing ones can be shed (via channel erosion, Theorem A.10.7). Between such recruitment/shedding events, the system evolves under transformations that preserve the active mechanism set. These are the transformations on which conservation can be stated cleanly.
 
-***Definition A.20.10a (Mechanism-preserving transformation).*** A transformation U: M_I → M_I of the internal macrostate space is mechanism-preserving between times t and t + Δt if:
+***Definition A.20.10a (Kernel-preserving mechanism-preserving transformation).*** A transformation U: M_I → M_I of the internal macrostate space is kernel-preserving and mechanism-preserving between times t and t + Δt if:
 
 (a) The pattern repertoire is unchanged: P(t + Δt) = P(t) (no mechanism is added or removed).
 
@@ -117,27 +117,27 @@ The CDT describes dynamics under which new self-reinforcing mechanisms can be re
 
 (c) No external perturbation of magnitude greater than ε*(t) occurs (Axiom 3 of the ACP is inactive).
 
-*Remark A.20.11.* Mechanism-preserving transformations are the ACP analog of unitary evolution in a closed quantum system between measurements, or of entropy-preserving reversible thermodynamic processes. They are not identity transformations — the subsystem blocks D_i and coupling blocks B_{ij} can evolve — but the global mechanism structure is fixed.
+(d) U acts as a measurable bijection on the macrostate transition structure and commutes with the transition kernel:
+
+$$U_* P(m'|m) = P(Um'|Um).$$
+
+*Remark A.20.11.* Kernel-preserving mechanism-preserving transformations are the ACP analog of unitary evolution in a closed quantum system between measurements, or of entropy-preserving reversible thermodynamic processes. They are not identity transformations — the subsystem blocks D_i and coupling blocks B_{ij} can evolve — but the global mechanism structure and the transition law are fixed. Conditions (a)–(c) motivate this definition physically; condition (d) is the precise mathematical strengthening needed for the conservation theorem below.
 
 ### A.20.3.2 The Conservation Theorem
 
-***Theorem A.20.10 (Coordination Conservation).*** Under any mechanism-preserving transformation U of a system S with subsystem partition M_I = ⊕_i M_i, the total coordination capacity is conserved exactly:
+***Theorem A.20.10 (Coordination Conservation).*** Under any kernel-preserving mechanism-preserving transformation U of a system S with subsystem partition M_I = ⊕_i M_i, the total coordination capacity is conserved exactly:
 
 $$ C_{\mathrm{tot}}(t + \Delta t) = C_{\mathrm{tot}}(t). $$
 
-Equivalently, the global conditional macrostate entropy H(m′|m) is invariant under mechanism-preserving transformations, while the distribution {γ_i, γ_{ij}} is unconstrained by conservation.
+Equivalently, the global conditional macrostate entropy H(m′|m) is invariant under kernel-preserving mechanism-preserving transformations, while the distribution {γ_i, γ_{ij}} is unconstrained by conservation.
 
 *Proof.* We establish the two directions separately.
 
-*(a) Conservation of H(m′|m).* We first tighten the sense in which "mechanism-preserving" is to be understood. A transformation U satisfying Definition A.20.10a conditions (a)–(c) acts as an automorphism of the triple (M, P, P(m′|m)) — i.e., it is a measurable bijection M → M that commutes with the transition kernel: U_* P(m′|m) = P(Um′|Um). This is the formal content of "mechanism-preserving": the mechanism structure is a collection of conditional probability relations, and preserving the mechanism structure means commuting with those relations.
-
-Under such an automorphism, the conditional entropy H(m′|m) is invariant. The argument is direct: H(m′|m) is defined via an integral over joint distributions of (m, m′) weighted by log P(m′|m), and any automorphism of the kernel leaves this integral unchanged because the measure, the kernel, and the logarithm are all preserved. This is the information-theoretic analog of the invariance of the Gibbs entropy under Hamiltonian flow.
-
-The requirement that U be an automorphism is not an additional assumption: any U failing to commute with P(m′|m) would change the transition kernel between t and t+Δt, which is itself a modification of the mechanism structure (a new conditional relation has been introduced, or an old one has been dropped). Such transformations are excluded by condition (b) of A.20.10a. Hence all U satisfying Definition A.20.10a are automorphisms in the above sense, and H is preserved.
+*(a) Conservation of H(m′|m).* By Definition A.20.10a(d), U is an automorphism of the triple (M, P, P(m′|m)): it is a measurable bijection M → M that commutes with the transition kernel. Under such an automorphism, the conditional entropy H(m′|m) is invariant. The argument is direct: H(m′|m) is defined via an integral over joint distributions of (m, m′) weighted by log P(m′|m), and any automorphism of the kernel leaves this integral unchanged because the measure, the kernel, and the logarithm are all preserved. This is the information-theoretic analog of the invariance of the Gibbs entropy under Hamiltonian flow.
 
 The non-trivial content of this direction is that an automorphism U may perform arbitrary redistribution of conditional entropy across subsystems — the γ_i can change arbitrarily — without changing the total. This is because an automorphism of the composite kernel need not preserve the subsystem partition's induced marginal kernels individually; it only preserves the composite.
 
-*(b) Unconstrained redistribution.* We exhibit explicit mechanism-preserving transformations that change the distribution {γ_i, γ_{ij}} arbitrarily while conserving C_tot. Consider the two-subsystem case N = 2, with block structure
+*(b) Unconstrained redistribution.* We exhibit explicit kernel-preserving mechanism-preserving transformations that change the distribution {γ_i, γ_{ij}} arbitrarily while conserving C_tot. Consider the two-subsystem case N = 2, with block structure
 
 $$ D = \begin{pmatrix} D_1 & B_{12} \\ B_{12}^T & D_2 \end{pmatrix}. $$
 
@@ -149,13 +149,13 @@ For a suitable choice of O(t), the cross-terms can be engineered to move rank fr
 
 Such transformations correspond physically to reorganizations of the coordination between subsystems: an ecosystem can shift its dominant coordinative role from the apex predator to a keystone relationship, a firm can shift authority from a CEO to a coordinating committee, a quantum system can rotate from one basis to another.
 
-Combining (a) and (b): under mechanism-preserving transformations, C_tot is exactly conserved, and the distribution {γ_i, γ_{ij}} is freely adjustable within the constraint ∑_i γ_i + ∑_{i<j} γ_{ij} = 1. ■
+Combining (a) and (b): under kernel-preserving mechanism-preserving transformations, C_tot is exactly conserved, and the distribution {γ_i, γ_{ij}} is freely adjustable within the constraint ∑_i γ_i + ∑_{i<j} γ_{ij} = 1. ■
 
-***Corollary A.20.11 (Subsystem floors are emergent, not fundamental).*** The per-subsystem coordination capacity C_i has no lower bound from conservation alone — an individual subsystem's C_i can be driven arbitrarily close to zero by mechanism-preserving transformations, provided the capacity is transferred to other subsystems or to coupling blocks. Any lower bound on C_i must come from additional structure beyond conservation: either the CDT's directional drift (which the next subsection exploits) or external constraints on the achievable transformations.
+***Corollary A.20.11 (Subsystem floors are emergent, not fundamental).*** The per-subsystem coordination capacity C_i has no lower bound from conservation alone — an individual subsystem's C_i can be driven arbitrarily close to zero by kernel-preserving mechanism-preserving transformations, provided the capacity is transferred to other subsystems or to coupling blocks. Any lower bound on C_i must come from additional structure beyond conservation: either the CDT's directional drift (which the next subsection exploits) or external constraints on the achievable transformations.
 
 *Remark A.20.12.* Corollary A.20.11 resolves a subtlety of the session 16 exploration: the "per-subsystem coordination floor" is not a fundamental conservation quantity but an *emergent* property of the interaction between conservation and the CDT's drift. Individual subsystems have no intrinsic coordination minimum; the floor appears because the CDT systematically reduces C_tot, forcing a cascade in which the most concentrated subsystem is the first to fail.
 
-*Remark A.20.13 (Why this is a nontrivial conservation law).* The result H(m′|m) is conserved under volume-preserving mechanism-fixing transformations is the ACP analog of the Liouville theorem: volume-preserving flows preserve phase-space entropy in Hamiltonian mechanics. What is nontrivial here is that the result holds even though U may be highly nonlinear, may deform the subsystem partition, and may redistribute entropy across coupling blocks, as long as the pattern repertoire is fixed. This is a purely information-theoretic conservation law, not a dynamical one, and it holds for any system satisfying the ACP axioms — not only Hamiltonian systems.
+*Remark A.20.13 (Why this is a nontrivial conservation law).* The result H(m′|m) is conserved under kernel-preserving mechanism-fixing transformations is the ACP analog of the Liouville theorem: volume-preserving flows preserve phase-space entropy in Hamiltonian mechanics. What is nontrivial here is that the result holds even though U may be highly nonlinear, may deform the subsystem partition, and may redistribute entropy across coupling blocks, as long as the pattern repertoire and transition law are fixed. This is a purely information-theoretic conservation law, not a dynamical one, and it holds for any system satisfying the ACP axioms — not only Hamiltonian systems.
 
 ---
 
@@ -165,7 +165,7 @@ We now combine the conservation law with the CDT's directional drift to establis
 
 ### A.20.4.1 Subsystem-Level CDT
 
-The CDT (Theorem 4.17) states that H(m′|m) is monotonically non-increasing under the full system's dynamics (not just mechanism-preserving transformations). Within each mechanism-preserving interval, H is conserved (Theorem A.20.10); across mechanism-level events (recruitment, shedding, coherence crisis), H decreases. The question is: when H decreases globally, *which* subsystem's contribution C_i (or C_{ij}) decreases first?
+The core entropy form of the CDT (Theorem 4.17) states that H(m′|m) is monotonically non-increasing under maintained reinforcement pressure in the full system dynamics (not just mechanism-preserving transformations). Within each kernel-preserving mechanism-preserving interval, H is conserved (Theorem A.20.10); across mechanism-level events (recruitment, shedding, coherence crisis), H decreases. The question is: when H decreases globally, *which* subsystem's contribution C_i (or C_{ij}) decreases first?
 
 ***Lemma A.20.14a (Concentration-biased drift).*** Let S have subsystem partition M_I = ⊕_i M_i with coordination concentrations {γ_i(t)}, and suppose the global coordination capacity is non-increasing (CDT) over an interval [t, t + Δt] containing a mechanism-level event. Let i* = argmax_i γ_i(t). Then in the quasi-static regime |dC_tot/dt|·Δt ≪ C_tot(t) (i.e., the drift is slow relative to the total capacity), the fraction of the drift contributed by subsystem i* satisfies
 
@@ -257,6 +257,8 @@ That this is *sufficient* for future-bearing dynamics over [t, t + T] follows be
 
 *Remark A.20.17 (Why "first" matters).* The theorem's requirement that i* move *first* — before any other subsystem undergoes a mechanism-changing transformation — is what distinguishes the restraint-power law from a generic redistribution. If a less-concentrated subsystem were to change first, the CDT drift would continue to concentrate on i*, and i*'s eventual forced collapse would still cost the composite i*'s capacity. The temporal ordering is physically necessary, not a conventional choice.
 
+*Remark A.20.17a (External structural neighbors).* The literature scan in `reductions/restraint_power_literature_scan.md` suggests that the theorem's nearest domain-native neighbors split across self-binding governance results, anti-saturation control results, and distributed backoff protocols. Those literatures already support the intuition that the highest-capacity or highest-load element must curb itself first to preserve the composite. What they do not usually provide is the concentration-biased drift argument of Lemma A.20.14a or the conservation-floor framework that turns that intuition into a theorem.
+
 ---
 
 ## A.20.5 The Visibility Necessity Theorem
@@ -303,6 +305,8 @@ Since j₀ had positive decoding capacity, the transfer is registered in j₀'s 
 
 *Remark A.20.21 (Why "simultaneous" doesn't work).* A common misreading of the restraint-power law is that any pair of subsystems could simultaneously reduce their coordination concentration and thereby stabilize the composite. Theorem A.20.18 rules this out: the visibility channel κ_{i, j} requires one party's transformation to be already registered in the other's conditional distribution *at the moment of transfer* — not simultaneously, but sequentially with i* first. If both parties transform at once with no pre-existing asymmetry in κ, neither's transformation is decodable by the other (they are both "moving"), and the transfer collapses to a simultaneous drift at both subsystems — no stabilization. The sequential order i* → J is forced by the decodability requirement plus the concentration-biased drift (Lemma A.20.14a).
 
+*Remark A.20.21a (Visibility sits in a different literature).* The same scan shows that the decodability clause is structurally closer to public-commitment, common-knowledge, and explicit-signaling results than to load-sharing or cascade mathematics. This is why Theorem A.20.18 is not a rhetorical gloss on A.20.14. External literatures often prove one clause or the other; the appendix's claim is that persistence near the floor requires both at once.
+
 ---
 
 ## A.20.6 Equivalence of Restraint-Power and Coordination Conservation
@@ -313,17 +317,17 @@ We now establish that the two formulations — the conservation law (Theorem A.2
 
 ***Theorem A.20.22 (Restraint-Power = Coordination Conservation).*** For any ACP system S with subsystem partition M_I = ⊕_i M_i, the following are equivalent:
 
-(a) *Coordination Conservation Form.* Under mechanism-preserving transformations, C_tot is exactly conserved. The per-subsystem coordination C_i has no fundamental lower bound; the floor is emergent from the interaction between conservation and the CDT's drift.
+(a) *Coordination Conservation Form.* Under kernel-preserving mechanism-preserving transformations, C_tot is exactly conserved. The per-subsystem coordination C_i has no fundamental lower bound; the floor is emergent from the interaction between conservation and the CDT's drift.
 
 (b) *Restraint-Power Form.* In any approach to the crystallization boundary, the subsystem with the highest coordination concentration must undergo a decodable coordination transfer before any other subsystem undergoes a mechanism-changing transformation, and before the composite's global floor is breached.
 
-(c) *Combined Form.* The global coordination uncertainty H(m′|m) is a conserved quantity under mechanism-preserving transformations, while the CDT's drift forces a sequentially ordered redistribution across subsystems in which the most concentrated subsystem always transforms first and visibly.
+(c) *Combined Form.* The global coordination uncertainty H(m′|m) is a conserved quantity under kernel-preserving mechanism-preserving transformations, while the CDT's drift forces a sequentially ordered redistribution across subsystems in which the most concentrated subsystem always transforms first and visibly.
 
 *Proof.* (a) ⇒ (b): This is Theorem A.20.14 combined with Theorem A.20.18, given the CDT (Theorem 4.17).
 
-(b) ⇒ (a): Assume the restraint-power law (b) holds. Let U be a transformation satisfying Definition A.20.10a (mechanism-preserving). By condition (a) of A.20.10a, no mechanism is recruited or shed; by condition (b), no compound-basin-level reorganization occurs; by condition (c), external perturbation is excluded. Under these conditions, no subsystem undergoes a mechanism-changing transformation (Definition A.20.12). By (b) — specifically, its contrapositive — this is compatible with the system's persistence only if the system is *not* in a drift-dominated regime: if dC_tot/dt < 0, then (b) would require i* to undergo a mechanism-changing transformation, contradicting the mechanism-preserving assumption. Hence dC_tot/dt = 0 on any mechanism-preserving interval, i.e., C_tot is conserved. This recovers conservation statement (a) (in its dynamical form).
+(b) ⇒ (a): Assume the restraint-power law (b) holds. Let U be a transformation satisfying Definition A.20.10a. By condition (a) of A.20.10a, no mechanism is recruited or shed; by condition (b), no compound-basin-level reorganization occurs; by condition (c), external perturbation is excluded; and by condition (d), the transition kernel itself is preserved. Under these conditions, no subsystem undergoes a mechanism-changing transformation (Definition A.20.12). By (b) — specifically, its contrapositive — this is compatible with the system's persistence only if the system is *not* in a drift-dominated regime: if dC_tot/dt < 0, then (b) would require i* to undergo a mechanism-changing transformation, contradicting the mechanism-preserving assumption. Hence dC_tot/dt = 0 on any kernel-preserving mechanism-preserving interval, i.e., C_tot is conserved. This recovers conservation statement (a) (in its dynamical form).
 
-The algebraic form of (a) — that the distribution {γ_i, γ_{ij}} is unconstrained by conservation — is not recovered from (b) alone. This is because (b) is a statement about dynamics near the boundary, while the unconstrained redistribution is a statement about algebraic degrees of freedom in the interior. To complete the equivalence, we observe: the mechanism-preserving transformations form a group acting on the composite state space, and by direct construction (e.g., the orthogonal transformations exhibited in the proof of Theorem A.20.10, direction (b)), this group acts transitively on each level set of H(m′|m). So the redistribution statement follows not from (b) but from the definition of mechanism-preserving U and the existence of non-trivial automorphisms preserving H. Both are consequences of the ACP axioms, so the full conservation statement (a) is derivable from the ACP axioms in conjunction with (b).
+The algebraic form of (a) — that the distribution {γ_i, γ_{ij}} is unconstrained by conservation — is not recovered from (b) alone. This is because (b) is a statement about dynamics near the boundary, while the unconstrained redistribution is a statement about algebraic degrees of freedom in the interior. To complete the equivalence, we observe: the kernel-preserving mechanism-preserving transformations form a group acting on the composite state space, and by direct construction (e.g., the orthogonal transformations exhibited in the proof of Theorem A.20.10, direction (b)), this group acts transitively on each level set of H(m′|m). So the redistribution statement follows not from (b) but from the definition of U and the existence of non-trivial automorphisms preserving H. Both are consequences of the ACP axioms, so the full conservation statement (a) is derivable from the ACP axioms in conjunction with (b).
 
 (a) ⇔ (c), (b) ⇔ (c): (c) is the conjunction of (a) and (b), which by the above are equivalent modulo the ACP axioms; hence all three are equivalent. ■
 
@@ -450,6 +454,8 @@ We list the cross-domain instantiations of the Restraint-Power Theorem, providin
 
 *Remark A.20.35.* Each row instantiates the same formal structure: a concentrated subsystem i*, a visibility channel, a transfer mechanism, a receiving set J, and an emergent floor. The floor is strictly positive in every row, matching the theorem's prediction. The cases range across twenty orders of magnitude in energy and thirty orders of magnitude in timescale — a cross-domain scale invariance that is itself evidence for the underlying unification.
 
+*Remark A.20.35a (How to read the domain table).* The table is not evidence that every domain has already proved the Restraint-Power Theorem under another name. The stronger and more accurate claim is narrower: many domains contain one structural half of the theorem, and the table records how those halves would be operationalized together if A.20 is correct. That turns the cross-domain catalog into a disciplined test map rather than an analogy list.
+
 ### A.20.8.2 Novel Predictions from the Unified Framework
 
 The equivalence of the conservation and restraint-power forms (Theorem A.20.22) supports several novel predictions beyond those in the main paper's Prediction 4 and the companion paper's Pattern 10:
@@ -476,7 +482,7 @@ The equivalence of the conservation and restraint-power forms (Theorem A.20.22) 
 
 **OP-RP-1: Continuous-time dynamical formulation.** Theorem A.20.14 is stated over a finite interval [t, t + T] with a mechanism-changing event. A continuous-time dynamical formulation — in which coordination concentrations γ_i(t) obey a system of ODEs with the Schur complement propagation as the generator — would connect the restraint-power law to the continuous-scale renormalization group formalism of Appendix A.18 (Wetterich flow equation). This requires a smoothing of the mechanism-change events into continuous coordination transfer rates.
 
-**OP-RP-2: Non-Gaussian strengthening.** The proofs above use Gaussian approximations (via the precision matrix Q). For non-Gaussian systems, the Schur complement captures leading-order effects only. The A.17 non-Gaussian corrections (Theorem A.17.9 and Corollary A.17.15) suggest that non-Gaussian systems exhibit *sharper* restraint-power dynamics than Gaussian ones — the forced transfer happens faster, and the decodability threshold is sharper. A formal strengthening of the theorems under non-Gaussian conditions would improve the quantitative predictions RP-1 through RP-4.
+**OP-RP-2: Non-Gaussian strengthening.** The proofs above use Gaussian approximations (via the precision matrix Q). For non-Gaussian systems, the Schur complement captures leading-order effects only. The A.17 non-Gaussian program (especially Theorem A.17.11 and Corollary A.17.15) suggests that non-Gaussian systems exhibit *sharper* restraint-power dynamics than Gaussian ones — the forced transfer happens faster, and the decodability threshold is sharper. A formal strengthening of the theorems under non-Gaussian conditions would improve the quantitative predictions RP-1 through RP-4.
 
 **OP-RP-3: Bekenstein bound as formal corollary.** Corollary A.20.32 states the Bekenstein bound as a restraint-power instance but requires the holographic principle as an additional ingredient. Providing a full derivation within the ACP framework — without assuming holography — would extend the "Heisenberg as special case" result to "Bekenstein as special case," placing the gravitational-scale floor on the same footing as the quantum-scale floor.
 
@@ -496,7 +502,7 @@ The equivalence of the conservation and restraint-power forms (Theorem A.20.22) 
 
 This appendix establishes the Restraint-Power Theorem as a formal result of the ACP framework, unifies it with the coordination conservation conjecture from session 16, and derives the Heisenberg uncertainty principle as a quantum-scale special case. The five main results are:
 
-1. **Coordination Conservation (A.20.10):** Under mechanism-preserving transformations, H(m′|m) is exactly conserved; per-subsystem floors are emergent, not fundamental.
+1. **Coordination Conservation (A.20.10):** Under kernel-preserving mechanism-preserving transformations, H(m′|m) is exactly conserved; per-subsystem floors are emergent, not fundamental.
 
 2. **Restraint-Power Theorem (A.20.14):** When a system approaches its coordination floor, the most concentrated subsystem must undergo a coordination transfer before any other subsystem and before the global floor is breached.
 
@@ -506,7 +512,7 @@ This appendix establishes the Restraint-Power Theorem as a formal result of the 
 
 5. **Heisenberg as Special Case (A.20.27):** Applied to the two-MASA partition of a quantum operator algebra, the Restraint-Power Theorem predicts a strictly positive coordination floor γ_{AB} > 0; identifying this floor with the Robertson inequality (a standard QM result) shows that σ(Q)σ(P) ≥ ℏ/2 is the quantum-scale instantiation of the subsystem coordination floor. The ACP contribution is structural, not numerical: it predicts the existence and location of the floor, while ℏ/2 is imported from the commutator structure of the quantum partition.
 
-Taken together, these results provide the unification target identified in §5e and §7 of `ACP_PROJECT_STATUS.md` (session 17). The conjectured relationship between Pattern 10 and the coordination-uncertainty conservation law is now a theorem. Heisenberg, Bekenstein, and cosmic censorship are shown to be physical-scale instantiations of the same cross-domain coordination law that governs ecological restraint, organizational delegation, and market structure. The framework is no longer a collection of suggestive analogies; it is a single theorem with domain-specific instantiations.
+Taken together, these results provide the unification target identified in §5e and §7 of `ACP_PROJECT_STATUS.md` (session 17). The conjectured relationship between Pattern 10 and the coordination-uncertainty conservation law is now a theorem once the conservation premise is stated in its kernel-preserving form. Heisenberg, Bekenstein, and cosmic censorship are then framed as physical-scale instantiations of the same cross-domain coordination law that governs ecological restraint, organizational delegation, and market structure. The framework is therefore more than a collection of analogies, but its exact scope still depends on the explicit premises recorded in this appendix.
 
 The central open problems concern extensions (non-Gaussian, infinite-dimensional, continuous-time) and the completion of the gravitational-scale reductions (Bekenstein, cosmic censorship). None of the open problems threaten the central results.
 
