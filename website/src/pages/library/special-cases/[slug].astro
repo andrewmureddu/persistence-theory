@@ -1,0 +1,14 @@
+---
+import { getSectionEntries } from '../../../lib/library';
+
+export async function getStaticPaths() {
+	const entries = await getSectionEntries('laws');
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+
+return Astro.redirect(`/library/laws/${slug ?? ''}`);
+---

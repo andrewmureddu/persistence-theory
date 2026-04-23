@@ -31,9 +31,9 @@ const sectionConfigs = {
 		label: 'Essays',
 		description: 'Philosophical and interpretive companion writing.',
 	},
-	'special-cases': {
-		label: 'Special Cases',
-		description: 'Extended catalog material beyond the main reduction set.',
+	laws: {
+		label: 'Laws',
+		description: 'Flagship law documents and broader structural-law formulations.',
 	},
 	audits: {
 		label: 'Audits',
@@ -54,7 +54,7 @@ const moduleLoaders = {
 	research: import.meta.glob('../../../Formalization/research/*.md'),
 	simulations: import.meta.glob('../../../Formalization/simulations/*.md'),
 	essays: import.meta.glob('../../../Formalization/essays/*.md'),
-	'special-cases': import.meta.glob('../../../Formalization/special_cases/*.md'),
+	laws: import.meta.glob('../../../Formalization/special_cases/*.md'),
 	audits: import.meta.glob('../../../Formalization/audits/*.md'),
 	sessions: import.meta.glob('../../../Formalization/sessions/*.md'),
 } as const;
