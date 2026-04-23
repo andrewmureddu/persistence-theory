@@ -19,6 +19,14 @@ const sectionConfigs = {
 		label: 'Bridges',
 		description: 'Structural bridge documents linking the theory to adjacent formalisms.',
 	},
+	research: {
+		label: 'Research',
+		description: 'Literature surveys, synthesis notes, and supporting research integrations.',
+	},
+	simulations: {
+		label: 'Simulations',
+		description: 'Empirical tooling notes and simulation-facing experiment documentation.',
+	},
 	essays: {
 		label: 'Essays',
 		description: 'Philosophical and interpretive companion writing.',
@@ -43,6 +51,8 @@ const moduleLoaders = {
 	proofs: import.meta.glob('../../../Formalization/proofs/*.md'),
 	reductions: import.meta.glob('../../../Formalization/reductions/*.md'),
 	bridges: import.meta.glob('../../../Formalization/bridges/*.md'),
+	research: import.meta.glob('../../../Formalization/research/*.md'),
+	simulations: import.meta.glob('../../../Formalization/simulations/*.md'),
 	essays: import.meta.glob('../../../Formalization/essays/*.md'),
 	'special-cases': import.meta.glob('../../../Formalization/special_cases/*.md'),
 	audits: import.meta.glob('../../../Formalization/audits/*.md'),
