@@ -1,5 +1,7 @@
 .DS_Store
 **/.DS_Store
+__pycache__/
+*.pyc
 agent_handler/*.db
 agent_handler/*.db-shm
 agent_handler/*.db-wal

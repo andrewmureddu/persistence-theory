@@ -1,6 +1,6 @@
 # STATUS
 
-**Last updated:** 2026-04-22
+**Last updated:** 2026-04-24
 **Active paper:** `paper/acp_main_v10.md` (internal masthead: "WORKING DRAFT — v0.9")
 **Active special-cases catalog:** `special_cases/acp_special_cases_v03.md`
 **Active integrity audit:** `audits/integrity_audit_v10.md`
@@ -12,6 +12,7 @@
 v10 includes, relative to what `memory.md` (legacy) describes as the v09 state:
 
 - **A.20 Restraint-Power Theorem** + **Heisenberg uncertainty principle as the quantum-scale instantiation** of the coordination floor for a two-MASA operator-algebra partition, with the coordination-conservation premise now stated explicitly on kernel-preserving mechanism-preserving transformations.
+- **A.21 meta-theoretic coherence** is now integrated into the main paper at the abstract / introduction / limitations / discussion / appendix-summary level: ACP self-application is stated as a generativity requirement rather than a total-closure claim.
 - The Price / Fisher reduction (A.19) is fully integrated.
 - Ten testable predictions are stated with experimental protocols and falsification criteria (Section 6 + Appendix A.16).
 - A partial quantitative lower-bound program for the drift rate in non-Gaussian systems (A.17): the maximal-correlation route is the strongest current generic template, while the sharper copula/cumulant routes remain partly conditional.
@@ -19,9 +20,9 @@ v10 includes, relative to what `memory.md` (legacy) describes as the v09 state:
 - A second-pass research-positioning synthesis now distinguishes formal reductions already proved in-repo from merely adjacent structural neighbors, especially for the CDT and the restraint-power / visibility package.
 - Prediction 10 is now framed as the decisive shared drift-template test across the currently operationalized reduced domains, rather than as a blanket universality forecast.
 
-Best current reading of the overall claim: (i) the productive-interval geometry is theorem-level in six explicit reductions; (ii) the CDT's core entropy-drift theorem is the principal new result, with the stronger load / basin / asymptotic package still dependent on the maintenance and generic-closure problems tracked in `OPEN_PROBLEMS.md`; and (iii) restraint-power plus vulnerable-margin are currently supported by a disciplined structural-neighbor map and empirical program, not yet by the same kind of completed cross-domain reduction stack.
+Best current reading of the overall claim: (i) the productive-interval geometry is theorem-level in six explicit reductions; (ii) the CDT's core entropy-drift theorem is the principal new result, with the stronger load / basin / asymptotic package still dependent on the maintenance and generic-closure problems tracked in `OPEN_PROBLEMS.md`; (iii) restraint-power plus vulnerable-margin are currently supported by a disciplined structural-neighbor map and empirical program, not yet by the same kind of completed cross-domain reduction stack; and (iv) the theory now explicitly predicts its own need to remain generative rather than closed, with the downstream semantic-field extension still open.
 
-The full result inventory, as of v10 plus current standalone appendix drafts:
+The full result inventory, as of v10 plus current appendices and bridge drafts:
 
 | # | Result | Where |
 |---|---|---|
@@ -30,14 +31,15 @@ The full result inventory, as of v10 plus current standalone appendix drafts:
 | 11 | A.16 empirical predictions (10 predictions, 3 novel from unification, now with operational tier definitions and first-pass Tier-1 simulation scope for Predictions 8 and 9) | `bridges/empirical_predictions.md` |
 | 12 | A.17 non-Gaussian quantitative program (strongest current generic route via maximal correlation / reinforcement strength; sharper Gaussian-copula and cumulant routes still partly conditional) | `bridges/non_gaussian_bounds.md` |
 | 13 | A.18 multiscale RG (C/D asymmetry, productive interval as RG-invariant subset) | `reductions/multiscale_rg.md` |
-| 14 | A.19 Price / Fisher (selection = crystallization drift; Fisher's theorem = CDT applied to fitness space) | `reductions/price_equation.md` |
+| 14 | A.19 Price / Fisher (selection = crystallization drift under the selection-entropy bridge; Fisher's theorem = CDT applied to the fixed fitness-space coordinate) | `reductions/price_equation.md` |
 | 15 | A.20 Restraint-Power + Coordination Conservation under kernel-preserving transformations; Heisenberg as special case | `bridges/restraint_power.md` + `bridges/syndrome_coordination.md` + `bridges/coordination_neutrality.md` |
 | 16 | Schur complement bridge — four identifications unifying thermodynamic (ACP) and algebraic (Schur) registers; Heisenberg connection now reconciled with A.20 so the residual open piece is the stronger CCR / operator-algebra derivation | `bridges/schur_complement.md` |
-| 17 | A.21 draft meta-theoretic coherence — generativity as the anti-crystallization condition for theory evolution; quartet inquiry floor; ACP self-application | `proofs/meta_theoretic_coherence_theorem.md` |
+| 17 | A.21 meta-theoretic coherence — generativity as the anti-crystallization condition for theory evolution; quartet inquiry floor; ACP self-application, now integrated into the main paper's claim architecture | `paper/acp_main_v10.md` + `proofs/meta_theoretic_coherence_theorem.md` |
 | 18 | Valuation / arithmetic bridge — ratio operator on $\mathbb{Q}_{>0}^{\times}$ lifts exactly to the prime-valuation lattice, giving an additive arithmetic shadow of coordination-neutrality | `bridges/valuation_cocycle_bridge.md` |
 | 19 | Unique-factorization rigidity for arithmetic shadows — on free arithmetic state spaces, any additive shadow whose one-variable coordinate respects orthogonal-support additivity and prime-ray additivity is forced to be valuation-type | `bridges/valuation_cocycle_bridge.md` |
 | 20 | Bridge-family exclusion in the arithmetic regime — the exp-log coordination-neutral bridge family is not ratio-class constant on the rational regular domain and therefore cannot admit a factor-respecting arithmetic shadow | `bridges/valuation_cocycle_bridge.md` |
 | 21 | Canonical defect decomposition for arithmetic shadows — every additive shadow on a free arithmetic state space splits exactly into a weighted-valuation baseline plus a defect coboundary built from prime-ray distortion and cross-prime mixing | `bridges/valuation_cocycle_bridge.md` |
+| 22 | Partition-generating functors — A.20 typing for no-partition systems; symmetry obstruction to universal canonical partitions; first conditional spectral selector construction | `bridges/partition_generating_functors.md` |
 
 ## Active fronts
 
@@ -49,7 +51,7 @@ The full result inventory, as of v10 plus current standalone appendix drafts:
 
 **4. Heisenberg / A.20 consequences.** If A.20 genuinely recovers Heisenberg as a special case of the coordination floor, there is a large downstream program: are there other canonical commutation relations recoverable? Is A.20 compatible with the Robertson bound's tightness conditions? Does it extend to infinite-dimensional MASAs? *(Priority: exploratory; open problem territory.)*
 
-**5. Meta-theoretic coherence / A.21 integration.** The core of the generativity program is now formalized in `proofs/meta_theoretic_coherence_theorem.md`: the theory-evolution state space, the $G_t(T) > 1$ anti-crystallization identity, the quartet inquiry floor, and the ACP self-application corollary. The next question is packaging: integrate this as Appendix A.21 in `paper/acp_main_v10.md`, or leave it as a standalone proof until the submission boundary is clearer. *(Priority: medium — important for the theory's internal consistency story; not blocking journal prep.)*
+**5. Meta-theoretic coherence / A.21 integration.** The core of the generativity program is formalized in `proofs/meta_theoretic_coherence_theorem.md` and is now integrated into `paper/acp_main_v10.md`: the theory-evolution state space, the $G_t(T) > 1$ anti-crystallization identity, the quartet inquiry floor, and the ACP self-application corollary are part of the manuscript's claim architecture. The cross-domain generativity protocol now operationalizes the next methodological step: unexpected domains can improve the theory when their incomplete mappings produce new observables, falsification paths, or sharply named gaps. The first historical blind-spot audit is now complete: it extracts the reusable signature that stable regularities can precede the carrier, partition, or transformation vocabulary that makes them explainable. `research/blind_spot_atlas_2026-04-24.md` generalizes this into a diagnostic map of hidden carriers, multiplicities, transformations, partitions, conservation laws, observables, falsifiers, scope boundaries, and normative filters. Its immediate consequence has now been cashed out in `bridges/partition_generating_functors.md`: no universal canonical A.20 partition can exist because primitive automorphism actions obstruct nontrivial invariant partitions, but stable selector data can generate partitions conditionally. The open frontier is no longer packaging but extension: quantitative generativity bounds (OP-12), downstream inquiry-space under theory dominance (OP-10), measure-theoretic meaning-space (OP-11), concrete protocol applications to candidate domains, and the classification of admissible partition-generating selectors (OP-19). *(Priority: medium — integrated at the self-consistency level; frontier work remains outside the proved core.)*
 
 **6. Arithmetic / operator bridge.** The valuation bridge now has six layers of closure: the scalar smooth case collapses to ratio, the smooth finite-dimensional vector-valued case collapses with it, the free-arithmetic valuation-type discrete case collapses to weighted prime ledgers with the primitive case canonically equivalent to the usual valuation map, any additive shadow whose coordinate map respects unique factorization is forced into that same valuation-type class, the exp-log coordination-neutral bridge family is excluded from that factor-respecting arithmetic subclass, and every additive shadow now splits exactly into a valuation baseline plus an explicit defect coboundary measuring prime-ray distortion and cross-prime mixing. The remaining frontier is therefore sharper still: can that defect term ever be nonzero in a genuine coordination-neutral arithmetic shadow without collapsing back to the valuation class, or does the canonical valuation picture exhaust the abelian arithmetic regime entirely? *(Priority: exploratory, but now tightly localized.)*
 
@@ -62,11 +64,42 @@ Canonical tracker: `OPEN_PROBLEMS.md`. Headline items:
 - **OP-3 through OP-5: Schur complement bridge open problems.** Three listed at the bottom of `bridges/schur_complement.md`. The old Heisenberg reconciliation item (OP-6) is now closed: A.20 settles the structural uncertainty-floor question, and the stronger residual operator-algebra problem is tracked as OP-RP-5 in `bridges/restraint_power.md`.
 - **OP-7: Coordination neutrality under tree composition.** Named in `bridges/coordination_neutrality.md`. The bridge family (exp / log operators — cf. Odrzywolek's eml in `references/`) is CN pairwise but may fail joint-inversion invariance under composition.
 - **OP-15: Arithmetic shadows of coordination-neutral operators.** Now partial from `bridges/valuation_cocycle_bridge.md`: the entire smooth finite-dimensional real-target case collapses to ratio-up-to-reparameterization, and the free-arithmetic valuation-type discrete case collapses to weighted prime-valuation shadows. The open part is the genuinely non-valuation discrete/infinite-rank case.
-- **OP-16: Maintenance lemma / net reinforcement pressure.** The core entropy form of the CDT is isolated, but the stronger load / basin / asymptotic package still needs the missing lemma upgrading Lemma 4.14's fraction monotonicity to sustained reinforcement pressure or monotone load growth.
+- **OP-16: Maintenance lemma / net reinforcement pressure.** The core entropy form of the CDT is isolated, but the stronger load / basin / asymptotic package still needs the missing lemma upgrading Lemma 4.14's survivorship-selection enrichment to sustained reinforcement pressure or monotone load growth.
 - **OP-17: Generic k-mechanism closure under intersection.** Appendix A.9 is now honest about its closure hypotheses; what remains is to derive those hypotheses generically rather than assume them outside the Gaussian branch.
 - **OP-18: Mechanism-preserving vs kernel-preserving conservation.** Appendix A.20 now states the exact premise it uses. The residual question is whether the weaker physical notion of "mechanism-preserving" implies the kernel-preserving automorphism condition in useful generality.
+- **OP-19: Partition-generating functors for A.20.** The first bridge proves a symmetry obstruction to universal canonical partitions and gives a conditional spectral selector construction; what remains is to classify admissible selectors and test invariance across selector families.
 
 ## Changelog
+
+### 2026-04-24 — partition-generating functors
+- Added `bridges/partition_generating_functors.md`, a candidate bridge that makes the WI-E.3 no-partition problem mathematically sharp.
+- Defined A.20-untyped systems and partition-generating functors $\Pi : \mathsf{C} \to \mathsf{Part}$ with typing, equivariance, A.20-admissibility, and nontriviality requirements.
+- Proved a symmetry obstruction: finite systems with primitive automorphism action admit no nontrivial invariant partition, so no universal canonical A.20 partition selector can exist.
+- Proved a first conditional construction: a self-adjoint selector with a simple isolated eigenvalue generates an equivariant spectral partition when the eigenvector has nonzero separated coordinates of both signs.
+- Added `simulations/partition_selector_toy.py`, a dependency-free smoke checker showing that the spectral selector refuses the fully symmetric case and recovers the two-community partition under a Fiedler gap.
+- Added OP-19 to track classification of admissible selectors, obstruction classes, and invariance across selector families.
+
+### 2026-04-24 — historical blind-spot audit
+- Added `research/historical_blind_spot_audit_2026-04-24.md`, the first application of the historical audit mode from the cross-domain generativity protocol.
+- Audited three episodes: thermodynamics before statistical mechanics, heredity before DNA, and critical phenomena before renormalization.
+- Extracted a reusable blind-spot signature: stable regularities can precede the carrier, partition, or transformation vocabulary that makes them explainable.
+- Added `research/blind_spot_atlas_2026-04-24.md`, a reusable diagnostic map classifying hidden carriers, multiplicities, transformations, partitions, conservation laws, observables, falsifiers, scope boundaries, and normative filters.
+- Sharpened WI-E.3 into the recommended next bridge target: partition-generating functors for systems that do not present a natural A.20 partition at the outset.
+- Session log: `sessions/2026-04-24_historical_blind_spot_audit.md`.
+
+### 2026-04-24 — cross-domain generativity protocol
+- Added `bridges/cross_domain_generativity_protocol.md`, a methodological bridge for using unexpected domains as disciplined theory-improvement probes rather than loose analogies.
+- Defined cross-domain intake objects, a generativity-gain score $G_X$, a promotion ladder from probe to theorem, and failure-set categories that turn incomplete mappings into research questions.
+- Updated `bridges/generativity_criterion.md` with §4.1a connecting the protocol to A.21 self-application.
+- Updated `WHAT_IF.md` with Section G, including failed reductions as sensors, cross-domain generativity gain as an intake score, and analogy friction as a possible selection principle.
+- Added `research/cross_domain_intake_triage_2026-04-24.md`, applying the protocol to language, model collapse, and no-partition systems; the no-partition candidate is now the recommended next bridge target because it can sharpen the scope boundary between ACP/CDT and A.20.
+- Session log: `sessions/2026-04-24_cross_domain_generativity_protocol.md`.
+
+### 2026-04-24 — A.21 meta-theoretic integration
+- Integrated the meta-theoretic coherence / generativity result into `paper/acp_main_v10.md` at the abstract, keywords, introduction roadmap, layered-claim paragraph, limitations, discussion, notation summary, references, and Appendix C proof-chain summary.
+- Framed the project explicitly as a unifying theory that does not seek total closure: if ACP is correct and self-representing, it must remain generative by opening disciplined successor questions faster than it closes explanatory uncertainty.
+- Preserved the honesty split: A.21's productive-step generativity identity and quartet inquiry floor are treated as the proved core, while the downstream semantic-field extension and quantitative generativity bound remain OP-10 through OP-12.
+- Session log: `sessions/2026-04-24_meta_theoretic_integration.md`.
 
 ### 2026-04-22 — Prediction 9 helper/default alignment
 - Found a methodological mismatch in the empirical tooling: `simulations/prediction9_calibration_sweep.py` had diverged from `simulations/prediction9_boolean_network.py` on several hidden simulation defaults, so helper-driven calibration results were not directly comparable to direct simulator runs.

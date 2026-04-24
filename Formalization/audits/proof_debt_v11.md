@@ -37,7 +37,7 @@ This is not fatal, but it is exactly the kind of mismatch a skeptical reviewer w
 | Node | Role in CDT | Current status | Main debt |
 |---|---|---|---|
 | Lemma 4.13 | One active self-reinforcing mechanism lowers conditional macrostate entropy | Qualitatively solid; quantitative bound still open | The direction is argued correctly, but the explicit lower bound depends on basin geometry and is not fully stated |
-| Lemma 4.14 | Selection pressure enriches the repertoire for self-reinforcing patterns | Partial | Proves fraction monotonicity, not total load monotonicity |
+| Lemma 4.14 | Selection pressure enriches the repertoire for self-reinforcing patterns | Partial | Proves expected fraction monotonicity only under explicit population-dynamical assumptions; does not imply total load monotonicity |
 | Lemma 4.16 / Appendix A | Two interacting mechanisms compound superadditively | Gaussian case closed; generic case conditional | The interaction-information identity is exact, but sign control outside the Gaussian case still depends on Coherent Steering machinery and unresolved discrete/non-Gaussian details |
 | Theorem A.8.9 | Interaction information is non-negative under Coherent Steering, generically strictly positive | Conditional | The Gaussian branch is strongest; the finite discrete perturbation step still says the derivative argument needs explicit computation |
 | Theorem A.10.9 | Stable coexistence implies Coherent Steering | Strong structural result; not fully quantitative | Depends on the channel-reinforcement inequality and an erosion ODE whose constant is only qualitatively controlled |
@@ -59,11 +59,11 @@ These are the strongest pieces that can already carry real weight:
 
 ## Where the CDT proof currently overreaches
 
-### 1. The jump from fraction monotonicity to load monotonicity
+### 1. The jump from conditional fraction enrichment to load monotonicity
 
 This is the single sharpest hidden inference in the current Theorem 4.19 proof.
 
-Lemma 4.14 gives:
+Lemma 4.14 gives, under explicit fixed-composition or ordered birth-death assumptions:
 
 - the share of active patterns that are self-reinforcing rises
 

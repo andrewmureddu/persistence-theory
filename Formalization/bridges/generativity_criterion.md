@@ -88,6 +88,25 @@ This is an empirical check on the program: walk through the result inventory in 
 
 A less obvious corollary: the ACP is structurally forbidden from being finished. There is no version N of the paper that closes all open problems and admits no successors. If the theory is correct, version N+1 must always be possible. This is not a promissory note — it is a structural prediction of the theory itself.
 
+### 4.1a Cross-domain inspiration as theory-improvement
+
+A.21 also licenses a specific research practice: unexpected domains may be used as probes of the theory's current boundary. The discipline is supplied by `bridges/cross_domain_generativity_protocol.md`. A domain $X$ improves the theory only if the mapping attempt produces a positive cross-domain generativity gain:
+
+$$
+G_X =
+\frac{
+|Q_X^{\mathrm{new}}| + |O_X^{\mathrm{new}}| + |P_X^{\mathrm{new}}|
+}{
+\max(1, |C_X|)
+} > 1,
+$$
+
+where $Q_X^{\mathrm{new}}$ are new well-posed questions, $O_X^{\mathrm{new}}$ are new observables or bridge variables, $P_X^{\mathrm{new}}$ are new falsification paths, and $C_X$ are claims the mapping closes or strengthens. In this register, a failed or incomplete mapping can be more valuable than a smooth analogy: the failure set identifies observable gaps, partition gaps, conservation gaps, or scope gaps that become the next research questions.
+
+This is one of the practical benefits of unification. A unified theory is not valuable only because it compresses known cases; it is valuable because the compressed map makes absences visible. We do not know what we do not know directly, but a broader structure can show where a missing observable, partition, or falsification route ought to be. Historical episodes make this explicit: later knowledge reveals the shape of earlier blind spots, and those shapes can be used as probes of the theory's present boundary.
+
+This is the methodological form of ACP self-application. The framework may look in unexpected places, but only when the encounter increases disciplined incompleteness rather than rhetorical coverage.
+
 ### 4.2 Restraint as a structural obligation for dominant theories
 
 Let $T$ be a theory whose compressive capacity on $D$ is high — it explains much of $D$, and downstream research in $D$ is conducted largely through $T$'s vocabulary. By Claim 3.1 and Sub-claim 3.2, $T$'s internal inquiry-space $I_t(T)$ remains positive. But the inquiry-spaces of downstream researchers, who think *through* $T$, are not protected by the quartet directly. They inherit whatever partition $T$ imposes on $D$.

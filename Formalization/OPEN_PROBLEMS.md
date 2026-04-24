@@ -22,7 +22,7 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 **Why it matters.** The transient dynamics are where empirical signatures live. A monotone-exponential prediction and an oscillatory prediction look different in data.
 
 ### OP-16 — Maintenance lemma / net reinforcement pressure
-**Statement.** The paper now isolates a closed core entropy-drift theorem: if the active self-reinforcing repertoire exerts non-decreasing net entropy-reducing pressure, then conditional macrostate entropy contracts. What is still missing is the dynamical lemma that upgrades Lemma 4.14's fraction monotonicity to either monotone non-decrease of the active reinforcement load or an equivalent sustained-pressure statement.
+**Statement.** The paper now isolates a closed core entropy-drift theorem: if the active self-reinforcing repertoire exerts non-decreasing net entropy-reducing pressure, then conditional macrostate entropy contracts. What is still missing is the dynamical lemma that upgrades Lemma 4.14's survivorship-selection enrichment, which gives monotone fraction growth only under explicit population-dynamical assumptions, to either monotone non-decrease of the active reinforcement load or an equivalent sustained-pressure statement.
 **Status.** Open.
 **Where discussed.** `paper/acp_main_v10.md` §4.4, §7; `proofs/crystallization_drift_theorem.md`; `audits/proof_debt_v11.md`.
 **Why it matters.** This is now the single sharpest remaining gap in the full four-part CDT package. Without it, the load / basin / asymptotic claims are best read as conditional extensions rather than closed theorems.
@@ -59,6 +59,13 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 **Status.** Open.
 **Where discussed.** `bridges/restraint_power.md`; `paper/acp_main_v10.md` §8.
 **Why it matters.** This is the exact premise-sharpening step that prevents the coordination-conservation theorem from becoming circular. Either it should be proved, or the kernel-preserving form should remain the permanent theorem statement.
+
+### OP-19 — Partition-generating functors for A.20
+**Statement.** Characterize classes of ACP systems for which there exists an admissible partition-generating functor $\Pi : \mathsf{C} \to \mathsf{Part}$ that is equivariant under system isomorphisms, stable under perturbations, and sufficient to type A.20's coordination-capacity decomposition. The first candidate bridge proves a symmetry obstruction: primitive automorphism actions admit no nontrivial invariant partition, so no universal canonical $\Pi$ can exist. It also gives a conditional spectral construction when a stable selector datum has a simple isolated eigenvalue.
+**Status.** Open / partial. The obstruction and first conditional construction are written in `bridges/partition_generating_functors.md`; classification of admissible selectors and invariance across selector families remains open.
+**Where discussed.** `bridges/partition_generating_functors.md`; `research/blind_spot_atlas_2026-04-24.md`; WI-E.3 in `WHAT_IF.md`.
+**Why it matters.** A.20 assumes a subsystem or MASA-like partition. Some systems may satisfy ACP/CDT while lacking a primitive partition, especially critical, scale-free, or all-to-all systems. This problem decides whether A.20 can be typed by generated partitions in such systems, or whether no-partition systems are a genuine scope boundary.
+**Adjacent to.** OP-3 (Schur regularity), OP-18 (kernel-preserving conservation), OP-RP-8 in `bridges/restraint_power.md` (partition invariance), A.18 multiscale RG.
 
 ### OP-10 — Downstream inquiry-space bound under theory dominance
 **Statement.** (Conjecture 4.2 of `bridges/generativity_criterion.md`.) For a dominant theory $T$ with compressive ratio $\rho$ on domain $D$, the collective semantic field $S$ of downstream researchers has an effective inquiry-space $I_t(S) \leq f(\rho) \cdot I_t(T)$ for some decreasing $f$. As $\rho \to 1$, $I_t(S)$ can approach zero even while $I_t(T)$ remains positive (the latter being guaranteed by the incompleteness quartet applied to $T$). The ACP protects $T$'s internal openness; it does not automatically protect the openness of researchers who think *through* $T$.

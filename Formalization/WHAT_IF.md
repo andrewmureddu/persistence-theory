@@ -2,7 +2,7 @@
 
 *A living document of generative questions the ACP framework makes askable.*
 
-**Last updated:** 2026-04-21
+**Last updated:** 2026-04-24
 **Status:** append-only. Questions that harden into technical commitments are promoted to `OPEN_PROBLEMS.md` with a back-pointer here; questions that turn out to be malformed are annotated rather than deleted.
 
 ---
@@ -204,6 +204,8 @@ These deliberately stress the framework. A negative answer to any of them would 
 
 *What if A.20 cannot apply to systems that do not admit a natural subsystem partition — highly-correlated quantum critical matter, fully-connected neural networks at critical depth — and for such systems the whole coordination-floor machinery is undefined?* This is a real question. The A.20 partition requires two MASAs; a system that does not admit such a partition is outside A.20's scope. Does the broader ACP still apply (through the CDT applied to unpartitioned dynamics)? Or is the unpartitioned case a genuine gap? Entry point: examine the 1D critical Ising chain (conformal field theory) and check whether A.20 applies in any meaningful way or whether we must fall back to CDT-only analysis.
 
+*First bridge:* `bridges/partition_generating_functors.md` reframes this as a typing problem. CDT may apply to an unpartitioned system $X$, while A.20 applies only to $(X,\Pi(X))$ after a partition-generating operation is supplied. The bridge proves a symmetry obstruction: systems with primitive automorphism action admit no nontrivial invariant partition, so no universal canonical $\Pi$ exists. It also gives a conditional spectral construction when a stable selector datum has a simple isolated eigenvalue.
+
 ### WI-E.4 — Can a framework be generative but wrong? **[critical]**
 
 *What if a theory can satisfy $G > 1$ indefinitely while being straightforwardly false about its subject matter — say, a rich but wrong cosmology that keeps opening new questions because its wrongness propagates?* The generativity criterion's §6 admits that generativity is necessary but not sufficient for unifying status. But this question asks whether generativity can in fact decouple entirely from correctness. If so, then the ACP's self-application (Corollary 4.1) would be a consistency check, not a correctness check. A theory could be generatively self-consistent while being false. Entry point: Ptolemaic astronomy is a reasonable case study — it was generative for ~1500 years. Compute its $G$-ratio and compare to heliocentric $G$ over the same era.
@@ -249,6 +251,32 @@ These are about the practice of unified-theory work, not about the ACP specifica
 ### WI-F.6 — How does unified-theory work relate to crisis science? **[motivated]**
 
 *What if the same structural condition that makes a theory generative (productive-interval occupancy) is what lets a field weather disciplinary crises — periods where existing frameworks visibly fail, demanding new ones — and fields whose dominant theories are near the crystallization boundary are specifically vulnerable to stalls during crises?* This is partly empirical, partly structural. A field in a generativity-deficit regime may not have the vocabulary to respond to the crisis and may spend the crisis litigating the old framework instead of reformulating. Entry point: comparative history of science — how did physics respond to 1900 (generative) vs. foundations of mathematics to 1931 (Gödel's result was itself the generative response)?
+
+---
+
+## Section G — Cross-domain theory-improvement probes
+
+These entries apply the protocol in `bridges/cross_domain_generativity_protocol.md`. The point is not to collect analogies. The point is to use incomplete mappings as instruments: a strange domain is valuable when it exposes a new observable, falsification path, open problem, or boundary of the ACP itself.
+
+### WI-G.1 — Can failed reductions be sensors? **[structural]**
+
+*What if the most informative cross-domain encounters are exactly the ones that almost, but not quite, reduce to ACP?* A smooth mapping can confirm the existing framework, but a structured failure identifies the next missing object: observable gap, partition gap, mechanism gap, conservation gap, falsification gap, or scope gap. On this reading, incompleteness is not merely tolerated; it is the sensing surface of the theory. Entry point: revisit three existing `WHAT_IF.md` entries and record their failure sets using the protocol's $F_X$ categories.
+
+### WI-G.2 — Cross-domain generativity gain as an intake score **[motivated]**
+
+*What if every new domain probe should be scored by $G_X = (|Q_X^{new}| + |O_X^{new}| + |P_X^{new}|)/\max(1, |C_X|)$ before it is promoted beyond `WHAT_IF.md`?* This would make the A.21 self-application operational: a domain is worth importing when it creates more disciplined inquiry, observables, and falsification routes than it closes. Entry point: score language (WI-A.3), model collapse (WI-B.2), and systems with no natural partition (WI-E.3) to see which one most improves the theory next.
+
+### WI-G.3 — Is there a minimum-friction requirement for useful analogy? **[speculative]**
+
+*What if a domain that maps too easily is less useful than one that resists the mapping in one precise place?* The resistance supplies information. A zero-friction analogy may be ornamental; a one-gap analogy can point to a new theorem, simulation, or open problem. Entry point: define an "analogy friction" term from the protocol's failure set $F_X$ and test whether high-value past extensions of the project had exactly one or two serious gaps at intake time.
+
+### WI-G.4 — Can history map present blind spots? **[motivated]**
+
+*What if historical episodes are the best available training set for blind-spot detection?* A later field can often see that an earlier field was not merely missing an answer; it was missing the observable, partition, scale, or vocabulary that would have made the question well-posed. That retrospective asymmetry can be used as a protocol object: compare the inquiry-space before and after a historical transition, extract the blind-spot signature $S_H = I_{t_1} \setminus I_{t_0}$, and ask which current ACP gap has the same shape. Entry point: run a small audit on three episodes (thermodynamics before statistical mechanics, heredity before DNA, and physics before renormalization) and classify each as instrumental, conceptual, partition, scale, or normative blind spot.
+
+*First pass:* `research/historical_blind_spot_audit_2026-04-24.md` extracts a reusable signature: stable regularities can precede the carrier, partition, or transformation vocabulary that makes them explainable. The immediate payoff is a sharper WI-E.3 target: partition-generating functors for systems that do not present a natural A.20 partition at the outset.
+
+*Atlas:* `research/blind_spot_atlas_2026-04-24.md` generalizes this into a diagnostic map of hidden carriers, hidden multiplicities, hidden transformations, hidden partitions, hidden conservation laws, hidden observables, hidden falsifiers, hidden scope boundaries, and hidden normative filters.
 
 ---
 

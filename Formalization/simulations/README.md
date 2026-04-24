@@ -23,6 +23,9 @@ This directory holds the first computational prototypes for the ACP empirical pr
   - Inherits the canonical defaults from `prediction9_boolean_network.py` unless overridden, so sweep and direct-run results stay comparable.
   - Runs the simulator over a small threshold / population / stability-weight grid.
   - Writes ranked configuration summaries so the selected-vs-neutral slope separation can be compared systematically.
+- `partition_selector_toy.py`
+  - Dependency-free toy checker for `bridges/partition_generating_functors.md`.
+  - Compares a fully symmetric finite graph, where the Fiedler selector is degenerate and no nontrivial partition is selected, against a two-community graph, where the spectral selector recovers the two-block partition.
 
 ## Design intent
 
@@ -94,3 +97,11 @@ The sweep helper writes:
 - `config_summaries.json`
 - `replicate_summaries.json`
 - `sweep_parameters.json`
+
+Partition selector toy:
+
+```bash
+python3 Formalization/simulations/partition_selector_toy.py
+```
+
+The default smoke check prints no selected partition for the fully symmetric case and the split `[0, 1, 2, 3] | [4, 5, 6, 7]` for the two-community case.

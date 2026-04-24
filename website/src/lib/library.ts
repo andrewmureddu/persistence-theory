@@ -160,7 +160,11 @@ function slugFromPath(path: string, section: LibrarySection) {
 		if (fileName === 'OPEN_PROBLEMS') return 'open-problems';
 	}
 
-	return fileName.toLowerCase();
+	return fileName
+		.toLowerCase()
+		.replace(/['’]/g, '')
+		.replace(/[^a-z0-9_-]+/g, '-')
+		.replace(/^-+|-+$/g, '');
 }
 
 const sectionOrder = Object.keys(sectionConfigs) as LibrarySection[];
