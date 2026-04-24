@@ -22,10 +22,10 @@ When a problem is resolved, do not delete it — move it to the "Resolved" secti
 **Why it matters.** The transient dynamics are where empirical signatures live. A monotone-exponential prediction and an oscillatory prediction look different in data.
 
 ### OP-16 — Maintenance lemma / net reinforcement pressure
-**Statement.** The paper now isolates a closed core entropy-drift theorem: if the active self-reinforcing repertoire exerts non-decreasing net entropy-reducing pressure, then conditional macrostate entropy contracts. What is still missing is the dynamical lemma that upgrades Lemma 4.14's survivorship-selection enrichment, which gives monotone fraction growth only under explicit population-dynamical assumptions, to either monotone non-decrease of the active reinforcement load or an equivalent sustained-pressure statement.
-**Status.** Open.
-**Where discussed.** `paper/acp_main_v10.md` §4.4, §7; `proofs/crystallization_drift_theorem.md`; `audits/proof_debt_v11.md`.
-**Why it matters.** This is now the single sharpest remaining gap in the full four-part CDT package. Without it, the load / basin / asymptotic claims are best read as conditional extensions rather than closed theorems.
+**Statement.** The paper now isolates a closed core entropy-drift theorem: if the active self-reinforcing repertoire exerts non-decreasing net entropy-reducing pressure, then conditional macrostate entropy contracts. The missing step has been narrowed: `proofs/maintenance_lemma.md` supplies a sufficient balance lemma showing that load grows when newly stabilized mechanisms compensate for losses, and that net pressure is maintained when incoming pressure, survivor strengthening, and coherent-excess change compensate for shed pressure. What remains is to derive that balance inequality from lower-level ACP dynamics in useful system classes, rather than stipulating it model by model.
+**Status.** Partial.
+**Where discussed.** `proofs/maintenance_lemma.md`; `paper/acp_main_v10.md` §4.4, §7; `proofs/crystallization_drift_theorem.md`; `audits/proof_debt_v11.md`.
+**Why it matters.** This is still the sharpest remaining gap in the full four-part CDT package. The bookkeeping step is now explicit, but the load / basin / asymptotic claims remain conditional until the maintenance-balance inequality is derived in the target dynamics.
 
 ### OP-17 — Generic k-mechanism closure under intersection
 **Statement.** Appendix A.9 now states explicitly what earlier drafts used implicitly: the generic k-mechanism induction needs an intersection-compatibility hypothesis for compound basins and a threshold ensuring the combined return channels dominate the exterior return probability to the intersection. Derive those hypotheses from the ACP / CDT setting rather than assuming them outside the Gaussian branch.

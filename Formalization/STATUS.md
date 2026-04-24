@@ -64,12 +64,17 @@ Canonical tracker: `OPEN_PROBLEMS.md`. Headline items:
 - **OP-3 through OP-5: Schur complement bridge open problems.** Three listed at the bottom of `bridges/schur_complement.md`. The old Heisenberg reconciliation item (OP-6) is now closed: A.20 settles the structural uncertainty-floor question, and the stronger residual operator-algebra problem is tracked as OP-RP-5 in `bridges/restraint_power.md`.
 - **OP-7: Coordination neutrality under tree composition.** Named in `bridges/coordination_neutrality.md`. The bridge family (exp / log operators — cf. Odrzywolek's eml in `references/`) is CN pairwise but may fail joint-inversion invariance under composition.
 - **OP-15: Arithmetic shadows of coordination-neutral operators.** Now partial from `bridges/valuation_cocycle_bridge.md`: the entire smooth finite-dimensional real-target case collapses to ratio-up-to-reparameterization, and the free-arithmetic valuation-type discrete case collapses to weighted prime-valuation shadows. The open part is the genuinely non-valuation discrete/infinite-rank case.
-- **OP-16: Maintenance lemma / net reinforcement pressure.** The core entropy form of the CDT is isolated, but the stronger load / basin / asymptotic package still needs the missing lemma upgrading Lemma 4.14's survivorship-selection enrichment to sustained reinforcement pressure or monotone load growth.
+- **OP-16: Maintenance lemma / net reinforcement pressure.** Now partial: `proofs/maintenance_lemma.md` supplies the sufficient gain-loss accounting. Load grows when newly stabilized mechanisms compensate for losses; net pressure is maintained when incoming pressure, survivor strengthening, and coherent-excess change compensate for shed pressure. The open step is deriving that balance inequality from lower-level ACP dynamics in broad target classes.
 - **OP-17: Generic k-mechanism closure under intersection.** Appendix A.9 is now honest about its closure hypotheses; what remains is to derive those hypotheses generically rather than assume them outside the Gaussian branch.
 - **OP-18: Mechanism-preserving vs kernel-preserving conservation.** Appendix A.20 now states the exact premise it uses. The residual question is whether the weaker physical notion of "mechanism-preserving" implies the kernel-preserving automorphism condition in useful generality.
 - **OP-19: Partition-generating functors for A.20.** The first bridge proves a symmetry obstruction to universal canonical partitions and gives a conditional spectral selector construction; what remains is to classify admissible selectors and test invariance across selector families.
 
 ## Changelog
+
+### 2026-04-24 — maintenance balance lemma
+- Added `proofs/maintenance_lemma.md`, a partial OP-16 closure that replaces the hidden leap from self-reinforcing fraction enrichment to load / pressure monotonicity with an explicit gain-loss balance condition.
+- Added Lemma 4.14a to the main paper and CDT proof note: over one operational step, load changes by newly stabilized mechanisms minus lost mechanisms, and pressure changes by incoming pressure plus survivor strengthening plus coherent-excess change minus shed pressure.
+- Updated OP-16 from open to partial. The remaining task is no longer bookkeeping; it is deriving the balance inequality from lower-level ACP dynamics in useful system classes.
 
 ### 2026-04-24 — partition-generating functors
 - Added `bridges/partition_generating_functors.md`, a candidate bridge that makes the WI-E.3 no-partition problem mathematically sharp.

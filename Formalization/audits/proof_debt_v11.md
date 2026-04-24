@@ -7,6 +7,8 @@
 
 The review's strongest mathematical criticism lands on a real issue, but the issue is narrower than "the whole program is only analogy."
 
+**2026-04-24 addendum.** OP-16 has moved from fully open to partial. The new `proofs/maintenance_lemma.md` supplies the gain-loss accounting that was missing here: load grows when newly stabilized mechanisms compensate for lost mechanisms, and net pressure is maintained when incoming pressure, survivor strengthening, and coherent-excess change compensate for shed pressure. This does not close the generic theorem; it narrows the remaining debt to deriving that balance condition from lower-level ACP dynamics in target classes.
+
 The current proof chain is strongest in three places:
 
 - the Gaussian compounding calculation in `proofs/compounding_lemma_proof.md`
