@@ -10,7 +10,7 @@ Working Draft — April 2026
 
 This document formalizes the connection between two companion papers:
 
-- **A General Theory of Persistence** (the ACP paper): derives the Anti-Crystallization Principle and Crystallization Drift Theorem from thermodynamic first principles, using conditional macrostate entropy H(m′|m) as the central quantity.
+- **Adaptive Coherence Principle** (the ACP paper): derives the productive-interval condition and Crystallization Drift Theorem from thermodynamic first principles, using conditional macrostate entropy H(m′|m) as the central quantity.
 
 - **A Pattern Hiding in Plain Sight** (the algebraic paper): identifies the Schur complement as the universal algebraic operation implementing the persistence threshold across eight independent research programs, using the capacity ≥ complexity inequality as the central condition.
 
@@ -22,7 +22,7 @@ The claim: these are not merely compatible descriptions of the same phenomenon. 
 
 3. The capacity ≥ complexity threshold of the algebraic paper is the ACP's persistence condition, stated in the language of effective boundary theory.
 
-4. Anti-crystallization mechanisms are operations that restore the rank/condition number of D.
+4. Adaptive coherence steering mechanisms are operations that restore the rank/condition number of D.
 
 Formalizing these identifications closes the loop between the papers and establishes them as a single argument in two registers.
 
@@ -158,7 +158,7 @@ The Schur complement is the algebraic operation that *computes* C from the full 
 
 ### 3.4 Fourth Identification: Anti-Crystallization is Rank Restoration
 
-***Theorem 3.9 (Anti-crystallization = rank restoration of D).*** The anti-crystallization mechanisms identified in the ACP (Section 4.4.5) — external perturbation exceeding ε*(t), coherence crises inducing phase transitions, and deliberate self-disruption — all operate by restoring rank to the internal block D.
+***Theorem 3.9 (Adaptive coherence steering = rank restoration of D).*** The adaptive coherence steering mechanisms identified in the ACP (Section 4.4.5) — external perturbation exceeding ε*(t), coherence crises inducing phase transitions, and deliberate self-disruption — all operate by restoring rank to the internal block D.
 
 *Proof sketch.*
 
@@ -168,7 +168,7 @@ The Schur complement is the algebraic operation that *computes* C from the full 
 
 (c) **Deliberate self-disruption:** Active mechanisms that introduce controlled noise into the internal block (e.g., exploratory behavior, genetic recombination, institutional reform) prevent the eigenvalues of D from reaching zero. They maintain a floor on the smallest eigenvalue of D, ensuring invertibility.
 
-In all three cases, the operation is the same: restore eigenvalues of D that have been driven toward zero by crystallization drift. This is the algebraic content of the ACP's assertion that anti-crystallization is "time renewal" (Proposition 8.4): restoring rank to D reopens the internal degrees of freedom, enabling new macrostate transitions — which is what operational time *is*. ■
+In all three cases, the operation is the same: restore eigenvalues of D that have been driven toward zero by crystallization drift. This is the algebraic content of the ACP's assertion that adaptive coherence steering is "time renewal" (Proposition 8.4): restoring rank to D reopens the internal degrees of freedom, enabling new macrostate transitions — which is what operational time *is*. ■
 
 ---
 
@@ -211,7 +211,7 @@ The translation dictionary:
 | Channel erosion | incompatible constraints resolving via rank selection | non-composable morphisms being shed |
 | Crystallization | D singular | internal interface collapsed |
 | Dissolution | D trivial (∝ I) | internal interface structureless |
-| Anti-crystallization | rank restoration of D | morphisms that re-open internal interface |
+| Adaptive coherence steering | rank restoration of D | morphisms that re-open internal interface |
 | Operational time | # of rank-preserving transitions | # of non-trivial compositions |
 | Verification loop | Predict (from Q/D) → Verify → Update D → Re-predict | Compose → Observe → Update → Re-compose |
 
@@ -237,7 +237,7 @@ The algebraic paper's central claim can be restated in the ACP's language with n
 
 $$\frac{d}{dt}\text{rank}_{\text{eff}}(D)\bigg|_{\text{renewal}} > \frac{d}{dt}\text{rank}_{\text{eff}}(D)\bigg|_{\text{drift}}$$
 
-where the left side is the anti-crystallization contribution and the right side is the crystallization drift contribution.
+where the left side is the adaptive-coherence steering contribution and the right side is the crystallization drift contribution.
 
 This is *exactly* the viable band of persistence. The system persists in the region where renewal outpaces drift. The boundaries are:
 
@@ -263,7 +263,7 @@ With the unified framework, each domain's persistence threshold can be stated as
 
 **Kauffman:** The Boolean network's unfrozen component is D. Selection pressure drives frozen component expansion (rank reduction of D). The edge of chaos is the regime where D has intermediate rank — enough unfrozen variables for computation, not so many that dynamics are chaotic.
 
-**Friston:** The agent's internal model precision matrix is D. Prediction errors drive D toward overfitting (excessive precision on experienced states, zero precision on unexperienced ones — crystallization). Active inference maintains D's rank by seeking novel observations — the exploratory drive is anti-crystallization, algebraically expressed as rank restoration of D.
+**Friston:** The agent's internal model precision matrix is D. Prediction errors drive D toward overfitting (excessive precision on experienced states, zero precision on unexperienced ones — crystallization). Active inference maintains D's rank by seeking novel observations — the exploratory drive is adaptive coherence steering, algebraically expressed as rank restoration of D.
 
 **Zurek:** The quantum system's off-diagonal density matrix elements are D. Decoherence drives D toward diagonality (rank reduction of the off-diagonal block). Quantum Darwinism selects the pointer states that survive — the states for which D's diagonal structure is maximally redundantly encoded in the environment. The classical world emerges when D has fully collapsed; quantum coherence persists where D retains rank.
 
@@ -287,7 +287,7 @@ The categorical register (Section 4.1) is sketched but not fully formalized. A c
 
 (b) Showing that the Crystallization Drift Theorem defines a functor from **Persist** to a poset category (rank(D), ≤), capturing the monotonic drift.
 
-(c) Showing that anti-crystallization mechanisms are natural transformations that reverse the functor's direction.
+(c) Showing that adaptive coherence steering mechanisms are natural transformations that reverse the functor's direction.
 
 (d) Connecting **Persist** to QuadRel via the Gaussian truncation functor.
 
@@ -321,7 +321,7 @@ So the reconciliation is:
 
 ## 7. Conclusion
 
-The Schur complement bridge transforms the relationship between the ACP paper and the algebraic paper from structural analogy to mathematical identity. The productive interval of the ACP *is* the regime of non-degenerate internal block D. Crystallization drift *is* progressive rank reduction of D. The capacity ≥ complexity threshold *is* the ACP's persistence condition in algebraic coordinates. Anti-crystallization *is* rank restoration.
+The Schur complement bridge transforms the relationship between the ACP paper and the algebraic paper from structural analogy to mathematical identity. The productive interval of the ACP *is* the regime of non-degenerate internal block D. Crystallization drift *is* progressive rank reduction of D. The capacity ≥ complexity threshold *is* the ACP's persistence condition in algebraic coordinates. Adaptive coherence steering *is* rank restoration.
 
 With this bridge, the unified theory has three layers:
 

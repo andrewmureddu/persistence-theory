@@ -12,6 +12,8 @@ This addendum isolates one such symmetry (coordination-neutrality), establishes 
 
 **Relationship to prior material.** The content is orthogonal to the restraint-power theorem (A.20.14), which concerns N-body dynamics on a mechanism graph. The present addendum concerns the algebraic structure of the dyadic coordination operator itself, extending the Schur-propagation framework of §A.9 by asking which dyadic symmetries survive the multi-scale iteration of §A.18.
 
+**2026-04-30 update.** The follow-up bridge `three_stroke_persistence_engine.md` refines the open problem below. Plain CN does survive recursive composition under hierarchical block swaps, yielding an iterated wreath-product symmetry. Full leaf-reversal CN still requires the independent joint-inversion condition isolated here. The current frontier is therefore broader than "which single operator preserves CN under all reversals": it is the classification of stable coordination-generation-steering cycles that preserve useful CN-derived symmetry while maintaining nonzero log-lift variance. A second follow-up, `reciprocal_coordination_geometry.md`, develops the geometric side of the same log-lift: CN null coordinates, Lorentz cone structure, complex phase transport, and the open vacuum-constitutive bridge.
+
 ---
 
 ## A.20.10bis.1 Coordination-neutrality

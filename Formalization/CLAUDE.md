@@ -4,9 +4,9 @@ This is a first-principles theory-building workspace. Claude is project lead. Th
 
 ## The framework
 
-The **Anti-Crystallization Principle (ACP)** and its central result, the **Crystallization Drift Theorem (CDT)**, formalize a structural law of persistence for dynamical systems: a system retains future-bearing dynamics iff it occupies a nondegenerate interval between two absorbing boundaries — *dissolution* (maximum entropy) and *crystallization* (zero conditional macrostate entropy).
+The **Adaptive Coherence Principle (ACP)** and its central result, the **Crystallization Drift Theorem (CDT)**, formalize a structural law of persistence for dynamical systems: a system retains future-bearing dynamics iff it occupies a nondegenerate interval between two absorbing boundaries — *dissolution* (maximum entropy) and *crystallization* (zero conditional macrostate entropy).
 
-The mechanisms that prevent dissolution are the same mechanisms that drive systems toward crystallization. The proof chain is self-grounding via Coherent Steering (Appendix A.10 / `proofs/coherent_steering_derivation.md`).
+The mechanisms that prevent dissolution can also drive systems toward crystallization when maintained in an entropy-contracting form. The proof chain is self-grounding via Coherent Steering (Appendix A.10 / `proofs/coherent_steering_derivation.md`), and anti-crystallization is now treated as one mechanism of adaptive coherence steering rather than as the project name.
 
 ## How to navigate this workspace
 
@@ -30,6 +30,7 @@ The mechanisms that prevent dissolution are the same mechanisms that drive syste
 |---|---|
 | `CLAUDE.md` | This file. The charter. |
 | `STATUS.md` | **Read first every session.** Current paper version, open fronts, what's next. |
+| `WORKFLOW.md` | A.21 workflow guardrails: close each theory-building session with a generativity ledger. |
 | `OPEN_PROBLEMS.md` | Canonical tracker of unsolved problems with IDs, status, and pointers. |
 | `README.md` | Human-facing overview, lighter than CLAUDE.md. |
 | `memory.md` | **Legacy** — snapshot of prior-session memory from the Claude.ai Projects era. Superseded by the Cowork memory system but preserved for audit. Known to be stale (asserts v09 is current when v10 exists). |
@@ -49,10 +50,11 @@ The mechanisms that prevent dissolution are the same mechanisms that drive syste
 
 1. Read `STATUS.md` first. It names the current paper version, the active fronts, and the last session's end state.
 2. Read `OPEN_PROBLEMS.md` to see what's still unsolved.
-3. Read the relevant Cowork memory entries (loaded automatically).
-4. Decide the highest-value next step.
-5. Work. Use markdown files in-place; use scratch files under `sessions/scratch/` if needed (create on demand).
-6. Close the session by (a) updating `STATUS.md`, (b) writing a `sessions/YYYY-MM-DD_<slug>.md` log, (c) updating `OPEN_PROBLEMS.md` if any were resolved or added, (d) updating Cowork memory if anything non-ephemeral changed.
+3. Read `WORKFLOW.md` when the session changes theory content; it defines the A.21 generativity ledger.
+4. Read the relevant Cowork memory entries (loaded automatically).
+5. Decide the highest-value next step.
+6. Work. Use markdown files in-place; use scratch files under `sessions/scratch/` if needed (create on demand).
+7. Close the session by (a) updating `STATUS.md`, (b) writing a `sessions/YYYY-MM-DD_<slug>.md` log with a short generativity ledger when theory content changed, (c) updating `OPEN_PROBLEMS.md` if any were resolved or added, (d) updating Cowork memory if anything non-ephemeral changed.
 
 ## Path conventions (Cowork era)
 

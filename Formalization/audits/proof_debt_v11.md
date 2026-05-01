@@ -9,6 +9,8 @@ The review's strongest mathematical criticism lands on a real issue, but the iss
 
 **2026-04-24 addendum.** OP-16 has moved from fully open to partial. The new `proofs/maintenance_lemma.md` supplies the gain-loss accounting that was missing here: load grows when newly stabilized mechanisms compensate for lost mechanisms, and net pressure is maintained when incoming pressure, survivor strengthening, and coherent-excess change compensate for shed pressure. This does not close the generic theorem; it narrows the remaining debt to deriving that balance condition from lower-level ACP dynamics in target classes.
 
+**2026-05-01 addendum.** OP-17 has moved from fully open to partial. The new aligned positive-association section in `proofs/induction_step_k_mechanisms.md` gives a first structured non-Gaussian closure class: if return events to the active basins are positively associated from the compound basin and the product-overlap margin dominates exterior return, then the compound basin is self-reinforcing. Monotone / MTP2 kernels provide a checkable sufficient form. This does not close the fully generic theorem; it narrows the remaining debt to classifying alignment-generating and closure-failing ACP systems.
+
 The current proof chain is strongest in three places:
 
 - the Gaussian compounding calculation in `proofs/compounding_lemma_proof.md`
@@ -43,7 +45,7 @@ This is not fatal, but it is exactly the kind of mismatch a skeptical reviewer w
 | Lemma 4.16 / Appendix A | Two interacting mechanisms compound superadditively | Gaussian case closed; generic case conditional | The interaction-information identity is exact, but sign control outside the Gaussian case still depends on Coherent Steering machinery and unresolved discrete/non-Gaussian details |
 | Theorem A.8.9 | Interaction information is non-negative under Coherent Steering, generically strictly positive | Conditional | The Gaussian branch is strongest; the finite discrete perturbation step still says the derivative argument needs explicit computation |
 | Theorem A.10.9 | Stable coexistence implies Coherent Steering | Strong structural result; not fully quantitative | Depends on the channel-reinforcement inequality and an erosion ODE whose constant is only qualitatively controlled |
-| Theorem A.9.9 | k-mechanism extension and acceleration | Conditional | Closure of self-reinforcement under intersection and strict monotonic acceleration both still rely on nontrivial genericity and monotonicity steps |
+| Theorem A.9.9 | k-mechanism extension and acceleration | Gaussian closed; aligned positive-association class partial; generic branch conditional | Closure of self-reinforcement under intersection is now proved for a monotone / MTP2 positive template, but the full classification of alignment-generating versus closure-failing systems and strict monotonic acceleration remain open |
 | Lemma 4.17 | No endogenous reversal | Heuristic but plausible | Needs a cleaner operator, Lyapunov, or Markov-kernel formulation |
 | Theorem 4.19(a) | Conditional entropy is monotone non-increasing | Conditional core | Needs a precise net-pressure or maintenance lemma to pass from local entropy reduction to global monotone drift |
 | Theorem 4.19(b) | Reinforcement load is monotone non-decreasing | Open | Not implied by Lemma 4.14 as currently stated |
@@ -86,13 +88,13 @@ Right now the theorem proves part (a) by routing through part (b). That makes th
 
 ### 3. The k-mechanism extension is more conditional than the summaries suggest
 
-The induction file says the chain is complete, but its own body still relies on:
+The induction file now distinguishes three layers, but its fully generic branch still relies on:
 
-- a strong closure claim for intersections
+- a strong closure claim for intersections outside the Gaussian and aligned positive-association classes
 - a generic smooth-map argument
 - a strict acceleration step that is only exact in the Gaussian case
 
-This is not a collapse. It is a packaging issue. The result should currently be presented as "closed in Gaussian, structurally argued generically, with strict acceleration still open in full generality."
+This is not a collapse. It is a classification issue. The result should currently be presented as "closed in Gaussian, closed for aligned positive-association / monotone MTP2 kernels, structurally argued generically, with strict acceleration still open in full generality."
 
 ### 4. The non-Gaussian quantitative story is not yet fully audit-clean
 

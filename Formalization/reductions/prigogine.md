@@ -1,6 +1,6 @@
 **Appendix A.14: Formal Reduction of Prigogine’s Dissipative Structures**
 
-**to the Anti-Crystallization Principle**
+**to the Adaptive Coherence Principle**
 
 *ACP Working Paper Series*
 
@@ -8,7 +8,7 @@
 
 # **Abstract**
 
-We provide the formal reduction of Prigogine’s theory of dissipative structures (1945, 1967, 1977) to the Anti-Crystallization Principle (ACP). The key result is **Theorem A.14.4**, which establishes that the existence and stability of dissipative structures is a special case of productive interval maintenance under the ACP, with the entropy production rate serving as the bridge between the thermodynamic and information-theoretic descriptions. The reduction proceeds through a variable identification (Definition A.14.1) mapping the thermodynamic system onto the ACP framework and a bridge lemma (Lemma A.14.3) relating the internal entropy production rate to the ACP’s conditional macrostate entropy.
+We provide the formal reduction of Prigogine’s theory of dissipative structures (1945, 1967, 1977) to the Adaptive Coherence Principle (ACP). The key result is **Theorem A.14.4**, which establishes that the existence and stability of dissipative structures is a special case of productive interval maintenance under the ACP, with the entropy production rate serving as the bridge between the thermodynamic and information-theoretic descriptions. The reduction proceeds through a variable identification (Definition A.14.1) mapping the thermodynamic system onto the ACP framework and a bridge lemma (Lemma A.14.3) relating the internal entropy production rate to the ACP’s conditional macrostate entropy.
 
 The reduction reveals that Prigogine’s minimum entropy production theorem (for the linear regime) and the instability-driven symmetry breaking (for the far-from-equilibrium regime) are both boundary management strategies within the ACP framework. The dissolution boundary corresponds to thermodynamic equilibrium; the crystallization boundary corresponds to a frozen dissipative mode—a structure locked into a single dynamical pattern with no capacity for mode-switching. The Crystallization Drift Theorem acquires a precise thermodynamic interpretation: a dissipative structure that successfully maintains itself far from equilibrium will progressively rigidify its dissipative pathways, narrowing the set of accessible dynamical modes until external perturbation is required to restore flexibility.
 
@@ -80,7 +80,7 @@ The bridge between the Prigogine and ACP frameworks is the relationship between 
 
 # **A.14.4  The Reduction Theorem**
 
-***Theorem A.14.4 (Prigogine as ACP Special Case). ***Under the variable identification of Definition A.14.1, the Prigogine theory of dissipative structures is a special case of the Anti-Crystallization Principle. Specifically:
+***Theorem A.14.4 (Prigogine as ACP Special Case). ***Under the variable identification of Definition A.14.1, the Prigogine theory of dissipative structures is a special case of the Adaptive Coherence Principle. Specifically:
 
 (a) **Equilibrium is the dissolution boundary. **Thermodynamic equilibrium (**X** = **X**_eq, σ = 0) is exactly the ACP’s dissolution boundary D: the system has maximum macrostate entropy, absorbing dynamics (in the thermodynamic limit), and no future-bearing structure. This is Corollary 4.4 of the main paper restricted to thermodynamic systems.
 
@@ -142,7 +142,7 @@ The bridge between the Prigogine and ACP frameworks is the relationship between 
 
 **Minimum entropy production is conservative boundary management. **Prigogine’s minimum entropy production theorem, often presented as a variational principle governing near-equilibrium systems, is reinterpreted as a boundary management strategy: the system minimizes its thermodynamic cost while staying just inside the productive interval. This is a safe strategy when crystallization drift is negligible (the linear regime), but it becomes dangerous in the far-from-equilibrium regime, where the system needs to actively manage both boundaries.
 
-**Bifurcation is the anti-crystallization mechanism. **In the ACP framework, the external perturbation that resets crystallization drift (Section 4.4.5) takes a specific form in thermodynamic systems: bifurcation. A bifurcation creates new dissipative modes, increasing N(m) and restoring H(m′ | m)—pushing the system away from C. This identifies bifurcation as the thermodynamic system’s built-in anti-crystallization mechanism. The prediction: systems that cannot bifurcate (whose driving forces are insufficiently strong to destabilize the current mode) will inevitably crystallize under sustained operation.
+**Bifurcation is the adaptive coherence steering mechanism. **In the ACP framework, the external perturbation that resets crystallization drift (Section 4.4.5) takes a specific form in thermodynamic systems: bifurcation. A bifurcation creates new dissipative modes, increasing N(m) and restoring H(m′ | m)—pushing the system away from C. This identifies bifurcation as the thermodynamic system’s built-in adaptive coherence steering mechanism. The prediction: systems that cannot bifurcate (whose driving forces are insufficiently strong to destabilize the current mode) will inevitably crystallize under sustained operation.
 
 **The CDT predicts dissipative aging. **The Crystallization Drift Theorem, applied through the Prigogine reduction, predicts a phenomenon we term *dissipative aging*: a dissipative structure operated under constant boundary conditions will progressively lose dynamical versatility as its dissipative pathways rigidify. The structure’s thermodynamic output (σ, heat production, chemical throughput) may remain constant or even increase, but its capacity for mode-switching declines. This is testable: measure the response time of a Bénard convection cell to perturbation as a function of how long it has been running in a single mode. The CDT predicts that response time increases monotonically—the cell becomes harder to perturb into an alternative convective pattern.
 
@@ -158,11 +158,11 @@ The bridge between the Prigogine and ACP frameworks is the relationship between 
 
 # **A.14.9  Summary**
 
-Prigogine’s theory of dissipative structures is a special case of the Anti-Crystallization Principle operating on thermodynamic systems coupled to their environment through energy and entropy exchange. The reduction identifies the system’s extensive variables as the macrostate, nonlinear kinetic evolution as the dynamics, and the accessible dissipative mode count N(m) as the control parameter that determines the system’s position within the productive interval.
+Prigogine’s theory of dissipative structures is a special case of the Adaptive Coherence Principle operating on thermodynamic systems coupled to their environment through energy and entropy exchange. The reduction identifies the system’s extensive variables as the macrostate, nonlinear kinetic evolution as the dynamics, and the accessible dissipative mode count N(m) as the control parameter that determines the system’s position within the productive interval.
 
 Thermodynamic equilibrium is the dissolution boundary: maximum macrostate entropy, absorbing dynamics, no future-bearing structure. A frozen dissipative mode is the crystallization boundary: zero conditional macrostate entropy, deterministic macroscopic dynamics, no capacity for mode-switching. The productive interval corresponds to dissipative structures with multiple accessible modes—enough thermodynamic driving to maintain structure, enough dynamical flexibility to adapt.
 
-The Crystallization Drift Theorem predicts dissipative aging: under constant boundary conditions, a dissipative structure’s dissipative pathways progressively rigidify as self-reinforcing mechanisms accumulate and compound superadditively. The structure remains thermodynamically active but loses dynamical versatility. Bifurcation is the thermodynamic system’s anti-crystallization mechanism: it creates new modes, restoring conditional macrostate entropy and pushing the system away from the crystallization boundary.
+The Crystallization Drift Theorem predicts dissipative aging: under constant boundary conditions, a dissipative structure’s dissipative pathways progressively rigidify as self-reinforcing mechanisms accumulate and compound superadditively. The structure remains thermodynamically active but loses dynamical versatility. Bifurcation is the thermodynamic system’s adaptive coherence steering mechanism: it creates new modes, restoring conditional macrostate entropy and pushing the system away from the crystallization boundary.
 
 This upgrades the Prigogine mapping from a structural analogy (Section 5.1) to a formal reduction. The unification scorecard is now: Prigogine (formally reduced, A.14), Kauffman (structural, §5.2), Friston (formally reduced, A.11), Zurek (formally reduced, A.12), Bergstrom–Lachmann (formally reduced, A.13). Four of five special cases are now formally established by full reduction.
 

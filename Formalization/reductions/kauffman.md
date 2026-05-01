@@ -1,6 +1,6 @@
 **Appendix A.15: Formal Reduction of Kauffman’s Edge-of-Chaos Dynamics**
 
-**to the Anti-Crystallization Principle**
+**to the Adaptive Coherence Principle**
 
 *ACP Working Paper Series*
 
@@ -8,7 +8,7 @@
 
 # **Abstract**
 
-We provide the formal reduction of Kauffman’s edge-of-chaos theory (1969, 1993, 2000) to the Anti-Crystallization Principle (ACP). The key result is **Theorem A.15.4**, which establishes that the edge-of-chaos regime in random Boolean networks (RBNs) is the ACP’s productive interval under a specific identification of variables, with the frozen component fraction f(t) serving as the bridge between the network-theoretic and information-theoretic descriptions. The reduction proceeds through a variable identification (Definition A.15.1) mapping the Boolean network onto the ACP framework and a bridge lemma (Lemma A.15.3) relating the frozen component fraction and the Derrida parameter λ to the ACP’s conditional macrostate entropy H(m′ | m).
+We provide the formal reduction of Kauffman’s edge-of-chaos theory (1969, 1993, 2000) to the Adaptive Coherence Principle (ACP). The key result is **Theorem A.15.4**, which establishes that the edge-of-chaos regime in random Boolean networks (RBNs) is the ACP’s productive interval under a specific identification of variables, with the frozen component fraction f(t) serving as the bridge between the network-theoretic and information-theoretic descriptions. The reduction proceeds through a variable identification (Definition A.15.1) mapping the Boolean network onto the ACP framework and a bridge lemma (Lemma A.15.3) relating the frozen component fraction and the Derrida parameter λ to the ACP’s conditional macrostate entropy H(m′ | m).
 
 The reduction reveals that Kauffman’s three regimes—ordered, critical, and chaotic—are not merely analogous to the ACP’s three regions but are formally identical under the variable identification. The ordered regime is the crystallization boundary (frozen component dominates, macroscopic dynamics are deterministic). The chaotic regime is the dissolution boundary (sensitivity to initial conditions destroys macroscopic predictability). The critical regime—the edge of chaos—is the productive interval where the network sustains complex, structured, non-trivial dynamics.
 
@@ -86,7 +86,7 @@ The bridge between the Kauffman and ACP frameworks is the relationship between t
 
 # **A.15.4  The Reduction Theorem**
 
-***Theorem A.15.4 (Kauffman as ACP Special Case). ***Under the variable identification of Definition A.15.1, Kauffman’s edge-of-chaos theory is a special case of the Anti-Crystallization Principle. Specifically:
+***Theorem A.15.4 (Kauffman as ACP Special Case). ***Under the variable identification of Definition A.15.1, Kauffman’s edge-of-chaos theory is a special case of the Adaptive Coherence Principle. Specifically:
 
 (a) **The chaotic regime is the dissolution boundary. **A Boolean network in the chaotic regime (λ > 1, f ≈ 0) satisfies the ACP’s dissolution condition: H(m′ | m) = H_max. The network’s macroscopic dynamics are maximally unpredictable—perturbations grow exponentially, attractors are sensitive to minor wiring changes, and no stable macroscopic structure persists. This is the Boolean network analog of thermodynamic equilibrium: the system explores its state space ergodically (in the macroscopic sense).
 
@@ -160,13 +160,13 @@ The bridge between the Kauffman and ACP frameworks is the relationship between t
 
 ⚠ **OPEN PROBLEM: ****Asynchronous update. **Kauffman’s classical model uses synchronous update, but biological networks update asynchronously. Under asynchronous dynamics, the attractor structure changes (fixed points are preserved but limit cycles may not be), and the frozen component may behave differently. The ACP reduction should be robust to update scheme—the core identification (frozen component = compound reinforcement basin) does not depend on synchrony—but the quantitative predictions (cascade rates, critical boundary location) will differ.
 
-⚠ **OPEN PROBLEM: ****Evolvability selection. **The present reduction considers selection for dynamical stability, which drives crystallization. Biological evolution also selects for evolvability—the capacity for heritable variation that is functional. Evolvability selection is an anti-crystallization pressure: it favors networks that maintain unfrozen components for future adaptation. The balance between stability selection (pro-crystallization) and evolvability selection (anti-crystallization) determines the network’s steady-state position within the productive interval. Formalizing this dual selection is equivalent to formalizing the perturbation term in Theorem 4.19, which is currently treated as external.
+⚠ **OPEN PROBLEM: ****Evolvability selection. **The present reduction considers selection for dynamical stability, which drives crystallization. Biological evolution also selects for evolvability—the capacity for heritable variation that is functional. Evolvability selection is an adaptive coherence steering pressure: it favors networks that maintain unfrozen components for future adaptation. The balance between stability selection (pro-crystallization) and evolvability selection (entropy-restoring steering) determines the network’s steady-state position within the productive interval. Formalizing this dual selection is equivalent to formalizing the perturbation term in Theorem 4.19, which is currently treated as external.
 
 ⚠ **OPEN PROBLEM: ****Multi-scale Boolean networks. **Biological regulatory networks are hierarchically organized: transcription factor networks regulate gene expression, which regulates protein networks, which regulate cellular behavior. Each level is a Boolean network (or continuous generalization) with its own frozen component and Derrida parameter. The multi-scale ACP treatment (Section 7.8 of the main paper) would extend the Kauffman reduction to nested Boolean networks, where crystallization at one level creates boundary conditions for the level above. This connects to the Bergstrom–Lachmann multi-level selection problem (A.13.8).
 
 # **A.15.9  Summary**
 
-Kauffman’s edge-of-chaos theory is a special case of the Anti-Crystallization Principle operating on Boolean networks under selection pressure. The reduction identifies the network’s dynamical profile (frozen/unfrozen partition plus attractor structure) as the macrostate, the joint action of Boolean dynamics and selection as the dynamics, and the frozen component fraction f as the control parameter that determines the system’s position within the productive interval.
+Kauffman’s edge-of-chaos theory is a special case of the Adaptive Coherence Principle operating on Boolean networks under selection pressure. The reduction identifies the network’s dynamical profile (frozen/unfrozen partition plus attractor structure) as the macrostate, the joint action of Boolean dynamics and selection as the dynamics, and the frozen component fraction f as the control parameter that determines the system’s position within the productive interval.
 
 The chaotic regime is the dissolution boundary: macroscopic dynamics are maximally unpredictable and no stable structure persists. The deep ordered regime is the crystallization boundary: macroscopic dynamics are deterministic and the network has no dynamical flexibility. The edge of chaos is the productive interval: complex, structured, non-trivial dynamics that balance information storage (frozen component) with information processing (unfrozen component).
 

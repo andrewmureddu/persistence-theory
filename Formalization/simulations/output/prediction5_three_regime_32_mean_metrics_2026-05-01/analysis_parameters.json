@@ -1,0 +1,6 @@
+{
+  "input_csv": "Formalization/simulations/output/prediction9_p5_three_regime_32_2026-05-01/generation_metrics.csv",
+  "success_column": "mean_correctness",
+  "frozen_column": "mean_frozen_fraction",
+  "lag": 5
+}

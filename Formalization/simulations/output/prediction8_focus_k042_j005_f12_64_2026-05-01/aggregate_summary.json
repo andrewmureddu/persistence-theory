@@ -1,0 +1,26 @@
+{
+  "reinforced": {
+    "replicates": 64,
+    "mean_first_accessible_mode_count": 3.078125,
+    "mean_final_accessible_mode_count": 1.0,
+    "mean_accessible_mode_slope": -0.06936813186813187,
+    "negative_accessible_mode_slope_fraction": 0.71875,
+    "mean_first_epsilon_star": 0.38343750000000004,
+    "mean_final_epsilon_star": 0.66,
+    "mean_epsilon_star_slope": 0.010147664835164836,
+    "positive_epsilon_star_slope_fraction": 0.703125,
+    "mean_final_total_reinforcement": 2.624181941802315
+  },
+  "no_reinforcement": {
+    "replicates": 64,
+    "mean_first_accessible_mode_count": 3.078125,
+    "mean_final_accessible_mode_count": 2.25,
+    "mean_accessible_mode_slope": -0.06370192307692307,
+    "negative_accessible_mode_slope_fraction": 0.578125,
+    "mean_first_epsilon_star": 0.38343750000000004,
+    "mean_final_epsilon_star": 0.5118750000000001,
+    "mean_epsilon_star_slope": 0.010075549450549452,
+    "positive_epsilon_star_slope_fraction": 0.625,
+    "mean_final_total_reinforcement": 0.0
+  }
+}

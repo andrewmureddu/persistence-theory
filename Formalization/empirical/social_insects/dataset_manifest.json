@@ -1,0 +1,68 @@
+{
+  "datasets": [
+    {
+      "id": "ant_density_homeostasis_dryad",
+      "title": "Ant colonies maintain social homeostasis in the face of decreased density",
+      "organism": "Camponotus pennsylvanicus",
+      "source": "Dryad",
+      "doi": "10.5061/dryad.sh4m4s6",
+      "url": "https://datadryad.org/dataset/doi:10.5061/dryad.sh4m4s6",
+      "companion_code_url": "https://github.com/EwanColman/Ant-colonies-maintain-social-homeostasis-in-the-face-of-decreased-density",
+      "approx_size": "22.99 MB",
+      "local_status": "Dryad terminal download returns 403; companion GitHub trophallaxis spreadsheets are available locally under data/raw/ant_homeostasis_github/.",
+      "first_pass_priority": 1,
+      "acp_targets": [
+        "perturbation absorption",
+        "interaction-network entropy",
+        "spatial reallocation",
+        "social homeostasis"
+      ]
+    },
+    {
+      "id": "bee_waggle_drift_zenodo",
+      "title": "Machine learning reveals the waggle drift's role in the honey bee dance communication system",
+      "organism": "Apis mellifera",
+      "source": "Zenodo",
+      "doi": "10.5281/zenodo.7928121",
+      "url": "https://zenodo.org/records/7928121",
+      "approx_size": "selected CSVs 4.9 GB full record",
+      "first_pass_priority": 2,
+      "acp_targets": [
+        "communication repertoire concentration",
+        "dance-floor spatial entropy",
+        "follower-network concentration",
+        "success-crystallization coupling"
+      ]
+    },
+    {
+      "id": "bee_markerless_colony_tracking_zenodo",
+      "title": "Markerless tracking of an entire insect colony",
+      "organism": "Apis mellifera",
+      "source": "Zenodo",
+      "doi": "10.5281/zenodo.4462215",
+      "url": "https://zenodo.org/records/4462215",
+      "approx_size": "3.3 GB",
+      "first_pass_priority": 3,
+      "acp_targets": [
+        "accessible behavioral modes",
+        "spatial repertoire narrowing",
+        "whole-colony activity entropy"
+      ]
+    },
+    {
+      "id": "bee_colocalized_waggle_virginia",
+      "title": "Honey bee waggle dance data and code to analyze the spatial foraging patterns of co-localized colonies in Virginia",
+      "organism": "Apis mellifera",
+      "source": "Virginia Tech Data / Figshare",
+      "doi": "10.6084/m9.figshare.26276062",
+      "url": "https://data.lib.vt.edu/articles/dataset/Honey_bee_waggle_dance_data_and_code_to_analyze_the_spatial_foraging_patterns_of_co-localized_colonies_in_Virginia_as_part_of_Bees-as-Bioindicators_project_/26276062",
+      "approx_size": "374.22 MB",
+      "first_pass_priority": 4,
+      "acp_targets": [
+        "foraging partitioning",
+        "resource-vector diversity",
+        "colony-level repertoire concentration"
+      ]
+    }
+  ]
+}

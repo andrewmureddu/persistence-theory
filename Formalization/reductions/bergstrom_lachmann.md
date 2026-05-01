@@ -1,6 +1,6 @@
 **Appendix A.13: Formal Reduction of the Bergstrom–Lachmann**
 
-**Information Bound to the Anti-Crystallization Principle**
+**Information Bound to the Adaptive Coherence Principle**
 
 *ACP Working Paper Series*
 
@@ -8,7 +8,7 @@
 
 # **Abstract**
 
-We provide the formal reduction of the Bergstrom–Lachmann information bound (2004; Donaldson-Matasci, Bergstrom & Lachmann 2010) to the Anti-Crystallization Principle (ACP). The key result is Theorem A.13.4, which establishes that the fitness value of environmental information—the maximum increase in long-term growth rate that an organism can obtain by responding to an environmental cue—is bounded above by the Shannon entropy H(E) of the environment *because* H(E) measures the width of the ACP’s productive interval in the information-processing dimension. The reduction proceeds through a variable identification (Definition A.13.1) mapping the organism–environment system onto the ACP framework and a bridge lemma (Lemma A.13.3) relating the organism’s phenotypic diversity to the ACP’s conditional macrostate entropy.
+We provide the formal reduction of the Bergstrom–Lachmann information bound (2004; Donaldson-Matasci, Bergstrom & Lachmann 2010) to the Adaptive Coherence Principle (ACP). The key result is Theorem A.13.4, which establishes that the fitness value of environmental information—the maximum increase in long-term growth rate that an organism can obtain by responding to an environmental cue—is bounded above by the Shannon entropy H(E) of the environment *because* H(E) measures the width of the ACP’s productive interval in the information-processing dimension. The reduction proceeds through a variable identification (Definition A.13.1) mapping the organism–environment system onto the ACP framework and a bridge lemma (Lemma A.13.3) relating the organism’s phenotypic diversity to the ACP’s conditional macrostate entropy.
 
 The reduction reveals that bet-hedging—the strategy of diversifying phenotypic investment across environmental contingencies—is the information-theoretic analog of productive interval maintenance. Crystallization corresponds to phenotypic specialization (committing entirely to a single phenotype), which maximizes short-run expected fitness but guarantees eventual extinction under environmental variation. The Crystallization Drift Theorem acquires a precise interpretation: selection for the currently best-performing phenotype is a self-reinforcing mechanism that progressively narrows phenotypic diversity, driving the organism toward specialization—the biological crystallization boundary.
 
@@ -78,7 +78,7 @@ In the lethal-mismatch case (wᵢⱼ = 0 for i ≠ j), x* = p exactly, and H(x*)
 
 # **A.13.4  The Reduction Theorem**
 
-***Theorem A.13.4 ******(Bergstrom–Lachmann as ACP Special Case). ***Under the variable identification of Definition A.13.1, the Bergstrom–Lachmann information bound is a special case of the Anti-Crystallization Principle. Specifically:
+***Theorem A.13.4 ******(Bergstrom–Lachmann as ACP Special Case). ***Under the variable identification of Definition A.13.1, the Bergstrom–Lachmann information bound is a special case of the Adaptive Coherence Principle. Specifically:
 
 (i) The crystallization boundary C corresponds to zero environmental entropy: H(E) = 0. The environment is deterministic, the optimal strategy is full specialization (xᵢ = 1), and H(m′ | m) = 0. The organism’s macroscopic future is fully determined by its macroscopic present—it has crystallized into a single phenotype with no capacity for adaptive revision.
 
@@ -156,7 +156,7 @@ Bergstrom & Lachmann (2004) identify three regions in the strategy space, distin
 
 # **A.13.9  Summary**
 
-The Bergstrom–Lachmann information bound is a special case of the Anti-Crystallization Principle operating on organism–environment systems under natural selection. The reduction identifies the organism’s phenotypic strategy as the macrostate, natural selection as the dynamics, and the environmental Shannon entropy H(E) as the control parameter that determines the productive interval’s width. Crystallization corresponds to phenotypic specialization (single-phenotype commitment, H(m′ | m) = 0), dissolution to strategic incoherence (no learnable environmental structure, H(m′ | m) = H_max), and the productive interval to diversified bet-hedging guided by environmental information (0 < H(m′ | m) < H_max).
+The Bergstrom–Lachmann information bound is a special case of the Adaptive Coherence Principle operating on organism–environment systems under natural selection. The reduction identifies the organism’s phenotypic strategy as the macrostate, natural selection as the dynamics, and the environmental Shannon entropy H(E) as the control parameter that determines the productive interval’s width. Crystallization corresponds to phenotypic specialization (single-phenotype commitment, H(m′ | m) = 0), dissolution to strategic incoherence (no learnable environmental structure, H(m′ | m) = H_max), and the productive interval to diversified bet-hedging guided by environmental information (0 < H(m′ | m) < H_max).
 
 The reduction shows that bet-hedging is productive interval maintenance, that the Kelly criterion is the optimal boundary management strategy, and that the fitness value of information measures the productive interval’s width. The Crystallization Drift Theorem predicts specialization cascades: organisms under sustained selection progressively narrow their phenotypic repertoire, lose developmental flexibility, and approach the crystallization boundary—requiring increasingly large environmental perturbations to restore adaptive diversity.
 

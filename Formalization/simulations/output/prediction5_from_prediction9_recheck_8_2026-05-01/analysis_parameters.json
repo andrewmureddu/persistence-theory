@@ -1,0 +1,6 @@
+{
+  "input_csv": "Formalization/simulations/output/prediction9_lead_recheck_8_2026-05-01/generation_metrics.csv",
+  "success_column": "mean_correctness",
+  "frozen_column": "mean_frozen_fraction",
+  "lag": 5
+}

@@ -12,7 +12,7 @@ The usual gloss is that these are four independent limits, each native to its ow
 
 This essay argues they are one theorem in four registers. What they name is the same structural fact: that any system capable of representing itself, of being powerful enough to notice, is structurally forbidden from closing over itself. The forbidding is not an engineering limit. It is the condition under which the system can continue at all.
 
-The Anti-Crystallization Principle, which is the formal spine of this project, makes this explicit. A system retains future-bearing dynamics if and only if it occupies a nondegenerate interval between two absorbing states. One state is dissolution, where no distinctions survive and the system is noise. The other is crystallization, where every distinction is frozen and the system is a monument. Complete self-description — the state a closed sufficiently-powerful system would reach if nothing prevented it — is the crystallization endpoint. The four theorems are four different proofs that the crystallization endpoint is unreachable from inside the system.
+The Adaptive Coherence Principle, which is the formal spine of this project, makes this explicit. A system retains future-bearing dynamics if and only if it occupies a nondegenerate interval between two absorbing states. One state is dissolution, where no distinctions survive and the system is noise. The other is crystallization, where every distinction is frozen and the system is a monument. Complete self-description — the state a closed sufficiently-powerful system would reach if nothing prevented it — is the crystallization endpoint. The four theorems are four different proofs that the crystallization endpoint is unreachable from inside the system.
 
 That is the short version. The longer version requires walking through each theorem and showing where the same structural move occurs.
 
@@ -66,7 +66,7 @@ Four theorems. Four domains. One structural move.
 
 In each case a system is given the resources to represent itself — to host observables of itself (Heisenberg), to encode sentences about itself (Gödel), to simulate programs including its own (Turing), to describe strings including its own descriptions (Chaitin). In each case the representation falls short of closure. Some aspect of what the system is resists capture by what the system can say about itself. The shortfall is not a defect of the particular construction. It is a lower bound on any construction in that class.
 
-The Anti-Crystallization Principle is what happens when you stop treating this as four coincidences and start asking what the coincidences mean.
+The Adaptive Coherence Principle is what happens when you stop treating this as four coincidences and start asking what the coincidences mean.
 
 If a sufficiently-powerful representational system could close over itself, it would occupy the crystallization endpoint: every distinguishable state known, no residual degrees of freedom, no conditional entropy across its own description. The four theorems say this endpoint is not reachable by any system rich enough to aim for it. The more powerful the representational apparatus, the more sharply the floor is enforced. Heisenberg bounds the variance product. Gödel bounds the proof base. Turing bounds the procedure class. Chaitin bounds the axiom length. They are the same floor seen through four different instruments, and the floor is the nondegenerate interval — the space where future-bearing dynamics live.
 

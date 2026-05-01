@@ -148,7 +148,7 @@ The two-mechanism result extends to k mechanisms by the same inductive strategy 
 
 **Theorem A.10.13 (Stable coexistence implies Coherent Steering, k mechanisms). ***Let R₁, …, Rₖ be self-reinforcing mechanisms in dynamically stable coexistence (all pairwise reinforcement strengths bounded below, compound basin occupied with positive probability). Then for each pair (R̅ⱼ, Rⱼ₊₁), the Coherent Steering Condition holds.*
 
-*Proof sketch. *Fix any j and consider the compound R̅ⱼ = R₁ ∩ … ∩ Rⱼ and the new mechanism Rⱼ₊₁. By Lemma A.9.1, R̅ⱼ is self-reinforcing. By stable coexistence, α(R̅ⱼ) and α(Rⱼ₊₁) are bounded below. Apply Theorem A.10.9 to the pair (R̅ⱼ, Rⱼ₊₁): if Coherent Steering fails for this pair, channel erosion decays the weaker mechanism’s reinforcement strength to zero, violating stable coexistence.  ■
+*Proof sketch. *Fix any j and consider the compound R̅ⱼ = R₁ ∩ … ∩ Rⱼ and the new mechanism Rⱼ₊₁. In the Gaussian branch, under the closure hypotheses of Lemma A.9.1, or in the aligned positive-association class of Proposition A.9.3b, R̅ⱼ is self-reinforcing. By stable coexistence, α(R̅ⱼ) and α(Rⱼ₊₁) are bounded below. Apply Theorem A.10.9 to the pair (R̅ⱼ, Rⱼ₊₁): if Coherent Steering fails for this pair, channel erosion decays the weaker mechanism’s reinforcement strength to zero, violating stable coexistence.  ■
 
 **A.10.8  Relationship to the Genericity Argument**
 

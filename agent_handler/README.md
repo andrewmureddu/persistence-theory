@@ -1,7 +1,7 @@
 # ACP Agent Handler MVP
 
 This directory contains a small, runnable starter for an in-house agent handler
-that uses the Anti-Crystallization Principle (ACP) as an operating rule.
+that uses the Adaptive Coherence Principle (ACP) as an operating rule.
 
 The goal is not to make a single perfect agent. The goal is to keep the
 handler inside a productive interval:
@@ -14,6 +14,12 @@ The ACP claim is that the same mechanisms that keep the system coherent also
 push it toward rigidity. In operational terms, the handler must keep paying a
 "Prigogine tax": it must spend some throughput on re-grounding, route decay,
 memory decay, and independent review.
+
+The research workflow adds one more tax: generativity. A completed theory-building
+task should identify the questions, observables, or falsification paths it opens,
+not only the answer it closes. In ACP terms, the handler should treat
+`successor_questions`, `new_observables`, or `new_tests` as first-class expected
+fields for non-routine research tasks.
 
 ## What is in here
 
@@ -141,7 +147,7 @@ python3 -m agent_handler.cli submit \
   --novelty 0.7 \
   --risk 0.4 \
   --tags research workflow \
-  --fields options tradeoffs recommendation \
+  --fields options tradeoffs recommendation successor_questions \
   --run-now
 ```
 
@@ -244,7 +250,7 @@ Example task submission body:
   "novelty": 0.7,
   "risk": 0.4,
   "tags": ["research", "workflow"],
-  "expected_fields": ["options", "tradeoffs", "recommendation"],
+  "expected_fields": ["options", "tradeoffs", "recommendation", "successor_questions"],
   "run_now": true
 }
 ```

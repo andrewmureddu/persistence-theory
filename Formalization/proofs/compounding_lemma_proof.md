@@ -2,7 +2,7 @@
 
 *Formal Proof of Lemma 4.16 from the Crystallization Drift Theorem*
 
-Appendix A to Section 4.4 of: The Anti-Crystallization Principle
+Appendix A to Section 4.4 of: The Adaptive Coherence Principle
 
 WORKING DRAFT — April 2026
 

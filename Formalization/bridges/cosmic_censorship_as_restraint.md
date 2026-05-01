@@ -2,7 +2,7 @@
 
 *Status: proposed bridge. Core identification: **conjectured with structural argument**. Formal claims are marked proven / conjectured / open.*
 
-*Companion documents: `bridges/restraint_power.md` (A.20, the Restraint-Power Theorem); `special_cases/acp_special_cases_v03.md` §5.4 (lighter-weight reduction of Penrose-Hawking / cosmic censorship under the persistence-prior axiom); `bridges/schur_complement.md` (the partitioned-precision picture A.20 inherits).*
+*Companion documents: `bridges/restraint_power.md` (A.20, the Restraint-Power Theorem); `special_cases/acp_special_cases_v03.md` §5.4 (lighter-weight reduction of Penrose-Hawking / cosmic censorship under the persistence-prior axiom); `bridges/schur_complement.md` (the partitioned-precision picture A.20 inherits); `bridges/singularity_incompleteness_clearinghouse.md` (singularities as inadmissibility certificates; black holes as restraint clearinghouses).*
 
 ---
 

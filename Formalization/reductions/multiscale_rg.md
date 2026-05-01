@@ -1,8 +1,8 @@
-# Appendix A.18: The Multi-Scale Anti-Crystallization Principle
+# Appendix A.18: The Multi-Scale Adaptive Coherence Principle
 
 ## A.18.1 Introduction
 
-The Anti-Crystallization Principle (Theorem 4.3) is stated for a single system at a single level of description: a fixed coarse-graining map σ: Ω → M defines what counts as a macrostate, and the productive interval is the region of M between the dissolution boundary D and the crystallization boundary C. But physical systems are nested hierarchies. A cell persists within a tissue, which persists within an organism, which persists within an ecosystem. Each level has its own macrostates, its own boundaries, and its own conditional entropy. The question posed in Section 7.7 is: how do productive intervals at different scales interact?
+The Adaptive Coherence Principle (Theorem 4.3) is stated for a single system at a single level of description: a fixed coarse-graining map σ: Ω → M defines what counts as a macrostate, and the productive interval is the region of M between the dissolution boundary D and the crystallization boundary C. But physical systems are nested hierarchies. A cell persists within a tissue, which persists within an organism, which persists within an ecosystem. Each level has its own macrostates, its own boundaries, and its own conditional entropy. The question posed in Section 7.7 is: how do productive intervals at different scales interact?
 
 This appendix resolves the multi-scale problem by embedding the ACP within the renormalization group (RG) framework. The central results are:
 
@@ -14,7 +14,7 @@ This appendix resolves the multi-scale problem by embedding the ACP within the r
 
 4. **Inter-scale crystallization propagation (Theorem A.18.14):** Crystallization drift at scale ℓ induces crystallization drift at scale ℓ+1, with a delay bounded by the inter-scale equilibration time. Fine-grained rigidity propagates upward. This is the multi-scale extension of the Crystallization Drift Theorem.
 
-5. **Anti-crystallization must be multi-scale (Corollary A.18.16):** Effective anti-crystallization at scale ℓ requires either (a) perturbation originating from a different scale, or (b) a mechanism whose characteristic scale spans the inter-scale gap. Single-scale anti-crystallization is generically insufficient for hierarchical persistence.
+5. **Adaptive coherence steering must be multi-scale (Corollary A.18.16):** Effective entropy-restoring steering at scale ℓ requires either (a) perturbation originating from a different scale, or (b) a mechanism whose characteristic scale spans the inter-scale gap. Single-scale steering is generically insufficient for hierarchical persistence.
 
 The connection to recent work on the information-theoretic characterization of the RG (Koch-Janusz & Ringel 2018; Lenggenhager et al. 2020; Kline & Hughes 2022) is essential: their result that the optimal RG transformation maximizes real-space mutual information provides the bridge between the RG formalism and the ACP's information-theoretic vocabulary.
 
@@ -234,25 +234,25 @@ where {α_i^{(ℓ)}} are the coupling parameters of the scale-ℓ self-reinforci
 
 ## A.18.8 Multi-Scale Anti-Crystallization
 
-***Corollary A.18.16 (Anti-crystallization must be multi-scale).*** Let S be a hierarchical system undergoing crystallization drift at every scale. A perturbation of magnitude ε applied at scale ℓ is an effective anti-crystallization mechanism at scale ℓ only if ε > ε*_ℓ(t) (the critical perturbation threshold of Corollary 4.21 at scale ℓ). For the perturbation to be effective at scale ℓ+1, either:
+***Corollary A.18.16 (Adaptive coherence steering must be multi-scale).*** Let S be a hierarchical system undergoing crystallization drift at every scale. A perturbation of magnitude ε applied at scale ℓ is an effective adaptive coherence steering mechanism at scale ℓ only if ε > ε*_ℓ(t) (the critical perturbation threshold of Corollary 4.21 at scale ℓ). For the perturbation to be effective at scale ℓ+1, either:
 
 (a) ε propagates upward through the scale tower (the perturbation disrupts enough fine-grained structure to alter coarse-grained dynamics), requiring ε > ε*_{ℓ+1}(t) after inter-scale propagation losses; or
 
 (b) a separate perturbation is applied directly at scale ℓ+1.
 
-Therefore, sustained multi-scale persistence requires either a perturbation source whose influence spans multiple scales, or independent anti-crystallization mechanisms at each scale.
+Therefore, sustained multi-scale persistence requires either a perturbation source whose influence spans multiple scales, or independent adaptive coherence steering mechanisms at each scale.
 
-*Proof.* Follows from the upward propagation theorem (A.18.14) run in reverse: to *undo* crystallization drift at scale ℓ+1, one must undo the scale-ℓ crystallization that drives it. If the scale-wise analogue of Corollary 4.21 applies, then the critical perturbation threshold at scale ℓ, ε*_ℓ(t), is monotonically non-decreasing in time. Furthermore, the perturbation must propagate through σ_{ℓ+1}, which generically attenuates it (the coarse-graining map is many-to-one, so a perturbation at scale ℓ affects only one of many fine-grained degrees of freedom contributing to a scale-(ℓ+1) macrostate). Effective anti-crystallization at scale ℓ+1 therefore requires perturbation in excess of what single-scale anti-crystallization provides. ■
+*Proof.* Follows from the upward propagation theorem (A.18.14) run in reverse: to *undo* crystallization drift at scale ℓ+1, one must undo the scale-ℓ crystallization that drives it. If the scale-wise analogue of Corollary 4.21 applies, then the critical perturbation threshold at scale ℓ, ε*_ℓ(t), is monotonically non-decreasing in time. Furthermore, the perturbation must propagate through σ_{ℓ+1}, which generically attenuates it (the coarse-graining map is many-to-one, so a perturbation at scale ℓ affects only one of many fine-grained degrees of freedom contributing to a scale-(ℓ+1) macrostate). Effective steering at scale ℓ+1 therefore requires perturbation in excess of what single-scale steering provides. ■
 
-***Remark A.18.17 (Natural multi-scale perturbation sources).*** In practice, multi-scale anti-crystallization is provided by:
+***Remark A.18.17 (Natural multi-scale steering sources).*** In practice, multi-scale adaptive coherence steering is provided by:
 
 - *Physics:* Thermal fluctuations (scale-free noise spanning all scales). Phase transitions (coupling between order parameters at different scales). External driving forces (boundary conditions imposed at the system's largest scale, propagating downward).
 
-- *Biology:* Mutation (molecular scale) + sexual recombination (organismal scale) + migration (population scale) + mass extinction (ecosystem scale). Each operates at a characteristic scale, and the full hierarchy of anti-crystallization mechanisms spans the biological scale tower.
+- *Biology:* Mutation (molecular scale) + sexual recombination (organismal scale) + migration (population scale) + mass extinction (ecosystem scale). Each operates at a characteristic scale, and the full hierarchy of adaptive coherence steering mechanisms spans the biological scale tower.
 
-- *Institutions:* Individual creativity (ℓ = 1) + team experimentation (ℓ = 2) + external competition (ℓ = 3) + regulatory reform (ℓ = 4) + societal revolution (ℓ = 5). Ostrom's (1990) graduated sanctions are a scale-calibrated anti-crystallization strategy.
+- *Institutions:* Individual creativity (ℓ = 1) + team experimentation (ℓ = 2) + external competition (ℓ = 3) + regulatory reform (ℓ = 4) + societal revolution (ℓ = 5). Ostrom's (1990) graduated sanctions are a scale-calibrated adaptive coherence steering strategy.
 
-The ACP prediction is that systems with anti-crystallization mechanisms at only a single scale will eventually crystallize at all other scales. Multi-scale persistence requires multi-scale disruption.
+The ACP prediction is that systems with adaptive coherence steering mechanisms at only a single scale will eventually crystallize at all other scales. Multi-scale persistence requires multi-scale disruption.
 
 ---
 
@@ -268,10 +268,10 @@ In the ACP framework, this quantity has a precise interpretation: RSMI measures 
 
 *Proof sketch.* The RSMI measures how much the coarse-grained variables know about their environment at the *original* scale. In ACP terms, this is the information that the scale-(ℓ+1) macrostate carries about the scale-ℓ macrostate's environment — precisely the inter-scale predictive information I_{ℓ+1}. Maximizing RSMI therefore maximizes I_{ℓ+1}, which means the coarse-grained system retains as much predictive structure as possible. The boundary positions D_{ℓ+1} and C_{ℓ+1} are determined by the extremes of I_{ℓ+1}, so the productive interval P_{ℓ+1} is optimally aligned with P_ℓ under RSMI maximization. ■
 
-***Proposition A.18.19 (Information bottleneck as anti-crystallization).*** The information bottleneck (IB) objective (Tishby et al. 1999) — minimize I(X; T) subject to a constraint on I(T; Y) — has a direct ACP interpretation:
+***Proposition A.18.19 (Information bottleneck as adaptive coherence steering).*** The information bottleneck (IB) objective (Tishby et al. 1999) — minimize I(X; T) subject to a constraint on I(T; Y) — has a direct ACP interpretation:
 
 - I(X; T) is the *complexity* of the representation T of the input X. Minimizing it is compression — a move toward crystallization (reducing the representational degrees of freedom).
-- I(T; Y) is the *predictive value* of T for the relevant variable Y. Constraining this to be large is an anti-crystallization requirement — the representation must remain flexible enough to track Y.
+- I(T; Y) is the *predictive value* of T for the relevant variable Y. Constraining this to be large is an adaptive coherence steering requirement — the representation must remain flexible enough to track Y.
 
 The IB Lagrangian L = I(X; T) − β · I(T; Y) therefore trades off crystallization (compressing T) against dissolution (losing predictive value). The IB optimal point — for a given β — is a point on the boundary of the productive interval in representation space. As β varies from 0 to ∞, the IB optimal point traces a path from C (maximum compression, no prediction) to D (no compression, maximum noise). The IB curve is a one-dimensional cross-section of the productive interval.
 
@@ -287,7 +287,7 @@ The multi-scale ACP generates several testable predictions beyond those already 
 
 **Prediction MS-1 (Crystallization propagation delay).** In hierarchical systems, crystallization signatures should appear at finer scales before coarser scales, with a characteristic delay τ_eq^{(ℓ,ℓ+1)} between scales ℓ and ℓ+1. Testable in: (a) biological aging (molecular markers should precede cellular markers, which should precede tissue-level markers); (b) organizational rigidity (individual routinization should precede team routinization); (c) Boolean network simulations with hierarchical block structure.
 
-**Prediction MS-2 (Multi-scale anti-crystallization necessity).** Systems with anti-crystallization mechanisms at only a single scale should crystallize at other scales on the timescale predicted by Theorem A.18.14. Testable in: (a) organizations with "innovation labs" (localized anti-crystallization at one organizational scale) that fail to prevent rigidity at other scales; (b) biological systems with mutation (molecular-scale anti-crystallization) but no recombination (no multi-scale mechanism) should crystallize faster at cellular/organismal scales than sexual populations.
+**Prediction MS-2 (Multi-scale steering necessity).** Systems with adaptive coherence steering mechanisms at only a single scale should crystallize at other scales on the timescale predicted by Theorem A.18.14. Testable in: (a) organizations with "innovation labs" (localized steering at one organizational scale) that fail to prevent rigidity at other scales; (b) biological systems with mutation (molecular-scale steering) but no recombination (no multi-scale mechanism) should crystallize faster at cellular/organismal scales than sexual populations.
 
 **Prediction MS-3 (Critical systems as multi-scale persistors).** Systems near critical points (in the statistical mechanical sense) should exhibit the most robust multi-scale persistence — maintaining productive intervals at all scales simultaneously. Departure from criticality should correlate with loss of the productive interval at the most extreme scales first. Testable in: neural systems (departure from neural criticality should correlate with loss of behavioral flexibility at the whole-organism scale).
 
@@ -317,7 +317,7 @@ The multi-scale ACP resolves the problem posed in Section 7.7 by embedding the s
 
 3. At RG fixed points, the productive interval is self-similar across scales. Critical systems are the paradigmatic multi-scale persistors.
 
-4. Effective multi-scale persistence requires multi-scale anti-crystallization. Single-scale perturbation is generically insufficient for hierarchical systems.
+4. Effective multi-scale persistence requires multi-scale adaptive coherence steering. Single-scale perturbation is generically insufficient for hierarchical systems.
 
 5. The information-theoretic RG (Koch-Janusz & Ringel 2018) provides the optimal coarse-graining — the one that maximally preserves the productive interval structure across scales — and the information bottleneck traces a one-dimensional cross-section of the productive interval in representation space.
 

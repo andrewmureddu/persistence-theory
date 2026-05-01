@@ -1,0 +1,70 @@
+{
+  "selected": {
+    "replicates": 8,
+    "success_delta_frozen_pearson": {
+      "count": 8,
+      "mean": 0.7498392600661486,
+      "median": 0.796547117310625,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "success_delta_frozen_spearman": {
+      "count": 8,
+      "mean": 0.6593841206495615,
+      "median": 0.6814678856463443,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "lagged_success_to_delta_frozen_pearson": {
+      "count": 8,
+      "mean": 0.6019421829290416,
+      "median": 0.5941777013041681,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "reverse_delta_frozen_to_success_pearson": {
+      "count": 8,
+      "mean": 0.6275002141636331,
+      "median": 0.6942589825872778,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "cross_replicate_final_success_delta_frozen_pearson": -0.37814822923229946,
+    "mean_final_success": 0.7894345238095238,
+    "mean_final_delta_frozen": 0.40141369047619047
+  },
+  "neutral_post_threshold": {
+    "replicates": 8,
+    "success_delta_frozen_pearson": {
+      "count": 8,
+      "mean": 0.6390320428132042,
+      "median": 0.6159697674740314,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "success_delta_frozen_spearman": {
+      "count": 8,
+      "mean": 0.5219985817953093,
+      "median": 0.5162688660637269,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "lagged_success_to_delta_frozen_pearson": {
+      "count": 8,
+      "mean": 0.5314911506413145,
+      "median": 0.5134216035215857,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "reverse_delta_frozen_to_success_pearson": {
+      "count": 8,
+      "mean": 0.5785251266902179,
+      "median": 0.5216656473607619,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 0.00390625
+    },
+    "cross_replicate_final_success_delta_frozen_pearson": -0.014938732158872741,
+    "mean_final_success": 0.7900855654761905,
+    "mean_final_delta_frozen": 0.3279389880952381
+  }
+}

@@ -1,6 +1,6 @@
 **Appendix A.11: Formal Reduction of the Free Energy Principle**
 
-**to the Anti-Crystallization Principle**
+**to the Adaptive Coherence Principle**
 
 *ACP Working Paper Series*
 
@@ -8,9 +8,9 @@
 
 # Abstract
 
-We provide the formal reduction of Friston’s Free Energy Principle (FEP) to the Anti-Crystallization Principle (ACP). The key result is Theorem A.11.5, which establishes that variational free energy minimization is equivalent to maintenance of the ACP’s productive interval under a specific identification of variables. The reduction proceeds through an intermediate lemma (Lemma A.11.3) relating the agent’s model entropy to the system-level conditional macrostate entropy H(m′ | m). This resolves the open problem flagged in Section 5.3 of the main paper.
+We provide the formal reduction of Friston’s Free Energy Principle (FEP) to the Adaptive Coherence Principle (ACP). The key result is Theorem A.11.5, which establishes that variational free energy minimization is equivalent to maintenance of the ACP’s productive interval under a specific identification of variables. The reduction proceeds through an intermediate lemma (Lemma A.11.3) relating the agent’s model entropy to the system-level conditional macrostate entropy H(m′ | m). This resolves the open problem flagged in Section 5.3 of the main paper.
 
-The reduction reveals that the FEP’s two optimization channels—perception (updating the variational density q) and action (changing sensory states through the environment)—correspond precisely to the ACP’s two boundary management tasks: perception manages the dissolution boundary D, while unchecked action risks the crystallization boundary C. The complexity penalty in variational free energy, often treated as a regularization device, emerges as exactly the anti-crystallization constraint.
+The reduction reveals that the FEP’s two optimization channels—perception (updating the variational density q) and action (changing sensory states through the environment)—correspond precisely to the ACP’s two boundary management tasks: perception manages the dissolution boundary D, while unchecked action risks the crystallization boundary C. The complexity penalty in variational free energy, often treated as a regularization device, emerges as exactly the adaptive coherence steering constraint.
 
 # A.11.1  Setup and Notation
 
@@ -84,13 +84,13 @@ That is: the conditional macrostate entropy is bounded above by the average surp
 
 # A.11.4  The Reduction Theorem
 
-***Theorem A.11.5 (FEP as ACP Special Case). ***Under the variable identification of Definition A.11.1, the Free Energy Principle is a special case of the Anti-Crystallization Principle. Specifically:
+***Theorem A.11.5 (FEP as ACP Special Case). ***Under the variable identification of Definition A.11.1, the Free Energy Principle is a special case of the Adaptive Coherence Principle. Specifically:
 
 (i) Perception (minimizing D_KL(q || P(ψ | s, μ))) manages the dissolution boundary. A system with a poor generative model—one whose variational density q diverges from the true posterior—makes increasingly inaccurate predictions. In the ACP’s terms, H(m′ | m) → H_max: the macroscopic future becomes unpredictable. The system dissolves.
 
 (ii) Action (maximizing ln P(s | μ)) without the complexity penalty risks crystallization. A system that selects only sensory data its model already predicts well is performing active inference in the service of self-reinforcement: it is narrowing its sensory repertoire to confirm existing predictions. In the ACP’s terms, this is the crystallization drift—the compound reinforcement basin R̅ shrinks, H(m′ | m) → 0.
 
-(iii) The complexity penalty D_KL(q || P(ψ)) in the free energy decomposition F = E_q[−ln P(s | ψ)] + D_KL(q(ψ) || P(ψ)) is exactly the anti-crystallization constraint. It penalizes the variational density for diverging from the prior—that is, for becoming too specialized to current data. This prevents q from collapsing to a point mass (which would be crystallization of the generative model).
+(iii) The complexity penalty D_KL(q || P(ψ)) in the free energy decomposition F = E_q[−ln P(s | ψ)] + D_KL(q(ψ) || P(ψ)) is exactly the adaptive coherence steering constraint. It penalizes the variational density for diverging from the prior—that is, for becoming too specialized to current data. This prevents q from collapsing to a point mass (which would be crystallization of the generative model).
 
 ***Proof. ***We prove each part.
 
@@ -102,7 +102,7 @@ That is: the conditional macrostate entropy is bounded above by the average surp
 
 F = E_q[−ln P(s | ψ)] + D_KL(q(ψ) || P(ψ))
 
-The first term (expected negative log-likelihood) is the accuracy term: it drives q toward explaining the data well. Minimizing this term alone would push q toward a delta function on the maximum-likelihood ψ—crystallizing the model. The second term D_KL(q || P(ψ)) is the complexity penalty: it resists q diverging from the prior. When P(ψ) is broad (high-entropy prior), this penalty is exactly an anti-crystallization force. It prevents the variational density from collapsing to a point mass. The balance between accuracy and complexity is the FEP’s version of the productive interval: enough model precision to avoid dissolution, enough model flexibility to avoid crystallization. ■
+The first term (expected negative log-likelihood) is the accuracy term: it drives q toward explaining the data well. Minimizing this term alone would push q toward a delta function on the maximum-likelihood ψ—crystallizing the model. The second term D_KL(q || P(ψ)) is the complexity penalty: it resists q diverging from the prior. When P(ψ) is broad (high-entropy prior), this penalty is exactly an adaptive coherence steering force. It prevents the variational density from collapsing to a point mass. The balance between accuracy and complexity is the FEP’s version of the productive interval: enough model precision to avoid dissolution, enough model flexibility to avoid crystallization. ■
 
 # A.11.5  Crystallization Drift in FEP Terms
 
@@ -130,9 +130,9 @@ The formal reduction illuminates several points that are obscured when the FEP a
 
 **Perception and action serve different boundaries. **The FEP’s two optimization channels are not symmetric. Perception (updating q) primarily manages the dissolution boundary: an agent that stops updating its model loses predictive coherence and dissolves into sensory noise. Action (changing s through the world) primarily manages the crystallization boundary—or rather, risks it: action that is purely confirmatory drives crystallization. The asymmetry between perception and action, which is sometimes noted in the FEP literature but not explained, is a structural consequence of the ACP’s two-boundary architecture.
 
-**The FEP inherits the crystallization drift. **Since the FEP is a special case of the ACP, FEP-governed systems inherit the CDT's maintained-pressure logic. Concretely: an active inference agent that successfully minimizes prediction error through sustained confirmatory control is expected to reduce H(m′ | m) over time, becoming increasingly predictable, increasingly rigid, and increasingly incapable of accommodating genuine novelty unless anti-crystallization mechanisms intervene. This is not a failure of implementation; it is the structural consequence of successful free energy minimization in a self-reinforcing regime. The CDT provides a formal account of why biological systems require mechanisms of model revision (sleep, stress, exploration, play) that periodically disrupt precision accumulation.
+**The FEP inherits the crystallization drift. **Since the FEP is a special case of the ACP, FEP-governed systems inherit the CDT's maintained-pressure logic. Concretely: an active inference agent that successfully minimizes prediction error through sustained confirmatory control is expected to reduce H(m′ | m) over time, becoming increasingly predictable, increasingly rigid, and increasingly incapable of accommodating genuine novelty unless adaptive coherence steering mechanisms intervene. This is not a failure of implementation; it is the structural consequence of successful free energy minimization in a self-reinforcing regime. The CDT provides a formal account of why biological systems require mechanisms of model revision (sleep, stress, exploration, play) that periodically disrupt precision accumulation.
 
-**Friston’s “epistemic value” is an anti-crystallization force. **In later formulations (Friston et al. 2015, 2017), the FEP includes an epistemic value term that motivates information-seeking behavior—exploring novel sensory data even when it might increase prediction error. Under the ACP reduction, epistemic value is identified as the agent’s endogenous anti-crystallization mechanism: it counters the sustained confirmatory pressure that would otherwise activate the CDT core. The epistemic/pragmatic tradeoff in active inference is the productive interval maintenance problem in ACP terms.
+**Friston’s “epistemic value” is an adaptive coherence steering force. **In later formulations (Friston et al. 2015, 2017), the FEP includes an epistemic value term that motivates information-seeking behavior—exploring novel sensory data even when it might increase prediction error. Under the ACP reduction, epistemic value is identified as the agent’s endogenous adaptive coherence steering mechanism: it counters the sustained confirmatory pressure that would otherwise activate the CDT core. The epistemic/pragmatic tradeoff in active inference is the productive interval maintenance problem in ACP terms.
 
 # A.11.7  Limitations and Open Problems
 
@@ -144,9 +144,9 @@ The formal reduction illuminates several points that are obscured when the FEP a
 
 # A.11.8  Summary
 
-The Free Energy Principle is a special case of the Anti-Crystallization Principle for systems admitting a Markov blanket partition. The reduction proceeds through a variable identification (Definition A.11.1) and a bridge lemma (Lemma A.11.3) connecting the agent’s model entropy to the ACP’s conditional macrostate entropy. The main theorem (Theorem A.11.5) shows that the FEP’s two optimization channels—perception and action—correspond to the ACP’s two boundary management tasks, and that the complexity penalty in variational free energy is structurally equivalent to the anti-crystallization constraint.
+The Free Energy Principle is a special case of the Adaptive Coherence Principle for systems admitting a Markov blanket partition. The reduction proceeds through a variable identification (Definition A.11.1) and a bridge lemma (Lemma A.11.3) connecting the agent’s model entropy to the ACP’s conditional macrostate entropy. The main theorem (Theorem A.11.5) shows that the FEP’s two optimization channels—perception and action—correspond to the ACP’s two boundary management tasks, and that the complexity penalty in variational free energy is structurally equivalent to the adaptive coherence steering constraint.
 
-The reduction is currently structural rather than fully quantitative. It establishes the logical relationship between the frameworks and identifies the FEP as governing a proper subset of ACP systems. It inherits the ACP’s results: FEP-governed systems are subject to crystallization drift, and the FEP’s epistemic value term serves as the anti-crystallization perturbation mechanism.
+The reduction is currently structural rather than fully quantitative. It establishes the logical relationship between the frameworks and identifies the FEP as governing a proper subset of ACP systems. It inherits the ACP’s results: FEP-governed systems are subject to crystallization drift, and the FEP’s epistemic value term serves as the adaptive coherence steering perturbation mechanism.
 
 # References
 

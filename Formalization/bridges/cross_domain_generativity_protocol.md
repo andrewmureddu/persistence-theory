@@ -8,7 +8,7 @@
 
 ## 1. Motivation
 
-The A.21 result says that a correct self-representing ACP cannot be finished. For productive theory evolution, $G_t(T) > 1$ is the local anti-crystallization condition: progress must open well-posed inquiry faster than it closes uncertainty.
+The A.21 result says that a correct self-representing ACP cannot be finished. For productive theory evolution, $G_t(T) > 1$ is the local adaptive coherence steering condition: progress must open well-posed inquiry faster than it closes uncertainty.
 
 That changes how cross-domain inspiration should be handled. Unexpected domains are not merely a source of analogies. They are probes. A domain that only confirms the existing vocabulary adds little. A domain that partially maps, fails to map, or forces a missing observable into view can improve the theory by revealing where its present boundary lies.
 
@@ -116,7 +116,7 @@ The last question is the A.21 check. If the answer is no, the idea may still be 
 
 ## 8. First Use
 
-This protocol retroactively explains why `WHAT_IF.md` is not a side notebook. It is an anti-crystallization device. It keeps the theory in contact with domains whose partial fit can expose missing structure.
+This protocol retroactively explains why `WHAT_IF.md` is not a side notebook. It is an adaptive coherence steering device. It keeps the theory in contact with domains whose partial fit can expose missing structure.
 
 Immediate candidates for protocol-driven intake:
 

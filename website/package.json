@@ -1,7 +1,7 @@
 {
-  "name": "persistence-theory-website",
+  "name": "adaptive-coherence-principle-website",
   "private": true,
-  "description": "Public-facing Astro site for the Persistence Theory project.",
+  "description": "Public-facing Astro site for the Adaptive Coherence Principle.",
   "type": "module",
   "version": "0.1.0",
   "engines": {

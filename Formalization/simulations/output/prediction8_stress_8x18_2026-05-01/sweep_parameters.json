@@ -1,0 +1,46 @@
+{
+  "output_dir": "Formalization/simulations/output/prediction8_stress_8x18_2026-05-01",
+  "regimes": [
+    "reinforced",
+    "no_reinforcement"
+  ],
+  "replicates": 8,
+  "seed": 23,
+  "probe_kicks": [
+    0.42,
+    0.54
+  ],
+  "drive_jitters": [
+    0.03,
+    0.05,
+    0.08
+  ],
+  "reinforcement_feedbacks": [
+    0.3,
+    0.6,
+    1.2
+  ],
+  "num_modes": 5,
+  "burn_in_steps": 120,
+  "total_steps": 240,
+  "probe_interval": 20,
+  "probe_relax_steps": 60,
+  "drive_center": 1.0,
+  "persistence_strength": 0.2,
+  "reinforcement_rate": 0.035,
+  "reinforcement_decay": 0.01,
+  "reinforcement_cap": 2.5,
+  "competition_strength": 1.2,
+  "linear_decay": 0.85,
+  "self_saturation": 0.55,
+  "background_drive": 0.015,
+  "fast_noise_scale": 0.015,
+  "time_step": 0.35,
+  "min_share": 0.0001,
+  "max_probe_kick": 0.66,
+  "epsilon_steps": 11,
+  "dominance_threshold": 0.42,
+  "activity_threshold": 0.18,
+  "coactivation_tolerance": 0.06,
+  "switch_fraction_threshold": 0.5
+}

@@ -1,6 +1,6 @@
 **Appendix A.16: Empirical Predictions and Experimental Protocols**
 
-*Anti-Crystallization Principle — Formalized Testable Predictions*
+*Adaptive Coherence Principle — Formalized Testable Predictions*
 
 ## **A.16.1 Introduction**
 
@@ -270,6 +270,30 @@ Prediction 8 needs one modeling caution. A bare fixed-coefficient Bénard or rea
 (vi) **Pass/fail criterion.** The Tier-1 pass counts as supportive if the reinforced model shows declining $N_\epsilon(t)$ and rising $\epsilon^*(t)$ relative to the no-reinforcement null. It counts as a directional failure if both quantities remain stationary once initial transients are excluded.
 
 In implementation order, Prediction 9 should be built first because its simulator is the most direct transcription of A.15. Prediction 8 should follow immediately after, but its first computational pass should be treated as an ACP-informed reduced model of pathway rigidification rather than as a surrogate for the full Tier-3 Bénard experiment.
+
+### **A.16.11.4 Tier-2 social-insect reanalysis track**
+
+The first near-term observational extension is a social-insect empirical track, developed in `bridges/social_insect_empirical_program.md` and scaffolded in `empirical/social_insects/`. Ant and honey-bee colonies are unusually strong Tier-2 targets because colony-level persistence, perturbation response, spatial organization, interaction networks, communication repertoires, and recruitment signals can all be measured directly in existing datasets.
+
+This track should be read as empirical testing, not as a new formal reduction. Its purpose is to ask whether ACP-derived observables have predictive content in real collective systems before the project commits to a full colony-level bridge theorem.
+
+The immediate datasets are:
+
+(i) **Ant density perturbation.** The Dryad dataset for Modlmeier et al., "Ant colonies maintain social homeostasis in the face of decreased density" (`10.5061/dryad.sh4m4s6`) manipulated carpenter-ant colony density by expanding nest space and recorded millions of ant locations plus thousands of interactions. The ACP readout is whether interaction-function preservation after perturbation is mediated by entropy reallocation across spatial occupancy, partner networks, and region-transition structure.
+
+(ii) **Honey-bee waggle communication.** The Zenodo dataset for Dormagen et al., "Machine learning reveals the waggle drift's role in the honey bee dance communication system" (`10.5281/zenodo.7928121`) provides long-term waggle-phase, dance, follower, feeder, and track data. The ACP readout is whether recruitment success is followed by communication-repertoire concentration in dance angle, dance-floor position, dancer identity, follower network, or feeder-vector channels.
+
+(iii) **Whole-colony and co-localized honey-bee datasets.** Larger bee-tracking and co-localized waggle datasets (`10.5281/zenodo.4462215`, `10.6084/m9.figshare.26276062`) can test accessible behavioral modes and productive partitioning once the lighter first-pass analyses are validated.
+
+The initial social-insect predictions are:
+
+**SI-P1 (social homeostasis as entropy reallocation).** Colonies that preserve interaction rate after density perturbation should show compensatory change in spatial entropy, partner-network entropy, or region-transition entropy beyond what a density-only null predicts.
+
+**SI-P2 (communication repertoire narrowing after recruitment success).** High dance or recruitment volume should predict later concentration in at least one communication channel, unless environmental variation reopens the repertoire.
+
+**SI-P3 (productive partitioning).** Co-localized colonies should avoid both random scatter and total convergence on identical resource vectors, occupying an intermediate partitioned regime.
+
+A positive Tier-2 result would not by itself prove ACP in social insects, but it would be publishable evidence that ACP-derived observables find structure in independently collected collective-behavior data. A negative result would sharpen the boundary between synthetic CDT simulations and natural collective systems.
 
 A negative result on any single prediction would not falsify the ACP framework as a whole, since each prediction draws on different aspects of the theory. However, a systematic failure across multiple predictions—especially Predictions 1 and 5, which follow most directly from the core theorem—would constitute strong evidence against the framework. The most decisive test is Prediction 10: if normalized drift rates across domains differ by many orders of magnitude, the ACP's broader recurring-law claim would need to be narrowed to a more local or qualitative statement.
 

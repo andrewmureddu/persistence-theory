@@ -2,7 +2,7 @@
 
 *A Formal Dual to the Second Law for Self-Organizing Systems*
 
-Proposed Section 4.4 for: The Anti-Crystallization Principle
+Proposed Section 4.4 for: The Adaptive Coherence Principle
 
 WORKING DRAFT — April 2026
 
@@ -10,7 +10,7 @@ WORKING DRAFT — April 2026
 
 # **4.4 The Crystallization Drift Theorem**
 
-The Anti-Crystallization Principle (Theorem 4.3) establishes that future-bearing dynamics requires a system to remain strictly between the dissolution boundary *D* and the crystallization boundary *C*. Corollary 4.4 shows that the second law provides a thermodynamic drift toward *D*: isolated systems approach equilibrium. But what drives a system toward *C*? Remark 4.6 noted the absence of a formal dual—a law establishing crystallization as the attractor for self-organizing systems that have successfully avoided dissolution. This section provides that dual.
+The Adaptive Coherence Principle (Theorem 4.3) establishes that future-bearing dynamics requires a system to remain strictly between the dissolution boundary *D* and the crystallization boundary *C*. Corollary 4.4 shows that the second law provides a thermodynamic drift toward *D*: isolated systems approach equilibrium. But what drives a system toward *C*? Remark 4.6 noted the absence of a formal dual—a law establishing crystallization as the attractor for self-organizing systems that have successfully avoided dissolution. This section provides that dual.
 
 The central result is the **Crystallization Drift Theorem**: any system that maintains itself away from dissolution through self-reinforcing mechanisms undergoes monotonic non-increase of conditional macrostate entropy, in the absence of external perturbation of sufficient magnitude. The mechanisms that prevent dissolution are the same mechanisms that drive the system toward crystallization. This is the organizational dual to the second law.
 
@@ -111,7 +111,7 @@ $$
 
 Thus $Π(t)$ is maintained whenever incoming pressure, survivor strengthening, and coherent-excess change dominate the pressure lost through shed mechanisms. The expanded proof is recorded in `proofs/maintenance_lemma.md`.
 
-*Status.* This lemma is sufficient, not universal. It closes the bookkeeping gap between survivorship enrichment and load/pressure monotonicity, but it leaves the deeper OP-16 task: derive the balance inequality from primitive ACP dynamics in broad system classes. ■
+*Status.* This lemma is sufficient, not universal. It closes the bookkeeping gap between survivorship enrichment and load/pressure monotonicity. The companion note now derives the balance condition for deficit-responsive renewal systems, where loss-triggered replacement pressure plus survivor/coherent increment dominates expected shed pressure. The deeper OP-16 task remains: classify renewal-dominant ACP systems and derive analogous balance inequalities in broader target classes. ■
 
 ***Lemma 4.16 (Compounding of self-reinforcing mechanisms).***
 
@@ -145,7 +145,7 @@ This is the formal sense in which the crystallization boundary is absorbing for 
 
 The current proof obligations split into two layers.
 
-`Core drift layer.` The main content of the CDT is part (a): monotone non-increase of conditional macrostate entropy. To obtain this, the present file needs three ingredients: (i) active self-reinforcing mechanisms reduce conditional entropy (Lemma 4.13), (ii) interacting mechanisms compound with non-negative superadditive excess (Lemma 4.16 together with Appendices A.8-A.10), and (iii) the net entropy-reducing pressure Π(t) of Definition 4.11a does not decrease along the unperturbed trajectory. Lemma 4.14a gives a sufficient balance condition for (iii); deriving that condition generically remains the OP-16 frontier.
+`Core drift layer.` The main content of the CDT is part (a): monotone non-increase of conditional macrostate entropy. To obtain this, the present file needs three ingredients: (i) active self-reinforcing mechanisms reduce conditional entropy (Lemma 4.13), (ii) interacting mechanisms compound with non-negative superadditive excess (Lemma 4.16 together with Appendices A.8-A.10), and (iii) the net entropy-reducing pressure Π(t) of Definition 4.11a does not decrease along the unperturbed trajectory. Lemma 4.14a gives a sufficient balance condition for (iii), and `proofs/maintenance_lemma.md` derives it for renewal-dominant deficit-responsive systems; deriving analogous conditions generically remains the OP-16 frontier.
 
 `Repertoire-geometry layer.` Parts (b)-(d) are stronger than the entropy statement. Part (b) requires dynamical load balance for active mechanisms; Lemma 4.14 alone gives only a survivorship-selection pressure, with monotone increase in the expected self-reinforcing fraction f_SR(t) available under explicit population-dynamical assumptions, not monotone growth of the total reinforcement load. Lemma 4.14a identifies the exact replenishment inequality needed. Part (c) then follows from Definition 4.11 once part (b) is available. Part (d) requires part (a), Lemma 4.17, and a characterization of when coherence crisis is absent or resolves without increasing conditional entropy.
 
@@ -163,19 +163,19 @@ This split matters because the universal content of the CDT sits in the entropy-
 
 (d) Under part (a), Lemma 4.17, and absence of sufficiently large external perturbation or unresolved coherence crisis, the system's default organizational trajectory is toward the crystallization boundary C.
 
-*Current proof status.* The argument below isolates the remaining debt rather than hiding it. Part (a) is the closed core once its explicit Π-hypothesis is stated. Lemma 4.14a supplies sufficient balance conditions under which Π(t) or |Ρ(t)| is maintained. Parts (b)-(d) still reduce to the deeper unresolved closure step: deriving those balance conditions from lower-level ACP dynamics rather than stipulating them for a target model.
+*Current proof status.* The argument below isolates the remaining debt rather than hiding it. Part (a) is the closed core once its explicit Π-hypothesis is stated. Lemma 4.14a supplies sufficient balance conditions under which Π(t) or |Ρ(t)| is maintained, and the maintenance note proves those conditions for renewal-dominant deficit-responsive systems. Parts (b)-(d) still reduce to the broader unresolved closure step: deriving balance conditions from lower-level ACP dynamics in additional target classes.
 
 *Proof.* We separate the four claims by dependency level.
 
 **Part (a).** This is now the explicit core. By Definition 4.11a, Π(t) packages the single-mechanism entropy-reduction contributions from Lemma 4.13 together with the non-negative coherent excess supplied by Lemma 4.16 and Appendices A.8-A.10. Therefore, if Π(t) is non-decreasing, the active repertoire's total entropy-reducing pressure cannot weaken. Since H(m(t+Δt) | m(t)) is bounded below by zero, the sequence is monotonically non-increasing. This isolates the universal core of the CDT: maintained self-reinforcement drives monotone entropy contraction.
 
-**Part (b).** Lemma 4.14 gives a survivorship-selection pressure toward self-reinforcing patterns, and proves monotone increase of the expected fraction f_SR(t) only under explicit fixed-composition or ordered birth-death assumptions. That does not by itself imply that the *total* reinforcement load |Ρ(t)| is monotonically non-decreasing: a system could shed mechanisms overall while becoming more dominated by the self-reinforcing ones that remain, or could admit new non-self-reinforcing patterns that temporarily dilute the fraction. Lemma 4.14a gives the needed sufficient condition: mechanisms lost to decay must be replenished at least one-for-one by newly stabilized self-reinforcing mechanisms, or the equivalent pressure-balance inequality must hold. The remaining proof obligation is to derive that condition in natural classes of ACP systems.
+**Part (b).** Lemma 4.14 gives a survivorship-selection pressure toward self-reinforcing patterns, and proves monotone increase of the expected fraction f_SR(t) only under explicit fixed-composition or ordered birth-death assumptions. That does not by itself imply that the *total* reinforcement load |Ρ(t)| is monotonically non-decreasing: a system could shed mechanisms overall while becoming more dominated by the self-reinforcing ones that remain, or could admit new non-self-reinforcing patterns that temporarily dilute the fraction. Lemma 4.14a gives the needed sufficient condition: mechanisms lost to decay must be replenished at least one-for-one by newly stabilized self-reinforcing mechanisms, or the equivalent pressure-balance inequality must hold. The first lower-level derivation is now the deficit-responsive renewal theorem in `proofs/maintenance_lemma.md`; the remaining proof obligation is to derive comparable conditions in further natural classes of ACP systems.
 
 **Part (c).** This part is downstream of part (b). By Definition 4.11, R̅(t) = ∩{R : R ∈ Ρ(t)}. If the active reinforcement load is monotonically non-decreasing and each newly stabilized mechanism contributes an additional intersection constraint, then R̅(t) is monotonically non-increasing in the set-inclusion ordering. In that precise sense the repertoire-geometry layer contracts rather than expands.
 
 **Part (d).** This part is downstream of part (a) together with Lemma 4.17. Once conditional entropy is known to be monotonically non-increasing and no endogenous reversal is available, the default unperturbed trajectory is toward C unless one of two exceptional events occurs: a sufficiently large external perturbation or a coherence crisis in which the compound basin empties and the repertoire reorganizes. Thus the asymptotic claim reduces to two subproblems: the entropy-drift core, and the dynamical treatment of coherence crisis.
 
-The theorem is therefore best read in two layers. The core entropy-drift claim is explicit and closed relative to Π(t). The stronger repertoire-geometry claims follow under the maintenance balance condition of Lemma 4.14a, while the generic derivation of that condition remains OP-16. ■
+The theorem is therefore best read in two layers. The core entropy-drift claim is explicit and closed relative to Π(t). The stronger repertoire-geometry claims follow under the maintenance balance condition of Lemma 4.14a; this condition is now derived for renewal-dominant deficit-responsive systems, while the generic derivation remains OP-16. ■
 
 ## **4.4.5 Corollaries**
 
@@ -217,7 +217,7 @@ What remains distinctive about the CDT is therefore the composition, not any one
 
 The Crystallization Drift Theorem, as stated, leaves several problems unresolved.
 
-**The maintenance lemma behind part (b). **Lemma 4.14a now gives the required birth-death/replenishment accounting: load grows when newly stabilized mechanisms compensate for losses, and Π(t) is maintained when incoming pressure, survivor strengthening, and coherent-excess change compensate for shed pressure. What remains open is the generic dynamical derivation of this balance condition from lower-level maintenance assumptions, rather than imposing it model by model.
+**The maintenance lemma behind part (b). **Lemma 4.14a now gives the required birth-death/replenishment accounting: load grows when newly stabilized mechanisms compensate for losses, and Π(t) is maintained when incoming pressure, survivor strengthening, and coherent-excess change compensate for shed pressure. The first model-class derivation is now available for deficit-responsive renewal systems. What remains open is the classification of renewal-dominant ACP systems and the derivation of analogous balance conditions from lower-level maintenance assumptions in further target dynamics.
 
 **The quantitative drift rate. **Theorem 4.19 establishes the direction of the drift (toward C) but not its rate. How fast does conditional entropy decrease? The rate depends on the reinforcement strengths α(R, t), the interaction structure between mechanisms, and the noise level from external perturbation. A quantitative theory would require specifying a dynamical equation for H(t)—an organizational analogue of the Boltzmann H-theorem. The most promising candidate is a master equation on macrostate space with transition rates modified by the reinforcement structure.
 

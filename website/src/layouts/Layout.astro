@@ -5,8 +5,8 @@ interface Props {
 }
 
 const {
-	title = 'Persistence Theory',
-	description = 'A public-facing research site for the Persistence Theory project and the Anti-Crystallization Principle.',
+	title = 'Adaptive Coherence Principle',
+	description = 'A public-facing research site for the Adaptive Coherence Principle.',
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
@@ -45,10 +45,10 @@ function isActiveNavLink(href: string) {
 
 			<header class="site-header">
 				<a class="brand" href="/">
-					<span class="brand-mark">PT</span>
+					<span class="brand-mark">ACP</span>
 					<span class="brand-copy">
-						<strong>Persistence Theory</strong>
-						<small>A General Theory of Persistence</small>
+						<strong>Adaptive Coherence Principle</strong>
+						<small>Persistence through coherent openness</small>
 					</span>
 				</a>
 
@@ -236,7 +236,8 @@ function isActiveNavLink(href: string) {
 		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
 		color: #0a1218;
 		font-weight: 800;
-		letter-spacing: 0.06em;
+		font-size: 0.82rem;
+		letter-spacing: 0;
 	}
 
 	.brand-copy {
@@ -251,7 +252,7 @@ function isActiveNavLink(href: string) {
 		h3 {
 		font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
 		font-weight: 600;
-		letter-spacing: -0.02em;
+		letter-spacing: 0;
 	}
 
 	.brand-copy small {
@@ -346,7 +347,7 @@ function isActiveNavLink(href: string) {
 		background: linear-gradient(135deg, var(--accent-pale), var(--accent));
 		color: #081520;
 		font-weight: 800;
-		letter-spacing: 0.05em;
+		letter-spacing: 0;
 	}
 
 	.cc0-copy {
@@ -408,7 +409,7 @@ function isActiveNavLink(href: string) {
 		border: 1px solid rgba(242, 179, 93, 0.18);
 		font-size: 0.82rem;
 		text-transform: uppercase;
-		letter-spacing: 0.12em;
+		letter-spacing: 0;
 	}
 
 	:global(.hero h1) {
@@ -524,7 +525,7 @@ function isActiveNavLink(href: string) {
 	:global(.section-kicker) {
 		color: var(--accent-cool);
 		text-transform: uppercase;
-		letter-spacing: 0.12em;
+		letter-spacing: 0;
 		font-size: 0.8rem;
 	}
 
@@ -553,7 +554,7 @@ function isActiveNavLink(href: string) {
 		border-radius: 999px;
 		font-size: 0.78rem;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0;
 		margin-bottom: 0.7rem;
 		background: rgba(255, 255, 255, 0.06);
 		color: var(--accent-pale);

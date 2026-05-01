@@ -10,7 +10,7 @@
 
 The usual objection to totalizing theories — "if it explains everything, it explains nothing" — is a blunt instrument. A theory can explain a wide range of phenomena without being totalizing, and a theory can be narrow without being modest. What matters is not the *scope* of a theory but its *generativity*: does it open more inquiry than it closes?
 
-This document formalizes that intuition and shows it is a direct application of the Anti-Crystallization Principle (ACP) to the object-level system consisting of *a theory and its inquiry-space*. The punchline is that the generativity criterion is not an aesthetic preference for theory-builders. It is the same structural law as the CDT, applied one level up: theories that are alive enough to persist as research programs are the theories that cannot crystallize on their own domains.
+This document formalizes that intuition and shows it is a direct application of the Adaptive Coherence Principle (ACP) to the object-level system consisting of *a theory and its inquiry-space*. The punchline is that the generativity criterion is not an aesthetic preference for theory-builders. It is the same structural law as the CDT, applied one level up: theories that are alive enough to persist as research programs are the theories that cannot crystallize on their own domains.
 
 A corollary — which matters for the self-consistency of the ACP program itself — is that the ACP is subject to the rule it states. A correct unifying theory must remain generative. The four classical incompleteness results (Heisenberg, Gödel, Turing, Chaitin) are the structural guarantee that sufficiently-powerful theories can satisfy this.
 

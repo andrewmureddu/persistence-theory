@@ -1,6 +1,6 @@
 **Appendix A.12: Formal Reduction of Quantum Darwinism**
 
-**to the Anti-Crystallization Principle**
+**to the Adaptive Coherence Principle**
 
 *ACP Working Paper Series*
 
@@ -8,7 +8,7 @@
 
 # Abstract
 
-We provide the formal reduction of Zurek’s quantum Darwinism (2003, 2025) to the Anti-Crystallization Principle (ACP). The key result is Theorem A.12.4, which establishes that environmentally selected pointer states occupy exactly the ACP’s productive interval under a natural identification of the system’s density matrix with the ACP’s macrostate. The reduction proceeds through a bridge lemma (Lemma A.12.3) relating the decoherence rate Γ and the system–environment coupling strength to the ACP’s conditional macrostate entropy H(m′ | m). This resolves the open problem flagged in Section 5.4 of the main paper and Section 7.9 (formal mapping problem) for the quantum Darwinism case.
+We provide the formal reduction of Zurek’s quantum Darwinism (2003, 2025) to the Adaptive Coherence Principle (ACP). The key result is Theorem A.12.4, which establishes that environmentally selected pointer states occupy exactly the ACP’s productive interval under a natural identification of the system’s density matrix with the ACP’s macrostate. The reduction proceeds through a bridge lemma (Lemma A.12.3) relating the decoherence rate Γ and the system–environment coupling strength to the ACP’s conditional macrostate entropy H(m′ | m). This resolves the open problem flagged in Section 5.4 of the main paper and Section 7.9 (formal mapping problem) for the quantum Darwinism case.
 
 The reduction reveals that decoherence is a quantum-level dissolution process, that perfect isolation corresponds to crystallization, and that Zurek’s redundancy measure Rδ is a quantitative indicator of position within the productive interval. The Crystallization Drift Theorem acquires a novel interpretation: einselection is a one-directional process that progressively narrows the set of accessible pointer states unless the system–environment coupling is itself dynamical.
 
@@ -68,7 +68,7 @@ For part (b): When H_SE = 0, the evolution is purely unitary: ρ_S(t) = e^{−iH
 
 # A.12.3  The Reduction Theorem
 
-***Theorem A.12.4 (Quantum Darwinism as ACP Special Case). ***Under the variable identification of Definition A.12.1, Zurek’s quantum Darwinism is a special case of the Anti-Crystallization Principle. Specifically:
+***Theorem A.12.4 (Quantum Darwinism as ACP Special Case). ***Under the variable identification of Definition A.12.1, Zurek’s quantum Darwinism is a special case of the Adaptive Coherence Principle. Specifically:
 
 (i) The dissolution boundary D corresponds to the strong-decoherence regime: Γ Δt ≫ 1, where the environment scrambles the system faster than any internal dynamics can maintain structure. In this regime, ρ_S thermalizes and H(ρ_S′ | ρ_S) → H_max.
 
@@ -114,7 +114,7 @@ The Crystallization Drift Theorem acquires a distinctive interpretation in the q
 
 (b) Einselection progressively narrows the set of accessible states. Initially, a generic state is a superposition of many pointer states. After decoherence, it is a mixture of pointer states. Under continued environmental monitoring, the system’s accessible future is restricted to transitions between pointer states—a smaller set than the full Hilbert space. This reduction in accessible futures is exactly the crystallization drift.
 
-(c) The “anti-crystallization perturbation” in the quantum setting is thermal noise or quantum fluctuations that occasionally promote the system to non-pointer states or mediate transitions between pointer states. Without these perturbations, a system that has einselected into a single pointer state would remain there indefinitely—crystallized.
+(c) The “adaptive coherence steering perturbation” in the quantum setting is thermal noise or quantum fluctuations that occasionally promote the system to non-pointer states or mediate transitions between pointer states. Without these perturbations, a system that has einselected into a single pointer state would remain there indefinitely—crystallized.
 
 *Remark A.12.7. *There is an important difference between the quantum and classical cases of crystallization drift. In classical systems (the Friston mapping, A.11), crystallization drift is driven by the accumulation of self-reinforcing mechanisms that progressively reduce conditional entropy. In the quantum setting, the drift is driven by einselection itself: the environment’s monitoring eliminates non-pointer states and progressively restricts the system’s dynamics to the pointer basis. The drift is exogenously driven (by environmental monitoring) rather than endogenously driven (by internal self-reinforcement). This is consistent with the ACP: Theorem 4.19 applies to any process that reduces H(m′ | m), regardless of whether the reduction is internally or externally driven. The quantum case illustrates that the crystallization boundary can be approached from either direction.
 
@@ -136,7 +136,7 @@ The Crystallization Drift Theorem acquires a distinctive interpretation in the q
 
 # A.12.8  Summary
 
-Quantum Darwinism is a special case of the Anti-Crystallization Principle operating at the quantum level. The reduction identifies the reduced density matrix ρ_S as the macrostate, the partial trace as the coarse-graining map, and the decoherence rate Γ as the control parameter that determines the system’s position between dissolution (strong decoherence, thermalization) and crystallization (zero coupling, unitary rigidity). Pointer states occupy the productive interval: they are the quantum states that balance environmental accessibility with internal stability.
+Quantum Darwinism is a special case of the Adaptive Coherence Principle operating at the quantum level. The reduction identifies the reduced density matrix ρ_S as the macrostate, the partial trace as the coarse-graining map, and the decoherence rate Γ as the control parameter that determines the system’s position between dissolution (strong decoherence, thermalization) and crystallization (zero coupling, unitary rigidity). Pointer states occupy the productive interval: they are the quantum states that balance environmental accessibility with internal stability.
 
 The reduction shows that classicality is a productive interval phenomenon, that the measurement problem is a boundary management problem, and that einselection is a quantum-level crystallization drift. The ACP’s scale-independence predicts that pointer-state-like selection operates at every level of description, unifying quantum decoherence with the classical self-reinforcement dynamics described in Appendices A.8–A.11.
 

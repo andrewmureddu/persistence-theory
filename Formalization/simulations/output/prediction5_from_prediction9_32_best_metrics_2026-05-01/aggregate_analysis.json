@@ -1,0 +1,70 @@
+{
+  "selected": {
+    "replicates": 32,
+    "success_delta_frozen_pearson": {
+      "count": 32,
+      "mean": 0.4279122637622908,
+      "median": 0.4290159251076548,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 2.3283064365386963e-10
+    },
+    "success_delta_frozen_spearman": {
+      "count": 32,
+      "mean": 0.4210327829094558,
+      "median": 0.39625795089448823,
+      "positive_fraction": 0.9375,
+      "positive_tail_p_under_sign_null": 1.2316741049289703e-07
+    },
+    "lagged_success_to_delta_frozen_pearson": {
+      "count": 32,
+      "mean": 0.38144273609767404,
+      "median": 0.33199003902235946,
+      "positive_fraction": 0.96875,
+      "positive_tail_p_under_sign_null": 7.683411240577698e-09
+    },
+    "reverse_delta_frozen_to_success_pearson": {
+      "count": 32,
+      "mean": 0.41537530332890804,
+      "median": 0.4522978618363206,
+      "positive_fraction": 1.0,
+      "positive_tail_p_under_sign_null": 2.3283064365386963e-10
+    },
+    "cross_replicate_final_success_delta_frozen_pearson": 0.18586962617842237,
+    "mean_final_success": 0.9114583333333334,
+    "mean_final_delta_frozen": 0.2786458333333333
+  },
+  "neutral_post_threshold": {
+    "replicates": 32,
+    "success_delta_frozen_pearson": {
+      "count": 32,
+      "mean": 0.39967612638552164,
+      "median": 0.4561300953219892,
+      "positive_fraction": 0.875,
+      "positive_tail_p_under_sign_null": 9.650597348809242e-06
+    },
+    "success_delta_frozen_spearman": {
+      "count": 32,
+      "mean": 0.31798669525749973,
+      "median": 0.37679950004094565,
+      "positive_fraction": 0.8125,
+      "positive_tail_p_under_sign_null": 0.0002675263676792383
+    },
+    "lagged_success_to_delta_frozen_pearson": {
+      "count": 32,
+      "mean": 0.3663458178881643,
+      "median": 0.4126832928101466,
+      "positive_fraction": 0.84375,
+      "positive_tail_p_under_sign_null": 5.653710104525089e-05
+    },
+    "reverse_delta_frozen_to_success_pearson": {
+      "count": 32,
+      "mean": 0.3837638970975768,
+      "median": 0.4023680339682224,
+      "positive_fraction": 0.90625,
+      "positive_tail_p_under_sign_null": 1.2780074030160904e-06
+    },
+    "cross_replicate_final_success_delta_frozen_pearson": 0.19589123820597462,
+    "mean_final_success": 0.9186197916666666,
+    "mean_final_delta_frozen": 0.33203125
+  }
+}

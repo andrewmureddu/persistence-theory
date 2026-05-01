@@ -1,0 +1,32 @@
+{
+  "selected": {
+    "replicates": 32,
+    "threshold_reached_fraction": 0.9375,
+    "mean_final_best_correctness": 0.9114583333333334,
+    "mean_final_best_frozen_fraction": 0.859375,
+    "mean_final_best_lambda": 1.14453125,
+    "mean_post_optimal_slope": 0.0038175675792246817,
+    "median_post_optimal_slope": 0.0011360336817653888,
+    "positive_slope_fraction": 0.7333333333333333
+  },
+  "neutral_post_threshold": {
+    "replicates": 32,
+    "threshold_reached_fraction": 0.9375,
+    "mean_final_best_correctness": 0.9186197916666666,
+    "mean_final_best_frozen_fraction": 0.9453125,
+    "mean_final_best_lambda": 1.234375,
+    "mean_post_optimal_slope": 0.0012071718931475032,
+    "median_post_optimal_slope": 0.00010162601626016267,
+    "positive_slope_fraction": 0.5
+  },
+  "mutation_only": {
+    "replicates": 32,
+    "threshold_reached_fraction": 0.0,
+    "mean_final_best_correctness": 0.6321614583333334,
+    "mean_final_best_frozen_fraction": 0.3854166666666667,
+    "mean_final_best_lambda": 1.34375,
+    "mean_post_optimal_slope": null,
+    "median_post_optimal_slope": null,
+    "positive_slope_fraction": null
+  }
+}

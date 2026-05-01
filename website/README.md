@@ -1,6 +1,6 @@
-# Persistence Theory Website
+# Adaptive Coherence Principle Website
 
-Public-facing Astro site for the Persistence Theory project. This app is the presentation layer for the research workspace in `../Formalization`, not the source-of-truth for the formal proofs themselves.
+Public-facing Astro site for the Adaptive Coherence Principle project. This app is the presentation layer for the research workspace in `../Formalization`, not the source-of-truth for the formal proofs themselves.
 
 ## Current scope
 

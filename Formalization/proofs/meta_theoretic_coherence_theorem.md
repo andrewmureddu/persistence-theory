@@ -1,6 +1,6 @@
 **Meta-Theoretic Coherence and the Generativity Theorem**
 
-*Draft Appendix A.21 for: The Anti-Crystallization Principle*
+*Draft Appendix A.21 for: The Adaptive Coherence Principle*
 
 WORKING DRAFT — April 2026
 
@@ -8,7 +8,7 @@ WORKING DRAFT — April 2026
 
 # **A.21 Overview and Result Inventory**
 
-The generativity bridge proposes that the Anti-Crystallization Principle (ACP) applies not only to physical, biological, and institutional systems, but also to *theory evolution itself*. A theory persists as a research program only if it remains in a nondegenerate interval between two absorbing boundaries:
+The generativity bridge proposes that the Adaptive Coherence Principle (ACP) applies not only to physical, biological, and institutional systems, but also to *theory evolution itself*. A theory persists as a research program only if it remains in a nondegenerate interval between two absorbing boundaries:
 
 - **dissolution:** the theory says nothing determinate and closes no uncertainty;
 - **crystallization:** the theory closes its domain so completely that it opens no further inquiry.
@@ -25,7 +25,7 @@ The main results are:
 
 - **Proposition A.21.4 (Theory-evolution productive interval):** the theory-evolution state space admits exact analogues of the ACP's two absorbing boundaries and productive interval.
 - **Lemma A.21.7 (Distance-to-crystallization identity):** for any productive research step, $G_t(T) > 1$ iff the step increases the theory's distance from the crystallization boundary.
-- **Theorem A.21.8 (Generativity as anti-crystallization condition):** for productive research trajectories, persistent generativity is exactly the local condition that explanatory progress not collapse the theory into closure.
+- **Theorem A.21.8 (Generativity as adaptive coherence steering condition):** for productive research trajectories, persistent generativity is exactly the local condition that explanatory progress not collapse the theory into closure.
 - **Theorem A.21.11 (Quartet inquiry floor):** any self-representing theory satisfying at least one standard richness condition (Gödel, Turing, Chaitin, or Heisenberg/A.20 register) has inquiry-space bounded below by a positive constant.
 - **Corollary A.21.12 (Crystallization boundary unreachable):** any self-representing theory satisfying a quartet richness condition cannot reach the crystallization endpoint.
 - **Corollary A.21.13 (Meta-theoretic coherence):** a productive self-representing theory cannot crystallize; if its substantive steps are generative, it remains in the productive interval.
@@ -195,7 +195,7 @@ $$
 
 Since $\Delta U_t < 0$ on productive steps and $\Delta I_t \ge 0$, the right-hand side is strictly positive. ■
 
-***Theorem A.21.8 (Generativity as anti-crystallization condition).*** Let $\{x_t(T)\}_{t \ge 0}$ be a productive research trajectory for a theory $T$, with $x_0(T) \in \mathcal P_T$. Then the following are equivalent:
+***Theorem A.21.8 (Generativity as adaptive coherence steering condition).*** Let $\{x_t(T)\}_{t \ge 0}$ be a productive research trajectory for a theory $T$, with $x_0(T) \in \mathcal P_T$. Then the following are equivalent:
 
 1. Every substantive step is generative: $G_t(T) > 1$ whenever $\Delta U_t < 0$.
 2. Every substantive step increases the theory's distance from crystallization: $d_C(t+\Delta t) > d_C(t)$ whenever $\Delta U_t < 0$.
@@ -206,7 +206,7 @@ Moreover, if either condition holds and the trajectory satisfies the weak openne
 
 For the second claim: by Lemma A.21.7, generativity implies $d_C$ increases strictly at each productive step, so the trajectory cannot move toward $\mathcal C_T$. By Lemma A.21.7a, the same step increases $d_D$ whenever $\Delta I_t \ge 0$, so it also moves away from $\mathcal D_T$. Since $x_0(T)$ already lies in the open interval $\mathcal P_T$, and every productive step increases both boundary distances, the trajectory remains in the interval. ■
 
-*Remark A.21.9.* This is the precise technical content of the bridge claim. The result does **not** say that every generative theory is correct. It says that, among productive theories, generativity is exactly the local anti-crystallization condition in theory space.
+*Remark A.21.9.* This is the precise technical content of the bridge claim. The result does **not** say that every generative theory is correct. It says that, among productive theories, generativity is exactly the local adaptive coherence steering condition in theory space.
 
 # **A.21.4 The Quartet Inquiry Floor**
 
@@ -269,7 +269,7 @@ Then the trajectory of $T$ remains in the productive interval $\mathcal P_T$ and
 
 The present appendix resolves the minimal formal core of the generativity program, but three important extensions remain open.
 
-**⚠ Open extension 1: quantitative lower bound for $G_t(T)$.** Theorem A.21.8 is threshold-based. It identifies the sign of the anti-crystallization condition but does not give a conservative lower bound analogous to A.17's non-Gaussian drift-rate bound. This is OP-12.
+**⚠ Open extension 1: quantitative lower bound for $G_t(T)$.** Theorem A.21.8 is threshold-based. It identifies the sign of the adaptive coherence steering condition but does not give a conservative lower bound analogous to A.17's non-Gaussian drift-rate bound. This is OP-12.
 
 **⚠ Open extension 2: downstream semantic field.** The present proof concerns the internal theory-evolution state $(I_t,U_t)$ of the dominant theory itself. It does not yet prove the stronger claim that downstream researchers thinking through the theory inherit a reduced inquiry-space as compressive ratio rises. This is OP-10.
 
@@ -279,7 +279,7 @@ The present appendix resolves the minimal formal core of the generativity progra
 
 The bridge `bridges/generativity_criterion.md` should now be read in two layers:
 
-1. the **proved core** in this appendix: generativity as the anti-crystallization condition for productive research steps, plus the quartet inquiry floor and ACP self-application;
+1. the **proved core** in this appendix: generativity as the adaptive coherence steering condition for productive research steps, plus the quartet inquiry floor and ACP self-application;
 2. the **open outer program** in the bridge: downstream semantic-field restraint, meaning-space measure theory, and quantitative generativity bounds.
 
 That split is exactly the right one for the workspace at this stage. The formal self-consistency story is now load-bearing; the social-semantic generalization remains frontier work.

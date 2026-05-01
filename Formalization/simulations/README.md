@@ -23,6 +23,14 @@ This directory holds the first computational prototypes for the ACP empirical pr
   - Inherits the canonical defaults from `prediction9_boolean_network.py` unless overridden, so sweep and direct-run results stay comparable.
   - Runs the simulator over a small threshold / population / stability-weight grid.
   - Writes ranked configuration summaries so the selected-vs-neutral slope separation can be compared systematically.
+- `prediction5_success_crystallization_analysis.py`
+  - Analysis helper for the Kauffman-domain version of **Prediction 5: Success-Crystallization Coupling**.
+  - Reads `generation_metrics.csv` from the Prediction 9 simulator.
+  - Reports within-replicate correlations between correctness and cumulative frozen-fraction increase, plus lagged forward and reverse readouts.
+- `prediction8_calibration_sweep.py`
+  - Grid sweep helper for Prediction 8 calibration.
+  - Runs the reduced dissipative-mode simulator across probe-kick magnitudes, drive asymmetry, and reinforcement-feedback strengths.
+  - Writes ranked configuration summaries for the reinforced-vs-null accessible-mode slope gap and epsilon-threshold slope gap.
 - `partition_selector_toy.py`
   - Dependency-free toy checker for `bridges/partition_generating_functors.md`.
   - Compares a fully symmetric finite graph, where the Fiedler selector is degenerate and no nontrivial partition is selected, against a two-community graph, where the spectral selector recovers the two-block partition.
@@ -80,6 +88,21 @@ The script writes:
 - `replicate_summaries.json`
 - `aggregate_summary.json`
 
+Prediction 5 analysis, using a Prediction 9 generation-metrics file:
+
+```bash
+python3 Formalization/simulations/prediction5_success_crystallization_analysis.py \
+  --input-csv Formalization/simulations/output/prediction9_pilot/generation_metrics.csv \
+  --output-dir Formalization/simulations/output/prediction5_from_prediction9_pilot \
+  --lag 5
+```
+
+The analyzer writes:
+
+- `replicate_analysis.csv`
+- `analysis_parameters.json`
+- `aggregate_analysis.json`
+
 ## Sweep example
 
 ```bash
@@ -89,6 +112,24 @@ python3 Formalization/simulations/prediction9_calibration_sweep.py \
   --population-sizes 24 \
   --stability-weights 0.2 0.3 \
   --output-dir Formalization/simulations/output/prediction9_calibration
+```
+
+The sweep helper writes:
+
+- `config_summaries.csv`
+- `config_summaries.json`
+- `replicate_summaries.json`
+- `sweep_parameters.json`
+
+Prediction 8 calibration:
+
+```bash
+python3 Formalization/simulations/prediction8_calibration_sweep.py \
+  --replicates 8 \
+  --probe-kicks 0.42 0.54 0.66 \
+  --drive-jitters 0.0 0.01 0.03 \
+  --reinforcement-feedbacks 0.6 1.2 1.8 \
+  --output-dir Formalization/simulations/output/prediction8_calibration
 ```
 
 The sweep helper writes:
