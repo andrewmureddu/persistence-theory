@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "Persistence Theory: Adaptive Coherence Principle Formalization Workspace"
-version: 0.1.0
+version: 0.1.1
 license: "CC0-1.0"
 type: software
 abstract: "A research workspace for the Adaptive Coherence Principle, including the Crystallization Drift Theorem formalization, proofs, reductions, empirical scaffolds, simulations, session logs, and a public-facing Astro website."
