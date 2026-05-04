@@ -114,6 +114,97 @@ The optional day-fixed-effects diagnostic preserves some stronger signs, includi
 
 Interpretation: the bee result is promising but not yet controlled. The next methodological step should be a sample-size-aware follower null: rarefied follower entropy and/or within-window follower-identity shuffles that hold event count fixed.
 
+## Bee Follower Null Diagnostics
+
+Command:
+
+```bash
+python3 Formalization/empirical/social_insects/bee_follower_null_analysis.py \
+  --dances-csv Formalization/empirical/social_insects/data/raw/Berlin2019_dances.csv \
+  --followers-csv Formalization/empirical/social_insects/data/raw/Berlin2019_followers.csv \
+  --output-dir Formalization/empirical/social_insects/output/berlin2019_follower_null_60m_r50 \
+  --window-minutes 60 \
+  --lag-windows 1 \
+  --min-dances 3 \
+  --rarefaction-size 50 \
+  --rarefaction-replicates 1000 \
+  --identity-permutations 1000
+```
+
+The null script adds two checks:
+
+- rarefaction: compute follower entropy and dominant-follower concentration after drawing the same number of follower events from each later window;
+- identity shuffling: keep each later window's follower-event count fixed, then shuffle follower identities across compatible event slots. The basic condition is day; the targeted follow-up also supports day+feeder, day+dancer, and day+dancer+feeder conditions.
+
+With a stricter 50-event rarefaction, 24 one-hour pairs remain. The directional follower-channel signal survives the sample-size-aware outcome:
+
+| Predictor at hour t | Outcome at hour t+1 | n | Raw Spearman | Rarefied Spearman | Identity-shuffle Spearman p |
+|---|---:|---:|---:|---:|---:|
+| follower_events_per_dance | follower_entropy | 24 | 0.496 | 0.576 | 1.000 |
+| follower_events_per_dance | dominant_follower_fraction | 24 | -0.499 | -0.659 | 0.958 |
+| follow_events | follower_entropy | 24 | 0.503 | 0.565 | 1.000 |
+| follow_events | dominant_follower_fraction | 24 | -0.436 | -0.642 | 0.984 |
+
+Interpretation: the rarefaction result argues against a trivial "more follower events mechanically produce higher entropy" explanation. But the within-day identity-shuffle null is more sobering: once later-window event counts and day-level follower identity pools are preserved, null correlations are typically as strong as or stronger than the observed correlations. The current bee result should therefore be treated as a sharpened candidate signal, not as controlled evidence of recruitment-specific follower-channel broadening.
+
+Targeted conditioned-null follow-up:
+
+```bash
+python3 Formalization/empirical/social_insects/bee_follower_null_analysis.py \
+  --dances-csv Formalization/empirical/social_insects/data/raw/Berlin2019_dances.csv \
+  --followers-csv Formalization/empirical/social_insects/data/raw/Berlin2019_followers.csv \
+  --output-dir Formalization/empirical/social_insects/output/berlin2019_follower_null_60m_r50_day_feeder_targeted \
+  --window-minutes 60 \
+  --lag-windows 1 \
+  --min-dances 3 \
+  --rarefaction-size 50 \
+  --rarefaction-replicates 500 \
+  --identity-permutations 200 \
+  --identity-shuffle-condition day-feeder \
+  --predictors follower_events_per_dance follow_events \
+  --outcomes follower_entropy dominant_follower_fraction
+```
+
+The same targeted command was run for `day`, `day-feeder`, `day-dancer`, and `day-dancer-feeder`. These are exploratory 200-permutation p-values, but the result is directionally clear:
+
+| Identity shuffle condition | Strata | `follower_events_per_dance -> follower_entropy` p | `follower_events_per_dance -> dominant_follower_fraction` p | `follow_events -> follower_entropy` p | `follow_events -> dominant_follower_fraction` p |
+|---|---:|---:|---:|---:|---:|
+| day | 12 | 1.000 | 0.975 | 1.000 | 0.995 |
+| day+feeder | 24 | 0.960 | 0.905 | 0.801 | 0.965 |
+| day+dancer | 275 | 1.000 | 0.980 | 1.000 | 1.000 |
+| day+dancer+feeder | 280 | 1.000 | 0.965 | 1.000 | 1.000 |
+
+Conditioning the identity shuffle by feeder and dancer does not rescue the recruitment-specific reading. The observed one-hour follower broadening is best treated as a day / feeder / dancer composition artifact until a stronger event-level model, a multi-hive replication, or an intervention-defined recruitment measure says otherwise.
+
+Stratum-driver diagnostic:
+
+```bash
+python3 Formalization/empirical/social_insects/bee_follower_strata_diagnostics.py \
+  --dances-csv Formalization/empirical/social_insects/data/raw/Berlin2019_dances.csv \
+  --followers-csv Formalization/empirical/social_insects/data/raw/Berlin2019_followers.csv \
+  --output-dir Formalization/empirical/social_insects/output/berlin2019_follower_strata_drivers_60m_r50 \
+  --window-minutes 60 \
+  --lag-windows 1 \
+  --min-dances 3 \
+  --min-later-follower-events 50 \
+  --predictors follower_events_per_dance follow_events
+```
+
+This follow-up asks which composition strata make the identity-shuffle null so strong. It writes per-pair stratum event shares and per-stratum driver summaries for `day`, `day-feeder`, `day-dancer`, and `day-dancer-feeder` conditions.
+
+Among strata with at least 100 later-window follower events, current `follower_events_per_dance` is already aligned with the later pooled follower identity pool:
+
+| Stratum condition | Event-rich strata | Spearman with pooled follower entropy | Spearman with pooled dominant-follower fraction |
+|---|---:|---:|---:|
+| day | 12 | 0.783 | -0.853 |
+| day+feeder | 24 | 0.741 | -0.730 |
+| day+dancer | 158 | 0.516 | -0.593 |
+| day+dancer+feeder | 158 | 0.519 | -0.593 |
+
+The day and day+feeder confounds are especially concrete. For example, `2019-09-02 | feeder=1.0` has 10,339 later-window follower events, mean current `follower_events_per_dance` about `98.47`, pooled follower entropy `5.823`, and dominant-follower fraction `0.012`; `2019-08-21 | feeder=1.0` has 778 events, mean current `follower_events_per_dance` about `6.57`, pooled follower entropy `4.709`, and dominant-follower fraction `0.042`. Shuffling follower identities inside these strata preserves the identity-pool gradient that already tracks the predictor, so the null can reproduce the headline broadening without any recruitment-specific channel-opening effect.
+
+Next bee step: either fit an event-level mixed model with later-window follower effort, day, dancer, feeder, and follower identity structure explicit, or treat the bee follower result as a useful negative-control appendix and pivot the empirical track toward the ant perturbation program where the treatment contrast is cleaner.
+
 ## Ant Trophallaxis First Pass
 
 Command:
@@ -146,14 +237,14 @@ Limit: these spreadsheets contain trophallaxis events, not the full ant-location
 
 ## Interpretation
 
-The first bee result is not the naive crystallization signature. Higher follower activity is followed by **higher** follower entropy and **lower** dominant-follower concentration. In ACP terms, the follower channel appears to reopen or broaden after recruitment activity rather than narrowing immediately.
+The first bee result is not the naive crystallization signature. Higher follower activity is followed by **higher** follower entropy and **lower** dominant-follower concentration. In ACP terms, the follower channel initially appears to reopen or broaden after recruitment activity rather than narrowing immediately.
 
-This is potentially valuable. It suggests honey-bee recruitment may be an adaptive coherence steering mechanism: a successful communication event does not merely lock the colony into a narrower channel; it may distribute attention across a broader follower set, preserving collective flexibility.
+The follower-null diagnostics make that reading much less secure. Rarefaction shows the direction is not just a sample-size artifact, but day / feeder / dancer conditioned identity shuffles show that the observed correlations are compatible with the follower identities already available in those strata. Stratum-driver diagnostics then show that current recruitment activity is already aligned with later follower-identity-pool diversity across event-rich day / feeder / dancer strata. The bee result is therefore a candidate adaptive-coherence pattern, not controlled evidence of recruitment-specific channel broadening.
 
 The first ant result gives the complementary perturbation-side pattern: nest expansion raises interaction-location entropy in all colonies, while interaction throughput is colony-specific rather than mechanically density-determined.
 
 The publication-grade next steps are:
 
-- build a sample-size-aware bee follower null via rarefaction or identity shuffling;
+- decide whether to fit a stronger event-level bee mixed model or pivot the empirical push toward the cleaner ant perturbation contrast;
 - use the ant trophallaxis spreadsheets for a colony-level mixed model of interaction rate versus location/edge entropy;
 - acquire the full Dryad ant location files for spatial occupancy and transition entropy.

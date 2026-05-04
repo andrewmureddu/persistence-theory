@@ -1,0 +1,21 @@
+{
+  "creators": [
+    {
+      "name": "Adaptive Coherence Principle Project"
+    }
+  ],
+  "title": "Persistence Theory: Adaptive Coherence Principle Formalization Workspace",
+  "version": "0.1.0",
+  "description": "A research workspace for the Adaptive Coherence Principle, including the Crystallization Drift Theorem formalization, proofs, reductions, empirical scaffolds, simulations, session logs, and a public-facing Astro website.",
+  "access_right": "open",
+  "keywords": [
+    "adaptive coherence",
+    "crystallization drift",
+    "persistence theory",
+    "formalization",
+    "simulations"
+  ],
+  "license": "cc0-1.0",
+  "upload_type": "software",
+  "language": "eng"
+}
